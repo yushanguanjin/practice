@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {}
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+
+</body>
+<script>
+    function Div(id) {
+        this.oDiv = document.getElementById(id);
+        console.log(this.oDiv);
+        this.oDiv.style = "width:100px;height:100px;background:#ff0000;";
+    }
+    Div.prototype = {
+        constructor: Div,
+        init: function () {
+            var _this = this;
+            console.log(_this);
+            this.oDiv.onmouseover = function () {
+                this.style.background = "#0000ff"; //this指向this.div
+                _this.opacityChanged();
+            }
+        },
+        opacityChanged: function () {
+            var _this = this;
+            setTimeout(function () {
+                _this.oDiv.style.opacity = "0.6"; //_this指向Div
+            }, 1000);
+        }
+    }
+
+    var div1 = new Div("div");
+    div1.init();
+</script>
+
+</html>

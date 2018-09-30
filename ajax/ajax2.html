@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="base64.min.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <script>
+        //获取当前时间
+        function CurentTime() {
+            var now = new Date();
+            var year = now.getFullYear(); //年
+            var month = now.getMonth() + 1; //月
+            var day = now.getDate(); //日
+
+            var hh = now.getHours(); //时
+            var mm = now.getMinutes(); //分
+            var ss = now.getSeconds(); //秒
+
+            var clock = year + "-";
+
+            if (month < 10)
+                clock += "0";
+
+            clock += month + "-";
+
+            if (day < 10)
+                clock += "0";
+
+            clock += day + " ";
+
+            if (hh < 10)
+                clock += "0";
+
+            clock += hh + ":";
+            if (mm < 10) clock += '0';
+            clock += mm + ":";
+
+            if (ss < 10) clock += '0';
+            clock += ss;
+            return (clock);
+        }
+
+        CurentTime();
+
+       console.log(10);
+
+        // var accountNumber = "SZH";
+        // var passWord = "Davis-123";
+
+        var accountNumber = "SZH";
+        var passWord = "Davis-123";
+        var string = accountNumber + '&' + passWord + '&' + CurentTime();
+        console.log(string);
+        var take = Base64.encode(string);
+        console.log(take);
+        // console.log(Base64.decode(take));
+        // console.log(Base64.encode(string));
+
+
+
+        
+
+
+
+
+
+        $.ajax({
+            type: "Get",
+            url:"http://www.jyy56.cn:8589/api/auth_gongsi/GetObjects",
+            // url: "http://www.jyy56.cn:8589/api/hb_ask/GetInfoByCust",
+            beforeSend: function (XHR) {
+                XHR.setRequestHeader('Authorization','Basic '+take);
+            },
+            success: function (data,status) {
+                console.log(data);
+            },
+            error: function (errorThrown) {
+                console.log(errorThrown);
+            }
+        })
+    </script>
+</body>
+
+</html>

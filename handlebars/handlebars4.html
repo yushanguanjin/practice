@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>handlebars4.html</title>
+</head>
+
+<body>
+
+    <div id="tableList">
+
+    </div>
+
+
+    <!--插件引用-->
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library/handlebars.js"></script>
+
+    <script id="table-template" type="text/x-handlebars-template">
+        {{#list people}}
+            {{firstName}} {{lastName}}
+        {{/list}}
+    </script>
+
+
+    <script type="text/javascript">
+        var data = {
+            people: [{
+                    firstName: "Yehuda",
+                    lastName: "Katz"
+                },
+                {
+                    firstName: "Carl",
+                    lastName: "Lerche"
+                },
+                {
+                    firstName: "Alan",
+                    lastName: "Johnson"
+                }
+            ]
+        };
+        // 先验证tooken是否失效，如果失效再重新获取，获取完再直接登录。这段代码怎么写？麻烦大家最好给个代码或demo，思路看懂了我也不会写，因为前后端交互这块我基本没做过，也今天才知道tooken是什么意思。麻烦大家了，谢谢啊！
+        Handlebars.registerHelper('list', function (items, options) {
+            // console.log(items);
+            var out = "<ul>";
+
+            for (var i = 0, l = items.length; i < l; i++) {
+                out = out + "<li>" + options.fn(items[i]) + "</li>";
+                console.log(options);
+            }
+           
+            return out + "</ul>";
+        });
+        var templ = $("#table-template").html();
+
+        var func = Handlebars.compile(templ);
+
+        var result = func(data);
+        $('#tableList').html(result);
+    </script>
+</body>
+
+</html>

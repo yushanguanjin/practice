@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js选项卡插件示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            overflow: hidden;
+            clear: both;
+        }
+
+        #tab1 {
+            color: #fff;
+        }
+
+        .nav {
+            float: left;
+            height: 20px;
+            background: #1580e4;
+        }
+
+        .page {
+            height: 200px;
+            background: #462002;
+        }
+
+        .active {
+            background: #00ff00;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="tab1">
+        <div class="tab-nav clearfix">
+            <div class="nav active">导航1</div>
+            <div class="nav">导航2</div>
+            <div class="nav">导航3</div>
+            <div class="nav">导航4</div>
+            <div class="nav">导航5</div>
+            <div class="nav">导航6</div>
+        </div>
+        <div class="tab-page">
+            <div class="page show">选项卡页1</div>
+            <div class="page hide">选项卡页2</div>
+            <div class="page hide">选项卡页3</div>
+            <div class="page hide">选项卡页4</div>
+            <div class="page hide">选项卡页5</div>
+            <div class="page hide">选项卡页6</div>
+        </div>
+    </div>
+    <script src="tab.js"></script>
+    <script type="text/javascript">
+        var obj = {
+            id: "tab1",
+            oNavWidth: 60,
+            eventType: "onmouseover" //注意加引号
+        };
+        var tab1 = new Tab(obj);
+        tab1.init();
+    </script>
+</body>
+
+</html>

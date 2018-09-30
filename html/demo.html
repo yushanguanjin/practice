@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js选项卡插件示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .clearfix:after {
+            overflow: hidden;
+            clear: both;
+        }
+        
+        #tab1 {
+            color: #fff;
+        }
+        
+        .nav {
+            float: left;
+            height: 20px;
+            background: #1580e4;
+        }
+        
+        .page {
+            height: 200px;
+            background: #462002;
+        }
+        
+        .active {
+            background: #00ff00;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="tab1">
+        <div class="tab-nav clearfix">
+            <div class="nav active">导航1</div>
+            <div class="nav">导航2</div>
+            <div class="nav">导航3</div>
+            <div class="nav">导航4</div>
+            <div class="nav">导航5</div>
+            <div class="nav">导航6</div>
+        </div>
+        <div class="tab-page">
+            <div class="page show">选项卡页1</div>
+            <div class="page hide">选项卡页2</div>
+            <div class="page hide">选项卡页3</div>
+            <div class="page hide">选项卡页4</div>
+            <div class="page hide">选项卡页5</div>
+            <div class="page hide">选项卡页6</div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        //父选项卡
+        function Tab(obj) {
+            console.log(this);
+            this.oParent = document.getElementById(obj.id);
+            this.oNav = this.oParent.getElementsByClassName("nav");
+            this.oPage = this.oParent.getElementsByClassName("page");
+            for (var i = 0; i < this.oNav.length; i++) {
+                this.oNav[i].style.width = obj.oNavWidth + "px";
+                this.oPage[i].style.width = obj.oNavWidth * this.oPage.length + "px";
+            }
+        }
+        Tab.prototype = {
+                constructor: Tab,
+                init: function() {
+                    var _this = this;
+                    for (var i = 0; i < this.oNav.length; i++) {
+                        this.oNav[i].index = i;
+                        this.oNav[i].onclick = function() {
+                            console.log(10);
+                            for (var k = 0; k < _this.oNav.length; k++) {
+                                _this.oNav[k].className = "nav";
+                            }
+                            this.className = "nav active";
+                            _this.change(this.index);
+                        }
+
+                    }
+                },
+                change: function(i) {
+                    for (var j = 0; j < this.oPage.length; j++) {
+                        this.oPage[j].className = "page hide";
+                    }
+                    this.oPage[i].className = "page show";
+                }
+            }
+            // 子选项卡 继承父选项卡
+        function Subtab(obj) {
+            Tab.apply(this, obj);
+        }
+        // 继承
+        function inherit(subType, superType) {
+            var a = Object.create(superType.prototype); //对父类的原型进行浅复制,创建父类的一个副本(即一个对象)
+            a.constructor = subType; //为创建的副本添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性
+            subType.prototype = a; //将新创建的副本赋给子类的原型
+        }
+        inherit(Subtab, Tab);
+        Subtab.prototype.show = function() {
+            console.log(10);
+        }
+        var obj = {
+            id: "tab1",
+            oNavWidth: 60
+        };
+        var tab1 = new Subtab(obj);
+        tab1.init();
+        tab1.show();
+    </script>
+</body>
+
+</html>

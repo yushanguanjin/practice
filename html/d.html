@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tab,
+        #tab2 {
+            width: 400px;
+            height: 30px;
+        }
+        
+        li,
+        ul {
+            list-style-type: none;
+        }
+        
+        ul {
+            width: 400px;
+            height: 30px;
+            border-bottom: 1px solid #ccc;
+            line-height: 30px;
+        }
+        
+        ul .tab-nav {
+            float: left;
+            margin-left: 20px;
+            padding: 0px 10px;
+        }
+        
+        .active {
+            background: yellow;
+        }
+        
+        ul .tab-nav a {
+            text-decoration: none;
+            color: #666;
+        }
+        
+        .tab-content {
+            width: 400px;
+            height: 350px;
+            background-color: #ccc;
+        }
+        
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="tab">
+        <ul class="clearfix">
+            <li class="tab-nav">
+                <a href="#tab1">选项1</a>
+            </li>
+            <li class="tab-nav">
+                <a href="#tab2">选项2</a>
+            </li>
+            <li class="tab-nav">
+                <a href="#tab3">选项3</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="tab1">作者:ghostwu(1)
+            <div>博客: http://www.cnblogs.com/ghostwu/</div>
+        </div>
+        <div class="tab-content" id="tab2">作者:ghostwu(2)
+            <div>博客: http://www.cnblogs.com/ghostwu/</div>
+        </div>
+        <div class="tab-content" id="tab3">作者:ghostwu(3)
+            <div>博客: http://www.cnblogs.com/ghostwu/</div>
+        </div>
+    </div>
+
+    <script src="../js/library/jquery.js"></script>
+    <script>
+        ;
+        (function($) {
+            $.fn.tabs = function(opt) {
+                var def = {
+                    evType: "click"
+                };
+                var opts = $.extend({}, def, opt);
+                var obj = $(this);
+                console.log(obj.find(".tab-nav"));
+                obj.find(".tab-nav").eq(0).addClass("active"); //注意children是直接子元素，不包括所有的子元素
+                obj.children(".tab-content").hide();
+                obj.children(".tab-content").eq(0).show();
+                obj.find(".tab-nav").on(opts.evType, function() {
+                    var index = $(this).index();
+                    $(this).attr("class", "active").siblings().removeClass("active");
+                    obj.children(".tab-content").eq(index).show().siblings().hide();
+                })
+            }
+        })(jQuery);
+        $("#tab").tabs({
+            evType: "mouseover"
+        });
+    </script>
+</body>
+
+</html>

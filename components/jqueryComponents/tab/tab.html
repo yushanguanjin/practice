@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jquery选项卡插件示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            overflow: hidden;
+            clear: both;
+        }
+
+        #tab1 {
+            color: #fff;
+        }
+
+        .tab-nav {
+            width: 400px;
+            height: 20px;
+            background: #1580e4;
+        }
+
+        .tab-nav>div {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .tab-nav>div:first-of-type {
+            margin-left: 0;
+        }
+
+        .tab-page>div {
+            display: none;
+            width: 400px;
+            height: 200px;
+            background: #462002;
+        }
+
+        .active {
+            background: #00ff00 !important;
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="tab">
+        <div class="tab-nav clearfix">
+            <div class="active">导航1</div>
+            <div>导航2</div>
+            <div>导航3</div>
+            <div>导航4</div>
+            <div>导航5</div>
+            <div>导航6</div>s
+        </div>
+        <div class="tab-page">
+            <div class="show">选项卡页1</div>
+            <div>选项卡页2</div>
+            <div>选项卡页3</div>
+            <div>选项卡页4</div>
+            <div>选项卡页5</div>
+            <div>选项卡页6</div>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script src="tab.js"></script>
+    <script type="text/javascript">
+        $("#tab").tabs({
+            eventType: "mouseover"
+        });
+    </script>
+</body>
+
+</html>

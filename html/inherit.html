@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>寄生组合式继承</title>
+</head>
+
+<body>
+    <script>
+        // 父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayName = function() {
+            return "我是" + this.name;
+        }
+
+        // 子类
+        function Student(name, age, id) {
+            Person.call(this, name, age);
+            this.id = id;
+        }
+
+        // 继承
+        function inherit(subType, superType) {
+            var a = Object.create(superType.prototype); //对父类的原型进行浅复制,创建父类的一个副本(即一个对象)
+            a.constructor = subType; //为创建的副本添加constructor属性，从而弥补因重写原型而失去的默认的constructor属性
+            subType.prototype = a; //将新创建的副本赋给子类的原型
+        }
+        inherit(Student, Person);
+        Student.prototype.sayId = function() {
+                return "我是第" + this.id + "学号";
+            }
+            // var person = new Person("a", 20);
+            // console.log(person.sayName());
+        var student = new Student("a", 20, 10);
+        console.log(student.sayName());
+        console.log(student.sayId());
+    </script>
+</body>
+
+</html>

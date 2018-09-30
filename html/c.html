@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .person {
+            font-size: 40px;
+            float: left;
+            padding: 20px;
+            margin: 30px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library//handlebars.js"></script>
+    <script id="person_info" type="text/x-handlebars-template">
+
+        {{#each this}}
+        <div class="person">
+            <div>姓名：{{name}}</div>
+            <div>出生地：{{home}}</div>
+            <div>职业：{{job}}</div>
+        </div>
+        {{/each}}
+
+    </script>
+
+
+    <script type="text/javascript">
+        var data = [{
+                name: '约翰莫里森',
+                home: '美国',
+                job: '摔跤手'
+            },
+            {
+                name: 'Faker',
+                home: '韩国',
+                job: '英雄联盟职业选手'
+            }
+        ];
+        var tmpl = $('#person_info').html();
+        console.log(tmpl);
+        var func = Handlebars.compile(tmpl); //预编译
+        console.log(func);
+        var result = func(data);
+        console.log(result);
+        $('#person_info').append(result);
+        console.log($('#person_info').html(result));
+    </script>
+</body>
+
+</html>

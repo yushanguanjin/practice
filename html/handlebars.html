@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #person-info{
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library//handlebars.js"></script>
+    <script id="person-info" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="person">
+            <div>姓名：{{name}}</div>
+            <div>年龄：{{age}}</div>
+            <div>性别：{{sex}}</div>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        var data = [{
+                name: "a",
+                age: 18,
+                sex: "woman"
+            },
+            {
+                name: "b",
+                age: 20,
+                sex: "woman"
+            }
+        ];
+        var func = Handlebars.compile($("#person-info").html());
+        $("#person-info").html(func(data));
+        console.log(10);
+    </script>
+</body>
+
+</html>

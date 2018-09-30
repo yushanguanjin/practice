@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>handlebars5.html</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library/handlebars.js"></script>
+    <script id="template" type="text/x-handlebars-template">
+        <div class="entry">
+            <h1>{{title}}</h1>
+            {{#with author}}
+            <h2>By {{firstName}} {{lastName}}</h2>
+            {{/with}}
+        </div>
+    </script>
+
+
+
+    <script type="text/javascript">
+        var data = {
+            title: "My first post!",
+            author: {
+                firstName: "Charles",
+                lastName: "Jolley"
+            }
+        };
+        var func = Handlebars.compile($("#template").html());
+        $("#container").html(func(data));
+        // console.log($("#content").html(func(data)));
+    </script>
+</body>
+
+</html>

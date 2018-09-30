@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>另一种Helper用法 - by 杨元</title>
+</head>
+
+<body>
+    <h1>另一种Helper用法</h1>
+    <!--基础html框架-->
+    <table border="1" ;>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody id="tableList">
+
+        </tbody>
+    </table>
+
+    <!--插件引用-->
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library/handlebars.js"></script>
+
+    <script id="table-template" type="text/x-handlebars-template">
+        {{#each this}} {{#if name}} {{#compare age 20}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{transform occupation}}</td>
+            <td>{{age}}</td>
+        </tr>
+        {{else}}
+        <tr>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        {{/compare}} {{/if}} {{/each}}
+    </script>
+
+
+    <script type="text/javascript">
+        var data = [{
+                name: "张三",
+                occupation: "0",
+                age: 23
+            },
+            {
+                name: "李四",
+                occupation: "1",
+                age: 18
+            },
+            {
+                name: "妞妞",
+                occupation: "2",
+                age: 21
+            }
+        ];
+
+        Handlebars.registerHelper("compare", function (v1, v2, options) {
+            // console.log(this);
+            // console.log(options.fn(this));
+            if (v1 > v2) {
+                return options.fn(this);
+
+            } else {
+
+                return options.inverse(this);
+
+            }
+        });
+        Handlebars.registerHelper("transform", function (value, options) {
+            console.log(value);
+
+            if (value == 0) {
+
+                return "student";
+
+            } else if (value == 1) {
+
+                return "teacher";
+
+            } else if (value == 2) {
+
+                return "worker";
+
+            } else if (value == 3) {
+
+                return "farmer";
+
+            }
+        });
+        var templ = $("#table-template").html();
+
+        var func = Handlebars.compile(templ);
+
+        var result = func(data);
+        $('#tableList').html(result);
+    </script>
+</body>
+
+</html>

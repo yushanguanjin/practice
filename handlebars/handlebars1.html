@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html组件编写</title>
+    <style>
+        #noApplicationRecord {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-list {
+            margin-bottom: 20px;
+            color: #1580e4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header id="noApplicationRecord">待审核</header>
+        <section id="content">
+
+        </section>
+    </div>
+    <script src="../js/library/jquery.js"></script>
+    <script src="../js/library/handlebars.js"></script>
+    <script id="template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="content-list">
+            <div>{{business}}</div>
+            <div class="content-list-option">
+                <span class='content-list-optionContent'>消费金额:{{count}}</span>
+            </div>
+            <div class="content-list-option">
+                <span class='content-list-optionContent'>消费单号:{{time}}</span>
+            </div>
+            <div class="content-list-option">
+                <span class='content-list-optionContent'>提交时间:{{license}}</span>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script type="text/javascript">
+        var data = [{
+                business: '万达影院(万胜广场店)',
+                count: '325',
+                num: '20170012565863565656',
+                time: '2017-10-12 16:30',
+                license: '粤A88888'
+            },
+            {
+                business: '麦当劳',
+                count: '111',
+                num: '20170012565863565656',
+                time: '2017-10-12 16:30',
+                license: '粤A99999'
+
+            },
+            {
+                business: '肯德基',
+                count: '456',
+                num: '20170012565863565656',
+                time: '2017-10-12 16:30',
+                license: '粤A45466'
+            }
+        ];
+        console.log(Handlebars);
+        console.log($("#content"));
+        var func = Handlebars.compile($("#template").html());
+        $("#content").html(func(data));
+        // console.log($("#content").html(func(data)));
+       
+    </script>
+</body>
+
+</html>

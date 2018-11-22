@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="swiper.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-carrousel {
+            position: relative;
+            width: 1040px;
+            height: 60px;
+        }
+        
+        .nav-carrousel .swiper-slide {
+            width: 148px;
+            height: 60px;
+            background: #3c8dbc;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            border: 2px solid #3c8dbc;
+        }
+        
+        .swiper-slide-click {
+            background: #ffffff !important;
+            color: #3c8dbc !important;
+        }
+        
+        .swiper-button-prev {}
+        
+        .swiper-button-next {}
+        
+        .nav-carrousel .swiper-wrapper {
+            width: 1120px;
+        }
+        
+        .nav-carrousel .swiper-button-prev-wrap {
+            position: absolute;
+            left: -50px;
+            width: 30px;
+            height: 60px;
+            top: 0;
+            background: #3c8dbc !important;
+        }
+        /* .swiper-button-next-wrap {
+            position: absolute;
+            left: 30px;
+            width: 30px;
+            height: 60px;
+            top: 0;
+            background: #3c8dbc !important;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="nav-carrousel  swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">会议室详情</div>
+            <div class="swiper-slide">右摄影机</div>
+            <div class="swiper-slide">显示器</div>
+            <div class="swiper-slide">摄影机</div>
+            <div class="swiper-slide">电源及环境</div>
+            <div class="swiper-slide">电源及环境</div>
+            <div class="swiper-slide">电源及环境</div>
+            <div class="swiper-slide">电源及环境</div>
+            <div class="swiper-slide">电源及环境</div>
+            <div class="swiper-slide">电源及环境</div>
+        </div>
+
+        <div class="swiper-button-prev swiper-button-white"></div>
+
+
+
+
+        <div class="swiper-button-next swiper-button-white"></div>
+
+
+
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="swiper.min.js"></script>
+    <script src="../../library/jquery.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.nav-carrousel', {
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            slidesPerView: 7,
+            spaceBetween: 2,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                992: {
+                    slidesPerView: 3,
+                },
+                767: {
+                    slidesPerView: 2,
+                },
+                460: {
+                    slidesPerView: 1,
+                }
+            }
+        });
+
+        $(".swiper-wrapper").on("click", ".swiper-slide", function() {
+            $(this).addClass("swiper-slide-click").siblings().removeClass("swiper-slide-click");
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .inInputWrap {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            width: 570px;
+            max-height: 100px;
+            border: 1px solid #dddddd;
+            overflow: auto;
+            padding: 10px 20px;
+        }
+        
+        .inInputItem {
+            width: 230px;
+            height: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .inInputItem:nth-of-type(1) {
+            margin-top: 10px;
+        }
+        
+        .inInputItem:nth-of-type(2) {
+            margin-top: 10px;
+        }
+        
+        .inInputItem:nth-of-type(2n) {
+            float: right;
+            margin-right: 0;
+        }
+        
+        .inInputItem:nth-of-type(2n+1) {
+            float: left;
+            margin-right: 0;
+        }
+        
+        .inInput {
+            border: 1px solid #dddddd;
+            outline: none;
+        }
+        
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-group in-out" id="inNumDiv">
+        <label for="recipient-name" class="control-label">In数量</label>
+        <input type="text" class="form-control  form-control-in-out" name="name" id="inNum" placeholder="请输入" oninput="value=value.replace(/[^\d]/g,'')" />
+    </div>
+    <div class="form-group in-out" id="outNumDiv">
+        <label for="recipient-name" class="control-label">Out数量</label>
+        <input type="text" class="form-control  form-control-in-out" name="name" id="outNum" placeholder="请输入" oninput="value=value.replace(/[^\d]/g,'')" />
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(".form-control-in-out").bind('input propertychange', function() {
+            if ($(this).siblings(".inInputWrap")) {
+                $(this).siblings(".inInputWrap").remove();
+            }
+            var inInputWrap = $("<div class='inInputWrap clearfix'></div>");
+            var inoutNum = parseInt($(this).val());
+            if (inoutNum > 0 && inoutNum <= 16) {
+                $(this).parent().append(inInputWrap);
+                for (var i = 0; i < inoutNum; i++) {
+                    var inInputItem = $("<div class='inInputItem clearfix'><span class='inoutname fl'></span><input type='text' class='inInput fr'></div>");
+                    var j = eval(i + 1);
+                    if ($(this).is("#inNum")) {
+                        inInputItem.children(".inoutname").text("in" + j);
+                    } else {
+                        inInputItem.children(".inoutname").text("out" + j);
+                    }
+
+                    $(this).siblings(".inInputWrap").append(inInputItem);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

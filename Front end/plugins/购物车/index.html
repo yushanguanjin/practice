@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="fly.js" type="text/javascript"></script>
+
+</head>
+
+
+
+<body style="text-align: center;">
+    <div id="divSource">
+        <div>
+            <img src="http://images.yummy77.com/img/111012/111012068/g1_150_6.jpg"></img><input type="button" VALUE="add"></input><input type="button" VALUE="remove"></input>
+        </div>
+        <div>
+            <img src="http://images.yummy77.com/img/111011/111011111/g1_150.jpg"></img><input type="button" VALUE="add"></input><input type="button" VALUE="remove"></input>
+        </div>
+        <div>
+            <img src="http://images.yummy77.com/img/211110/211110060/g1_150.jpg"></img><input type="button" VALUE="add"></input><input type="button" VALUE="remove"></input>
+        </div>
+    </div>
+    <div id="divTarget" style="width:60px;height:60px; background: #ddd;margin:20px;">快到碗里来……</div>
+    <script type="text/javascript">
+        $(function() {
+            $("#divSource input[value='add']").bind("click", function() {
+                var _sourceImg = $(this).prev();
+                var _back = function() {};
+                var _target = $("#divTarget");
+                objectFlyIn(_sourceImg, _target, _back);
+            });
+            $("#divSource input[value='remove']").bind("click", function() {
+                var _sourceImg = $(this).prev().prev();
+                var _back = function() {};
+                var _target = $("#divTarget");
+                objectFlyOut(_sourceImg, _target, _back);
+            });
+            /**
+             * 对象飞入
+             *
+             */
+            function objectFlyIn(_sourceImg, _target, _back) {
+                var addOffset = _target.offset();
+
+                var img = _sourceImg;
+                var flyer = $('<img style="display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 100000;" src="' + img.attr('src') + '">');
+                var X, Y;
+
+                if (img.offset()) {
+                    X = img.offset().left - $(window).scrollLeft();
+                    Y = img.offset().top - $(window).scrollTop();
+                }
+                flyer.fly({
+                    start: {
+                        left: X + img.width() / 2 - 25, //开始位置（必填）
+                        top: Y + img.height() / 2 - 25 //开始位置（必填）
+                    },
+                    end: {
+                        left: addOffset.left + 10, //结束位置（必填）
+                        top: addOffset.top + 10, //结束位置（必填）
+                        width: 10, //结束时宽度
+                        height: 10 //结束时高度
+                    },
+                    onEnd: function() { //结束回调
+                        this.destroy(); //移除dom
+                        _back();
+                    }
+                });
+
+            }
+
+            /**
+             * 对象飞出
+             *
+             */
+            function objectFlyOut(_sourceImg, _target, _back) {
+                var addOffset = _target.offset();
+
+                var img = _sourceImg;
+                var flyer = $('<img style="display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 100000;" src="' + img.attr('src') + '">');
+
+                flyer.fly({
+                    start: {
+                        left: addOffset.left, //开始位置（必填）
+                        top: addOffset.top //开始位置（必填）
+                    },
+                    end: {
+                        left: addOffset.left - 20, //结束位置（必填）
+                        top: addOffset.top - 20, //结束位置（必填）
+                        width: 5, //结束时宽度
+                        height: 5 //结束时高度
+                    },
+                    onEnd: function() { //结束回调
+                        this.destroy(); //移除dom
+                        _back();
+                    }
+                });
+            }
+
+        })
+    </script>
+</body>
+
+
+</html>

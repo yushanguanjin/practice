@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <script src="layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <style>
+      .demo-slider{
+        margin-bottom: 60px;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="slideTest1" class="demo-slider"></div>
+    <div id="slideTest2" class="demo-slider"></div>
+    <div id="slideTest3" class="demo-slider"></div>
+    <div id="slideTest4" class="demo-slider"></div>
+
+    
+
+    <script>
+        layui.use('slider', function () {
+              var $ = layui.$
+              ,slider = layui.slider;
+              //定义初始值
+              slider.render({
+                elem: '#slideTest1',value: 20 ,//初始值
+              },
+              );
+            })
+
+
+            layui.use('slider', function () {
+              var $ = layui.$
+              ,slider = layui.slider;
+              //定义初始值
+              slider.render({
+                elem: '#slideTest2',value: 60 ,//初始值
+              },
+              );
+            })
+           
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../js/jquery.js"></script>
+    <script>
+        // $(function() {
+        //     $('body').on('click', function() {
+        //         console.log('被点击了~~');
+        //     });
+        //     $('body').trigger('click');
+        // });
+
+        $(function() {
+            $('body').on('someclick', function() {
+                console.log('被点击了~~');
+            });
+            $('body').trigger('someclick');
+        });
+    </script>
+</body>
+
+</html>

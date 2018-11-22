@@ -1,0 +1,98 @@
+<#import "/spring.ftl" as spring/>
+<#include "/Front/common/head.ftl">
+		<link rel="stylesheet" href="${basePath}/css/login.css" />
+		<script type="text/javascript" src="${basePath}/js/login.js" ></script>
+		 <script  src="${basePath}/js/common/MD5.js"></script>
+	</head>
+	<body style="background-image: url('${basePath}/images/bg.png');">
+		<section>
+			<div class="login_div">
+				<div class="logo_div" style="background-image: url('${basePath}/images/public/logo.jpg');"></div>
+				<form class="form_div">
+					<div class="form_div_s" id="form_div_username">
+						<img class="form_img" src="${basePath}/images/account.png" />
+						<input type="text" name="name" class="form_input username" value="" placeholder="Please enter the user name" />
+						<p class="error_tip_username">请输入用户名</p>
+					</div>
+					<hr class="form_hr" />
+					<div class="form_div_s" id="form_div_password">
+						<img class="form_img" src="${basePath}/images/psw.png" />
+						<input type="password" name="name" class="form_input password"  value="" placeholder="Please enter your password" />
+						<p class="error_tip_password">请输入密码</p>
+					</div>
+				</form>
+				<div class="agree_div">
+					<label for="ts" id="ts_radio" class="radio ts_radio">
+						<span class="radio-bg"></span>
+						<input type="checkbox" name="search_from" id="ts" value="" checked="checked" /><span class="agree_chara2">Remember me</span>
+						<span class="radio-on_span"></span>
+					</label>
+					<a class="agree_chara float_r" href="">Forget password</a>
+					<span class="agree_chara float_r">&nbsp;|&nbsp;</span>
+					<a class="agree_chara float_r" href="">Register</a>
+				</div>
+				<div class="btn_div" id="login">
+					<button type="submit" class="sub_btn">Login</button>
+				</div>
+			</div>
+			<script  src="${basePath}/js/common/layer/layer.js"></script>
+			<script>
+			    $('#login').click(function(){
+			        var username = $('.username').val();
+			        var password = $('.password').val();
+			        if(username == '') {
+			           	$(".error_tip_username").show();
+			           	$(".username").removeAttr('placeholder');
+			           	$("#form_div_username").click(function() {
+			           		  $(".error_tip_username").hide();
+			           		 	$(".username").attr('placeholder','Please enter the user name');
+			           	})
+			        }
+			        if(password == '') {
+			           $(".error_tip_password").show();
+			           	$(".password").removeAttr('placeholder');
+			           	$("#form_div_password").click(function() {
+			           		  $(".error_tip_password").hide();
+			           		  $(".password").attr('placeholder','Please enter your password');
+			           	})
+			        }
+			        var pswd = MD5(username +"#" + password),
+			        	data = {pswd:pswd};
+			        var load = layer.load();
+			        
+			        $.ajax({
+			        	url:"${basePath}/Front/login/submitLogin.shtml",
+			        	data:data,
+			        	type:"post",
+			        	dataType:"json",
+			        	beforeSend:function(){
+			        		layer.msg('开始登录，请注意后台控制台。');
+			        	},
+			        	success:function(result){
+			        		console.log(result);
+				        	layer.close(load);
+				    		if(result && result.status != 200){
+				    			layer.msg(result.result);
+				    			$('.password').val('');
+				    			return;
+				    		}else{
+				    			layer.msg('登录成功！');
+				    			setTimeout(function(){
+				    				//登录返回
+					    			window.location.href= "../login/book/book.shtml";
+				    			},1000)
+				    		}
+			        	},
+			        	error:function(e){
+			        		console.log(e,e.message);
+			        		layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
+			        	}
+			        });
+			    });
+			    $('.page-container form .username, .page-container form .password').keyup(function(){
+			        $(this).parent().find('.error').fadeOut('fast');
+			    });
+			</script>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Change colors</button>
+    <span></span>
+    <div>1</div>
+    <div>2</div>
+
+    <div>3</div>
+    <div>4</div>
+    <div id="stop">5</div>
+    <div>6</div>
+
+    <div>7</div>
+    <div>8</div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $("button").click(function () {
+            $("div").each(function (index, item) {
+                console.log(item);//注意each方法中的item是dom对象，不是jquery对象,$(item)是jquery对象
+                //item = this,$(this)表示当前jquery对象
+                console.log(index);
+                $(item).css("backgroundColor", "yellow");
+                if ($(this).is("#stop")) {
+                    $("span").text("Stopped at div index #" + index);
+                    return false;
+                }
+            });
+        });
+
+
+
+
+        $.each(["a", "b", "c", "d", "e", "f"], function (i, n) {
+            alert("Item #" + i + ": " + n);
+        });
+
+
+        $.each({ name: "John", lang: "JS" }, function (i, n) {
+            alert("Name: " + i + ", Value: " + n);
+        });
+    </script>
+</body>
+
+</html>

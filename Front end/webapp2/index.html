@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <form>
+        <select id="province">
+            <option selected="selected">请选择...</option>
+        </select>
+        <select id="city">
+            <option selected="selected">请选择...</option>
+        </select>
+        <button type="submit" id="where_submit" disabled="disabled">提交</button>
+    </form>
+</body>
+<script type="text/javascript">
+    var provinces = ['辽宁', '北京', '上海', '吉林', '浙江'];
+    //最新添加的省份放在最前面
+    var choice = ['请选择...']
+        // var zhejiang = ['杭州', '嘉兴', '宁波', '绍兴'];
+        // var shanghai = ['金山', '闸北', '普陀', '徐汇'];
+        // var jilin = ['长春', '辽源', '吉林', '四平'];
+        // var beijing = ['海淀', '朝阳', '东城', '西城'];
+        // var liaoning = ['沈阳', '大连', '盘锦', '锦州', '辽阳', '鞍山']
+        //城市排序由后到前
+        // var citys = new Array;
+        // citys[0] = choice;
+        // citys[1] = zhejiang;
+        // citys[2] = jilin;
+        // citys[3] = shanghai;
+        // citys[4] = beijing;
+        // citys[5] = liaoning;
+
+
+    function add_option(select, option) {
+        var target = document.getElementById(select);
+        for (var i = option.length - 1; i >= 0; i--) {
+            var add_option = document.createElement("option");
+            add_option.text = option[i];
+            target.add(add_option, null);
+            target.lastChild.setAttribute("name", option[i]);
+        }
+
+    }
+    add_option("province", provinces);
+
+
+    // document.getElementById("province").addEventListener("change", function () {
+
+
+    //     var selevted_province = document.getElementById("province");
+    //     var selected_city = document.getElementById("city");
+
+    //     for (var i = selevted_province.length - 1; i >= 0; i--) {
+    //         selected_city.remove(i);
+    //     }
+    //     var selected = selevted_province.selectedIndex;
+    //     if (selected == 0) {
+    //         add_option("city", citys[0]);
+    //         document.getElementById("where_submit").setAttribute("disabled", "ture");
+    //     } else {
+    //         add_option("city", citys[selected]);
+    //         document.getElementById("where_submit").removeAttribute("disabled");
+    //     }
+    // })
+    for (var i = 0; i < 10; i++) {
+        console.log(10);
+    }
+</script>
+
+</html>

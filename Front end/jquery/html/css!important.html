@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>width innerWidth() outerWidth() outerWidth(true)</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.test {
+            display: flex;
+            width: auto !important;
+            height: 100px;
+            overflow: auto !important;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="test"></div>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".test").click(function () {
+                var divHeight = "200px";
+                // var cssText = $("div.test").attr("style") + ";width:650px !important;";
+                $("div.test").css("cssText", "height:divHeight;");
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>移动h5自适应布局</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+</head>
+
+<body>
+    <!-- 头部 start -->
+    <div class="header">
+        <img class="voice-logo" src="../imgs/voice.png" alt="">
+        <div class="search">
+            <input class="search-text" type="text" placeholder="搜索歌词、音乐、电台">
+        </div>
+        <p class="login">登录</p>
+    </div>
+    <!-- 头部 end -->
+    <!-- 选项卡 start-->
+    <div class="nav">
+        <ul>
+            <li>音乐</li>
+            <li>视频</li>
+            <li>电台</li>
+        </ul>
+    </div>
+    <!-- 选项卡 end-->
+    <!-- 轮播图 start -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../imgs/carrousela.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../imgs/carrouselb.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../imgs/carrouselc.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets">
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+    </div>
+    <!-- 轮播图 end -->
+    <!-- 分类图标 start -->
+    <div class="classification">
+        <div class="classification-center">
+            <div class="classification-each">
+                <img src="../imgs/icon1.png" alt="">
+            </div>
+            <div class="classification-each">
+                <img src="../imgs/icon1.png" alt="">
+            </div>
+            <div class="classification-each">
+                <img src="../imgs/icon1.png" alt="">
+            </div>
+            <div class="classification-each">
+                <img src="../imgs/icon1.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 分类图标 end -->
+    <script src="../js/swiper.min.js"></script>
+    <script>
+        // 轮播图
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+        })
+    </script>
+</body>
+
+</html>

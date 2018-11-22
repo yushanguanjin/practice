@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>响应式</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        //在文档加载以前获得图片高度
+        var imgHeight = $(".each img").height();
+        console.log(imgHeight);
+        $(".row").height(imgHeight)
+        $(".each").height(imgHeight);
+
+
+        //文档加载以后
+        $(document).ready(function() {
+            console.log($(".showshadow"));
+            $("body").on({
+                mouseover: function() {
+                    var index = $(this).index();
+                    console.log(index);
+                    var showshadow = document.getElementsByClassName("showshadow");
+                    console.log(showshadow);
+                    $(".showshadow").show();
+                    showshadow[index].style.display = "none";
+                },
+                mouseout: function() {
+                    $(".showshadow").hide();
+                }
+
+            }, ".each");
+        })
+    </script>
+    <style>
+        /* bootstrap网格系统样式重置  start*/
+        
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        
+        .col-xs-1,
+        .col-sm-1,
+        .col-md-1,
+        .col-lg-1,
+        .col-xs-2,
+        .col-sm-2,
+        .col-md-2,
+        .col-lg-2,
+        .col-xs-3,
+        .col-sm-3,
+        .col-md-3,
+        .col-lg-3,
+        .col-xs-4,
+        .col-sm-4,
+        .col-md-4,
+        .col-lg-4,
+        .col-xs-5,
+        .col-sm-5,
+        .col-md-5,
+        .col-lg-5,
+        .col-xs-6,
+        .col-sm-6,
+        .col-md-6,
+        .col-lg-6,
+        .col-xs-7,
+        .col-sm-7,
+        .col-md-7,
+        .col-lg-7,
+        .col-xs-8,
+        .col-sm-8,
+        .col-md-8,
+        .col-lg-8,
+        .col-xs-9,
+        .col-sm-9,
+        .col-md-9,
+        .col-lg-9,
+        .col-xs-10,
+        .col-sm-10,
+        .col-md-10,
+        .col-lg-10,
+        .col-xs-11,
+        .col-sm-11,
+        .col-md-11,
+        .col-lg-11,
+        .col-xs-12,
+        .col-sm-12,
+        .col-md-12,
+        .col-lg-12 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        @media (min-width:768px) {
+            .container {
+                width: auto
+            }
+        }
+        
+        @media (min-width:992px) {
+            .container {
+                width: auto
+            }
+        }
+        
+        @media (min-width:1200px) {
+            .container {
+                width: auto
+            }
+        }
+        
+        @media (min-width:1200px) {
+            .container {
+                width: auto
+            }
+        }
+        /* bootstrap网格系统样式重置  end */
+        
+        .each {
+            padding: 5px;
+            position: relative;
+        }
+        
+        .each a {
+            display: block;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .each a img {
+            width: 100%;
+            height: 100%;
+            transition: 2s;
+        }
+        
+        .each a img:hover {
+            width: 100%;
+            transform: scale(1.1);
+        }
+        
+        .showshadow {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container wrap">
+        <div class="row">
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6  col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6  col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6 col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+            <div class="each col-md-3 col-sm-6  col-xs-6  col-lg-3">
+                <a href="">
+                    <img src="../img/1.jpg" alt="">
+                    <div class="showshadow"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

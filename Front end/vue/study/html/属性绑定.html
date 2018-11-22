@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <a v-bind:href="website">web开发</a>
+        <input type="input" v-bind:value="name">
+        <p v-html="websiteTag"></p>
+        <!-- v-bind: bind:绑定,即绑定属性的意思 -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: ".box",
+            data: {
+                website: "www.baidu.com",
+                name: "文本",
+                websiteTag: "<a href='www.youtube.com '>点击</a>"
+            }
+        });
+        // el:需要获取的元素，一定是html中的根容器元素,
+        // data:用于数据的存取
+        //bind：绑定属性
+    </script>
+</body>
+
+</html>

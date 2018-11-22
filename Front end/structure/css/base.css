@@ -1,0 +1,42 @@
+/********** 基础样式 **********/
+
+
+/* 字体样式  开始*/
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs32 {
+    font-size: 32px;
+}
+
+
+/* 清除浮动部分*/
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/* 去除ie默认的下拉框图标 */
+
+select::-ms-expand {
+    display: none;
+}

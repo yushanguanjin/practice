@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠面板，回顶部,轮播图</title>
+    <style>
+        /* 折叠面板 */
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        li {
+            display: none;
+            background: #123456;
+            color: #fff;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: block;
+        }
+        /* 回顶部 */
+        
+        html,
+        body {
+            z-index: 1;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            top: 90%;
+            right: 10%;
+            width: 100px;
+            height: 40px;
+            background: #0000ff;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            z-index: 10;
+        }
+        /*轮播图*/
+        
+        .carrousel-wrap {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .carrousel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carrousel img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .btn {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, .6);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .prev-btn {
+            left: 0;
+        }
+        
+        .next-btn {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 折叠面板，回顶部 -->
+    <div class="folding-panel">
+        <ul>
+            <li class="list-header show">剑豪</li>
+            <li>剑姬</li>
+            <li>剑圣</li>
+            <li>剑魔</li>
+        </ul>
+        <ul>
+            <li class="list-header show">蛮子</li>
+            <li>剑姬</li>
+            <li>剑圣</li>
+            <li>剑魔</li>
+        </ul>
+        <ul>
+            <li class="list-header show">武器</li>
+            <li>剑姬</li>
+            <li>剑圣</li>
+            <li>剑魔</li>
+        </ul>
+    </div>
+    <!-- 回顶部 -->
+    <div class="back-to-top">
+        回到顶部
+    </div>
+    <!-- 轮播图 -->
+    <div class="carrousel-wrap">
+        <div class="carrousel">
+            <img src="../img/1.jpg" alt="">
+        </div>
+        <div class="carrousel">
+            <img src="../img/2.jpg" alt="">
+        </div>
+        <div class="carrousel">
+            <img src="../img/3.jpg" alt="">
+        </div>
+        <div class="carrousel">
+            <img src="../img/4.jpg" alt="">
+        </div>
+        <div class="btn prev-btn">&lt;</div>
+        <div class="btn next-btn">&gt;</div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        // 折叠面板
+        $(document).ready(function() {
+            $(".folding-panel").on("click", ".list-header", function() {
+                $(this).siblings().slideToggle("fast");
+            })
+        });
+        // 回顶部
+        $(document).ready(function() {
+            $(".back-to-top").hide() //隐藏按钮
+            $(function() {
+                $(window).scroll(function() {
+                    if ($(this).scrollTop() > 1) { //当window的scrolltop距离大于1时，按钮淡出，反之淡入
+                        $(".back-to-top").fadeIn();
+                    } else {
+                        $(".back-to-top").fadeOut();
+                    }
+                });
+            });
+
+            // 给按钮一个点击事件
+            $(".back-to-top").click(function() {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 800); //点击按钮时，以800的速度回到顶部，这里的800可以根据你的需求修改
+                return false;
+            });
+        });
+        //轮播图
+
+
+        // window.onload = function() {
+        //     Array.prototype.forEach.call(carrousel, function(item, index, arr) {
+        //         setInterval(function() {
+        //             for (var i = 0; i < len; i++) {
+        //                 console.log(i);
+        //                 carrousel[i].style.opacity = '1';
+        //             }
+        //             console.log(index);
+        //             arr[index].style.opacity = '0';
+        //         }, 2000);
+
+        //     })
+        // }  
+
+
+        var carrouselWrap = document.getElementsByClassName("carrousel-wrap")[0];
+        var carrousel = document.getElementsByClassName("carrousel");
+        var len = carrousel.length;
+        var prevBtn = document.getElementsByClassName("prev-btn")[0];
+        prevBtn.onclick = function() {
+
+        }
+
+        // for (var i = 0; i < len; i++) {
+        //     carrousel[i] = index;
+        //     window.onload = function() {
+        //         setInterval(function(i) {
+        //             for (var j = 0; j < len; j++) {
+        //                 console.log(j);
+        //                 carrousel[j].style.opacity = '0';
+        //             }
+        //             // console.log(i);
+        //             carrousel[this.index].style.opacity = '1';
+        //         }, 6000);
+        //     }
+        // }
+
+        //自动播放
+        function autoplay() {
+            var timer;
+            var i = 0;
+            timer = setInterval(function() {
+                for (var j = 0; j < len; j++) {
+                    carrousel[j].style.opacity = '0';
+                }
+                carrousel[i].style.opacity = '1';
+                i++;
+                if (i == 4) {
+                    i = 0;
+                }
+            }, 1000);
+            //鼠标移入，暂停播放
+            carrouselWrap.onmouseover = function() {
+                clearInterval(timer);
+            };
+        }
+        autoplay();
+        //鼠标移出，开始播放
+        carrouselWrap.onmouseout = function() {
+            autoplay();
+        }
+    </script>
+</body>
+
+</html>

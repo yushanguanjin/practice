@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+
+        td,
+        th {
+            height: 50px !important;
+            padding-left: 5px;
+            font-size: 14px;
+            border: 1px solid #f4f4f4;
+        }
+        table.dataTable thead th{
+            padding: 0;
+        }
+        table.dataTable tbody td{
+            padding: 0;
+        }
+        .data-table-wrap {
+            background: #fff;
+            border: 1px solid #d2d6de;
+            border-top-width: 3px;
+        }
+
+        .data-table-wrap #example {}
+
+        .data-table-thead {
+            background: #d9edf7;
+        }
+
+        #example_length {
+            height: 50px;
+            line-height: 50px;
+        }
+        .dataTables_info{
+            padding-left: 16px;
+        }
+        .conference-details-btn {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80px;
+            height: 30px;
+            background: #00c0ef;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .data-table-tbody {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="data-table-wrap">
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead class="data-table-thead">
+                <tr class="data-table-itemName" height:="50px">
+                    <th width="100px">地区</th>
+                    <th width="129px">物业</th>
+                    <th>会议室名称</th>
+                    <th>使用时长（h）</th>
+                    <th>使用频率 (次/月)</th>
+                    <th>故障停用时长（h）</th>
+                    <th>故障频率（次/月）</th>
+                    <th>故障占比（%）</th>
+                    <th>正常使用占比（%）</th>
+                    <th>操作</th>
+                </tr>
+                </th>
+
+                <!-- <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                </tr>
+            </tfoot> -->
+
+            <tbody class="data-table-tbody">
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上海</td>
+                    <td>申鑫大厦</td>
+                    <td>A201</td>
+                    <td>45</td>
+                    <td>20</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>87</td>
+                    <td>
+                        <a href="" class="conference-details-btn">会议室详情</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../../library/jquery.js"></script>
+    <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').dataTable();
+            $("#example_length").css("padding-left", "16px");
+
+            $("#example_length select").css({
+                "width": "64px",
+                "height": "30px",
+                "padding-left": "15px"
+            });
+            // dataTable.Columns["oldname"].ColumnName = "a"
+            console.log($("#example_length label:contains('show')"));
+            // $("#example_length label:contains('show')");
+            // $("#example_previous").replaceWith("<");
+            $("#example_filter").hide();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '使用时长图',
+                left: 'center',
+                textStyle: {
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: '微软雅黑',
+                    fontSize: 14
+                }
+            },
+            xAxis: {
+                type: 'category',
+                //边界间隙, true:刻度只是作为分隔线，标签和数据点都会在两个刻度之间的带(band)中间
+                boundaryGap: false,
+                data: ['A201', 'A301', 'A303', 'B302', 'B303', 'B402'],
+                splitLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#ebebeb'
+                    },
+                 //设置网格线显示
+                 show:true
+                },
+                //x轴数据颜色
+                axisLabel: {
+                    show: true,
+                    // interval:200,
+                    textStyle: {
+                        color: '#666666'
+                    }
+                },
+                //x轴轴线颜色
+                axisLine: {
+                    lineStyle: {
+                        color: '#00c0ef',
+                        width: 1,//这里是为了突出显示加上的
+                    }
+                },
+                //x轴刻度线
+                axisTick: {
+                    "show": false
+                },
+            },
+            yAxis: {
+                min: 0,
+                max: 100,
+                name: '(h)',
+                nameGap: 10,
+                splitLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#ebebeb'
+                    },
+                 //设置网格线不显示
+                 show:false
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#666666'
+                    },
+                    formatter: function (value) {
+                        var texts = [];
+                        if (value == 0) {
+                            texts.push('0');
+                        }
+                        else if (value <= 20) {
+                            texts.push('20');
+                        }
+                        else if (value <= 40) {
+                            texts.push('40');
+                        }
+                        else if (value <= 60) {
+                            texts.push('60');
+                        }
+                        else if (value <= 80) {
+                            texts.push('80');
+                        }
+                        else {
+                            texts.push('100');
+                        }
+                        return texts;
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#00c0ef',
+                        width: 1,//这里是为了突出显示加上的
+                    }
+                },
+                //y轴刻度线
+                axisTick: {
+                    "show": false
+                },
+                 //x轴y轴分区域的背景颜色
+                 splitArea:{
+                    show:true,
+                    areaStyle:{
+                        color:[
+                            '#f9f9f9',
+                            '#fff'
+                        ]
+                    }
+                }
+            },
+            //系列
+            series: [{
+                name: '使用时长图',
+                type: 'line',
+                // showSymbol: true,
+                symbol: 'circle',     //设定为实心点
+                symbolSize: 10,   //设定实心点的大小
+                itemStyle:{
+                    normal:{
+                        //折线属性
+                        color:"#00cc66",
+                        width:2
+                    }
+                },
+                data: [50, 40, 60, 50, 70, 60]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

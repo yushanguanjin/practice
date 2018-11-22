@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-left: 200px;
+            overflow: hidden;
+        }
+        
+        p {
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 100%;
+            height: 20px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <p>文本</p>
+
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        $("div").hover(
+            function() {
+                $("p").animate({
+                    left: 0
+                }, 1000)
+            },
+            function() {
+                $("p").animate({
+                    left: "-100px"
+                }, 1000)
+            },
+        );
+    </script>
+
+</body>
+
+</html>

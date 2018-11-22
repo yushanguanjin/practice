@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>width innerWidth() outerWidth() outerWidth(true)</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            padding: 10px;
+            border: 10px solid #0000ff;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="btn1"></p>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".btn1").click(function() {
+                var obj = $(this);
+                alert(obj.width());
+                alert(obj.innerWidth());
+                alert(obj.outerWidth());
+                alert(obj.outerWidth(true));
+            });
+        });
+    </script>
+</body>
+
+</html>

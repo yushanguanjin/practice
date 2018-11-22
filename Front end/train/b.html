@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="province-select">
+        
+    </select>
+    <script>
+        var data = ["北京市", "天津市", "上海市", "重庆市", "河北省", "河南省", "云南省", "辽宁省", "黑龙江省", "湖南省", "安徽省", "山东省",
+            "新疆维吾尔", "江苏省", "浙江省", "江西省", "湖北省", "广西壮族", "甘肃省", "山西省", "内蒙古", "陕西省", "吉林省", "福建省", "广东省",
+            "青海省", "西藏", "四川省", "宁夏回族", "海南省", "台湾省", "香港", "澳门", "贵州省"
+        ];
+        var target = document.getElementById("province-select");
+        //i = 0的时候创建一个option,i = 0的时候再创建一个option......
+        for (var i = data.length - 1; i >= 0; i--) {
+            var addOption = document.createElement("option");
+            addOption.text = data[i];
+            console.log(addOption);
+            target.appendChild(addOption);
+            target.lastChild.setAttribute("name", data[i]);
+            //target.firstElementChild.setAttribute("name", data[i]);
+            //target.firstElementChild.setAttribute("name", data[i]);
+            // 注意 firstChild lastChild firstElementChild firstElementChild的不同
+        }
+    </script>
+</body>
+
+</html>

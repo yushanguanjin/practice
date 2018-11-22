@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">只获取我<a href="">别管我</a>aaaaaa</div>
+    <script src="../library/jquery.js"></script>
+    <script>
+        //js dom
+        // var a = document.getElementById('demo').firstChild.nodeValue;
+        // console.log(a);
+        // a.innerText = "bbbbbb";
+
+
+        // a.replaceChild("bbbbbb");
+
+        $("#demo").prop('firstChild').nodeValue.attr({
+            "id"
+        });
+        console.log(a);
+    </script>
+</body>
+
+</html>

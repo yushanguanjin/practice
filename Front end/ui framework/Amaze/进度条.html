@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>进度条</title>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <button id="np-set" class="am-btn am-btn-primary">$.AMUI.progress.set(0.4);</button>
+    <button id="np-inc" class="am-btn am-btn-warning">$.AMUI.progress.inc();</button>
+    <button id="np-fd" class="am-btn am-btn-success">$.AMUI.progress.done(true);</button>
+    <button id="np-status" class="am-btn am-btn-danger">$.AMUI.progress.status;</button>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script>
+        $(function() {
+            var progress = $.AMUI.progress;
+
+            $('#np-set').on('click', function() {
+                progress.set(0.4);
+            });
+
+            $('#np-inc').on('click', function() {
+                progress.inc();
+            });
+
+            $('#np-fd').on('click', function() {
+                progress.done(true);
+            });
+
+            $('#np-status').on('click', function() {
+                $(this).text('Status: ' + progress.status);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+    <script>
+        $.validator.setDefaults({
+            submitHandler: function() {
+                alert("提交事件!");
+            }
+        });
+
+        $().ready(function() {
+            // 提交时验证表单
+            var validator = $(".form_div").validate({
+                errorPlacement: function(error, element) {
+                    // Append error within linked label
+                    $(element).closest("form").find("label[for='" + element.attr("id") + "']").append(error);
+                },
+                errorElement: "span",
+                messages: {
+                    user: {
+                        required: " (必需字段)",
+                    },
+                    password: {
+                        required: " (必需字段)",
+                    }
+                }
+            });
+        });
+    </script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form  class="cmxform" id="form1" action="">
+  
+    <p>
+      <label for="user">用户名</label>
+      <input id="user" name="user" required minlength="3">
+    </p>
+    <p>
+      <label for="password">密码</label>
+      <input id="password" type="password" maxlength="12" name="password" required minlength="5">
+    </p>
+    <p>
+      <input class="button" type="submit" value="Login">
+    </p>
+  
+</form> -->
+
+    <form class="form_div">
+        <div class="form_div_s">
+            <img class="form_img" src="${basePath}/images/account.png" />
+            <input type="text" name="name" class="form_input username" value="" placeholder="Please enter the user name" />
+        </div>
+        <hr class="form_hr" />
+        <div class="form_div_s">
+            <img class="form_img" src="${basePath}/images/psw.png" />
+            <input type="password" name="name" class="form_input password" value="" placeholder="Please enter your password" />
+        </div>
+    </form>
+
+    <div class="btn_div" id="login">
+        <button type="submit" class="sub_btn">Login</button>
+    </div>
+
+    <select name="" id="province-select">
+
+    </select>
+    <script>
+        var data = ["北京市", "天津市", "上海市", "重庆市", "河北省", "河南省", "云南省", "辽宁省", "黑龙江省", "湖南省", "安徽省", "山东省",
+            "新疆维吾尔", "江苏省", "浙江省", "江西省", "湖北省", "广西壮族", "甘肃省", "山西省", "内蒙古", "陕西省", "吉林省", "福建省", "广东省",
+            "青海省", "西藏", "四川省", "宁夏回族", "海南省", "台湾省", "香港", "澳门", "贵州省"
+        ];
+        var target = document.getElementById("province-select");
+        //i = 0的时候创建一个option,i = 0的时候再创建一个option......
+        for (var i = data.length - 1; i >= 0; i--) {
+            var addOption = document.createElement("option");
+            addOption.text = data[i];
+            console.log(addOption);
+            target.appendChild(addOption);
+            target.lastChild.setAttribute("name", data[i]);
+            //target.firstChild.setAttribute("name", data[i]);
+            //target.firstElementChild.setAttribute("name", data[i]);
+
+            // 注意 firstChild lastChild firstElementChild firstElementChild的不同
+        }
+
+        js或jquery如何获得并修改元素的子元素（ 文本元素） 的一部分
+
+        如 < div > 从0到10 < /div>，想把从，到改为由，至两个字，不能直接通过修改div的全部文本，比如text()方法，只能修改从，到这两个字，该用什么方法才能修改，显示在页面上。麻烦大家谁会的给我指导一下，谢谢。
+    </script>
+</body>
+
+</html>

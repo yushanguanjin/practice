@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <h1>{{greet("李")}}</h1>
+        <p>名字：{{name}}</p>
+        <p>工作：{{job}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: ".box",
+            data: {
+                name: "张",
+                job: "工程师"
+            },
+            //直接使用this.name,不需要this.data.name
+            methods: {
+                greet: function(person) {
+                    return person + "设计师\n " + this.name + this.job;
+                }
+            }
+        });
+        // el:需要获取的元素，一定是html中的根容器元素,
+        // data:用于数据的存取
+    </script>
+</body>
+
+</html>

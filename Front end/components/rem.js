@@ -21,7 +21,6 @@
 /*rem布局方案二*/
 // 动态设置rem
 function setRem() {
-
     var html = document.documentElement;
     var width = html.getBoundingClientRect().width;
     var fontSize = width / 30; //默认是1080

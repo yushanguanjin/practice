@@ -9,6 +9,7 @@
     <script type="text/javascript" src="jquery.js"></script>
     <script src="base64.min.js"></script>
     <style type="text/css">
+
     </style>
 </head>
 
@@ -51,7 +52,7 @@
 
         CurentTime();
 
-       console.log(10);
+        console.log(10);
 
         // var accountNumber = "SZH";
         // var passWord = "Davis-123";
@@ -67,7 +68,7 @@
 
 
 
-        
+
 
 
 
@@ -75,15 +76,15 @@
 
         $.ajax({
             type: "Get",
-            url:"http://www.jyy56.cn:8589/api/auth_gongsi/GetObjects",
+            url: "http://www.jyy56.cn:8589/api/auth_gongsi/GetObjects",
             // url: "http://www.jyy56.cn:8589/api/hb_ask/GetInfoByCust",
-            beforeSend: function (XHR) {
-                XHR.setRequestHeader('Authorization','Basic '+take);
+            beforeSend: function(XHR) {
+                XHR.setRequestHeader('Authorization', 'Basic ' + take);
             },
-            success: function (data,status) {
+            success: function(data, status) {
                 console.log(data);
             },
-            error: function (errorThrown) {
+            error: function(errorThrown) {
                 console.log(errorThrown);
             }
         })

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            animation: animate 6s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes animate{
+            0%{
+                background: #00ff00;
+            }
+            25%{
+                background: #0000ff;
+            }
+            50%{
+                background: #00ff00;
+            }
+            75%{
+                background: #ff0000;
+            }
+            0%{
+                background: #00ff00;
+            }
+            100%{
+                background: #ff0000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

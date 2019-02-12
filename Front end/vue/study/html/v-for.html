@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+        
+        .changeColor {
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <ul>
+            <li v-for="user in users">{{user}}</li>
+        </ul>
+        <template v-for="(user,index) in users">
+            <h3> {{index}}  {{user}}</h3>
+            <p>Age - {{user.age}}</p>
+        </template>
+        <template v-for="(user,index) in users">
+            <div v-for="(val,key,index) in user">
+                   <p>{{index}}.{{key}}:{{val}}</p>
+            </div>
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: ".box1",
+            data: {
+                users: {
+                    "mickle": {
+                        "age": "20",
+                        "sex": "男"
+                    },
+                    "jack": {
+                        "age": "22",
+                        "sex": "男"
+                    }
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

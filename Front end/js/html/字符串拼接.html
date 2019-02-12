@@ -9,15 +9,24 @@
 </head>
 
 <body>
-    <div class="box" data-name="Micke">Micke</div>
-    <script src="../js/jquery.js"></script> 
     <script>
-        $(".box").data("name", {
-            name1: "Tom",
-            name2: "Bob"
-        });
-        console.log($(".box").data());
+     function StringBuffer(){ 
+  this.buffer = []; 
+} 
+StringBuffer.prototype = { 
+  constructor: StringBuffer, 
+  append: function(str){ 
+    this.buffer.push(str); 
+    return this; 
+  }, 
+  toString: function(){ 
+    return this.buffer.join(''); 
+  } 
+}; 
+
+var 
     </script>
+
 </body>
 
 </html>

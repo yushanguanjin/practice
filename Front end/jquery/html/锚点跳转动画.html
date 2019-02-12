@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .a1 {
+            display: block;
+            margin-top: 1000px;
+        }
+        
+        #div1 {
+            margin-top: 2000px;
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#div1" class="a1">锚点跳转动画</a>
+    <div id="div1"></div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        var $root = $('html, body');
+        $('a').click(function() {
+            var href = $.attr(this, 'href');
+            $root.animate({
+                scrollTop: $(href).offset().top
+            }, 500, function() {
+                window.location.hash = href; //更新当前页面的URL锚点
+            });
+            return false;
+        });
+    </script>
+</body>
+
+</html>

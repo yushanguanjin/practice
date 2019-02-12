@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图插件示例 优先使用swiper3,文档更简洁</title>
+    <link rel="stylesheet" href="swiper.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">slider1</div>
+            <div class="swiper-slide">slider2</div>
+            <div class="swiper-slide">slider3</div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination swiper-pagination-bullets">
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+        </div>
+
+    </div>
+    <script src="swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            observer: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            centeredSlides: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+                hideOnClick: true,
+            },
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false,
+            }
+        });
+        //鼠标移出隐藏按钮，移入显示按钮
+        swiper.el.onmouseover = function() {
+            swiper.navigation.$nextEl.removeClass('hide');
+            swiper.navigation.$prevEl.removeClass('hide');
+        }
+        swiper.el.onmouseout = function() {
+            swiper.navigation.$nextEl.addClass('hide');
+            swiper.navigation.$prevEl.addClass('hide');
+        }
+    </script>
+</body>
+
+</html>

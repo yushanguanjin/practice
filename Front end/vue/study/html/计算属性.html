@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="vue-app">
+        <button v-on:click="a++">add to a</button>
+        <button v-on:click="b++">add to b</button>
+        <p>a - {{a}}</p>
+        <p>b - {{b}}</p>
+        <p>age + a = {{addTOA()}}</p>
+        <p>age + b = {{addTOB()}}</p>
+    </div> -->
+
+    <div id="vue-app">
+        <button v-on:click="a++">add to a</button>
+        <button v-on:click="b++">add to b</button>
+        <p>a - {{a}}</p>
+        <p>b - {{b}}</p>
+        <!-- computed是个属性，不是方法，不需要用() -->
+        <p>age + a = {{addTOA}}</p>
+        <p>age + b = {{addTOB}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        // var vue1 = new Vue({
+        //     el: "#vue-app",
+        //     data: {
+        //         a: 0,
+        //         b: 0,
+        //         age: 20
+        //     },
+        //     methods: {
+        //         addTOA: function() {
+        //             return this.a + this.age;
+        //         },
+        //         addTOB: function() {
+        //             return this.b + this.age;
+        //         }
+        //     },
+        // });
+        var vue2 = new Vue({
+            el: "#vue-app",
+            data: {
+                a: 0,
+                b: 0,
+                age: 20
+            },
+            computed: {
+                addTOA: function() {
+                    return this.a + this.age;
+                },
+                addTOB: function() {
+                    return this.b + this.age;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

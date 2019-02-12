@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .popup-btn{
+            margin-left: 140px;
+            width: 100px;
+            height: 40px;
+            background: #ff0000;
+        }
+        .popup{
+            position: relative;
+            top: -440px;
+            width: 400px;
+            height: 400px;
+            padding-top: 100px;
+            background: #0000ff;
+        }
+        #show-popup{
+            animation: showAnimate 1s;
+            animation-fill-mode: forwards;
+        }
+        .close-btn{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #close-popup{
+            animation: closeAnimate 1s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes showAnimate{
+           0% {
+                top: -220px;
+                transform: rotateZ(0deg);
+           }
+           50% {
+               
+                transform: rotateZ(-10deg);
+           }
+           100% {
+                top: 0px;
+                transform: rotateZ(0deg);
+           }
+        }
+        @keyframes closeAnimate{
+           0% {
+                top: 0px;
+                transform: rotateZ(0deg);
+           }
+           50% {
+               
+                transform: rotateZ(-10deg);
+           }
+           100% {
+                top: -440px;
+                transform: rotateZ(0deg);
+           }
+        }
+    </style>
+</head>
+<body>
+    <button class="popup-btn">弹窗</button>
+    <div class="popup">
+        <button class="close-btn">关闭弹窗</button>
+    </div>
+    <script src="../../library/jquery.js"></script>
+    <script>
+        $(".popup-btn").click(
+            function() {
+                $(".popup").attr({
+                    "id":"show-popup"
+                })
+            }
+        );
+        $(".close-btn").click(
+            function() {
+                $(".popup").attr({
+                    "id":"close-popup"
+                })
+            }
+        );
+    </script>
+</body>
+</html>

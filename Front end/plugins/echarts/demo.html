@@ -37,8 +37,8 @@
                         type: 'solid',
                         color: '#ebebeb'
                     },
-                 //设置网格线显示
-                 show:true
+                    //设置网格线显示
+                    show: true
                 },
                 //x轴数据颜色
                 axisLabel: {
@@ -52,7 +52,7 @@
                 axisLine: {
                     lineStyle: {
                         color: '#00c0ef',
-                        width: 1,//这里是为了突出显示加上的
+                        width: 1, //这里是为了突出显示加上的
                     }
                 },
                 //x轴刻度线
@@ -70,32 +70,27 @@
                         type: 'solid',
                         color: '#ebebeb'
                     },
-                 //设置网格线不显示
-                 show:false
+                    //设置网格线不显示
+                    show: false
                 },
                 axisLabel: {
                     show: true,
                     textStyle: {
                         color: '#666666'
                     },
-                    formatter: function (value) {
+                    formatter: function(value) {
                         var texts = [];
                         if (value == 0) {
                             texts.push('0');
-                        }
-                        else if (value <= 20) {
+                        } else if (value <= 20) {
                             texts.push('20');
-                        }
-                        else if (value <= 40) {
+                        } else if (value <= 40) {
                             texts.push('40');
-                        }
-                        else if (value <= 60) {
+                        } else if (value <= 60) {
                             texts.push('60');
-                        }
-                        else if (value <= 80) {
+                        } else if (value <= 80) {
                             texts.push('80');
-                        }
-                        else {
+                        } else {
                             texts.push('100');
                         }
                         return texts;
@@ -104,18 +99,18 @@
                 axisLine: {
                     lineStyle: {
                         color: '#00c0ef',
-                        width: 1,//这里是为了突出显示加上的
+                        width: 1, //这里是为了突出显示加上的
                     }
                 },
                 //y轴刻度线
                 axisTick: {
                     "show": false
                 },
-                 //x轴y轴分区域的背景颜色
-                 splitArea:{
-                    show:true,
-                    areaStyle:{
-                        color:[
+                //x轴y轴分区域的背景颜色
+                splitArea: {
+                    show: true,
+                    areaStyle: {
+                        color: [
                             '#f9f9f9',
                             '#fff'
                         ]
@@ -127,13 +122,15 @@
                 name: '使用时长图',
                 type: 'line',
                 // showSymbol: true,
-                symbol: 'circle',     //设定为实心点
-                symbolSize: 10,   //设定实心点的大小
-                itemStyle:{
-                    normal:{
+                symbol: 'circle',
+                     //设定为实心点
+                symbolSize: 10,
+                   //设定实心点的大小
+                itemStyle: {
+                    normal: {
                         //折线属性
-                        color:"#00cc66",
-                        width:2
+                        color: "#00cc66",
+                        width: 2
                     }
                 },
                 data: [50, 40, 60, 50, 70, 60]

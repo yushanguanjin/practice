@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-wrap">
+        <div class="div-item">
+            1
+        </div>
+        <div class="div-item">
+            2
+        </div>
+    </div>
+    <div class="div-wrap">
+        <div class="div-item">
+            3
+        </div>
+        <div class="div-item">
+            4
+        </div>
+    </div>
+    <div class="div-wrap">
+        <div class="div-item">
+            5
+        </div>
+        <div class="div-item">
+            6
+        </div>
+    </div>
+    <div class="div-wrap">
+        <div class="div-item">
+            7
+        </div>
+        <div class="div-item">
+            8
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(".div-wrap").each(function(i, n) {
+            console.log(this);
+            var n = $(n);
+            var divItem = n.children();
+            divItem.each(function(i, n) {
+                var n = $(n);
+                console.log(n.text());
+            })
+
+        });
+    </script>
+</body>
+
+</html>

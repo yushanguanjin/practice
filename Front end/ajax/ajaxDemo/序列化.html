@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <style type="text/css">
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        #div {
+            width: 200px;
+        }
+        
+        .box-item-each {
+            border: 1px solid #ff0000;
+        }
+        
+        .box-item-each>span {
+            color: #000000;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+    <form>
+        <select name="country">
+            <option value="china">China</option>
+            <option value="england">England</option>
+        </select>
+        <select name="sports" multiple="multiple">
+            <option selected="selected" value="riding">Riding</option>
+            <option value="football">Football</option>
+            <option selected="selected" value="swimming">Swimming</option>
+        </select>
+        <br />
+        <input type="checkbox" name="fruit" value="apple" /> apple
+        <input type="checkbox" name="fruit" value="orange" checked="checked" /> orange
+        <input type="radio" name="sex" value="male" checked="checked" /> male
+        <input type="radio" name="sex" value="female" /> female
+    </form>
+    <script type="text/javascript" src="../../js/library/jquery.js"></script>
+    <script>
+        /*
+                                $(function () {
+                                    console.log($("form").serialize());
+                                });*/
+        $(function() {
+            var data = $("form").serializeArray();
+            console.log(JSON.stringify(data, null, 4));
+        });
+    </script>
+
+</body>
+
+</html>

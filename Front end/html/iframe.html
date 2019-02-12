@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        <iframe> 标签规定一个内联框架
+　　　　　这里写p 标签是为了看align的效果
+     -->
+    <p style="overflow: hidden;">这是一些文本。 这是一些文本。 这是一些文本。这是一些文本。 这是一些文本。 这是一些文本。
+        <iframe name="myiframe" id="myrame" src="iframe2.html" frameborder="0" align="left" scrolling="no">
+            <p>你的浏览器不支持iframe标签</p>
+        </iframe>
+        这是一些文本。 这是一些文本。 这是一些文本。这是一些文本。 这是一些文本。 这是一些文本。</p>
+    <script src="../library/jquery.js">
+        var iframe = document.getElementById("myrame"); //获取iframe标签
+        var iwindow = iframe.contentWindow; //获取iframe的window对象
+        var idoc = iwindow.document; //获取iframe的document对象
+        console.log(idoc.documentElement); //获取iframe的html
+        console.log("body", idoc.body);
+        console.log(idoc.documentElement); //获取iframe的html
+    </script>
+</body>
+
+</html>

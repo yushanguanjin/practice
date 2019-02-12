@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <!-- ref -->
+        <label for="">姓名</label>
+        <input type="text" name="" ref="name" id="" v-on:keyup="keypressName">
+        <span>{{name}}</span>
+        <label for="">年龄</label>
+        <input type="text" name="" ref="age" id="" v-on:keyup="keypressAge">
+        <span>{{age}}</span>
+    </div>
+    <div class="box2">
+        <!-- v-model -->
+        <label for="">姓名</label>
+        <!-- v-model绑定输出的值:name -->
+        <input type="text" name="" ref="name" id="" v-model="name">
+        <span>{{name}}</span>
+        <label for="">年龄</label>
+        <!-- v-model绑定输出的值:age -->
+        <input type="text" name="" ref="age" id="" v-model="age">
+        <span>{{age}}</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue1 = new Vue({
+            el: ".box1",
+            data: {
+                name: "",
+                age: ""
+            },
+            methods: {
+                keypressName: function() {
+                    this.name = this.$refs.name.value;
+                    console.log(this);
+                },
+                keypressAge: function() {
+                    this.age = this.$refs.age.value;
+                }
+            },
+        });
+        var vue2 = new Vue({
+            el: ".box2",
+            data: {
+                name: "",
+                age: ""
+            },
+            methods: {
+
+            },
+        });
+    </script>
+</body>
+
+</html>

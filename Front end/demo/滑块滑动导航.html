@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>www.jb51.net jquery滑动导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei";
+        }
+        
+        .container {
+            width: 1200px;
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .nav-wrapper {
+            background-color: #0191d7;
+            height: 50px;
+        }
+        
+        #nav-list {
+            position: relative;
+            z-index: 1;
+        }
+        
+        #nav-list .nav-item {
+            float: left;
+            height: 50px;
+        }
+        
+        #nav-list li a {
+            display: block;
+            padding: 0 50px;
+            height: 50px;
+            font-size: 16px;
+            line-height: 50px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .animate-block {
+            position: absolute;
+            height: 50px;
+            background-color: #2B6B8A;
+            left: 0;
+            top: 0;
+            z-index: 0;
+        }
+        
+        .active {
+            box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-wrapper">
+        <div class="container">
+            <ul id="nav-list">
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" class="active" target="_blank">网站首页</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">网上商城</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">智能管家</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">技术支持</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">应用案例</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">关于我们</a></li>
+                <li class="nav-item"><a href="http://www.lanrentuku.com/" target="_blank">懒人图库</a></li>
+            </ul>
+            <div class="animate-block"></div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.js"></script>
+    <script>
+        $(function() {
+            var $active = $(".active"); //当前选中的菜单
+            var $active_w = $active.innerWidth();
+            var $active_l = $active.position().left;
+            var $animate_block = $(".animate-block");
+
+            //设置滑块初始位置
+            $(".animate-block").css({
+                width: $active_w,
+                left: $active_l
+            });
+
+            //a事件
+            $("#nav-list>li").hover(function() {
+                var index = $(this).index();
+                var $a_cur = $("#nav-list a").eq(index); //得到当前元素
+                var width = $a_cur.innerWidth();
+                var left = $a_cur.position().left;
+                $(".animate-block").stop().animate({
+                    width: width,
+                    left: left
+                });
+            }, function() {
+                $(".animate-block").stop().animate({
+                    width: $active_w,
+                    left: $active_l
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

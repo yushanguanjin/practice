@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .nav-wrap {
+            position: relative;
+        }
+        
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+        
+        li {
+            width: 100px;
+            height: 40px;
+            list-style: none;
+            float: left;
+            color: #000000;
+            background: rgba(47, 208, 181, 0.8);
+            opacity: 0.6;
+            text-align: center;
+            line-height: 40px;
+        }
+        
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+        
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 40px;
+            float: left;
+            background: rgba(47, 208, 181);
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-wrap clearfix">
+        <ul class="clearfix">
+            <li>
+                <a href="">首页</a>
+            </li>
+            <li>
+                <a href="">影响</a>
+            </li>
+            <li>
+                <a href="">产品</a>
+            </li>
+            <li>
+                <a href="">优势</a>
+            </li>
+            <li>
+                <a href="">关于我们</a>
+            </li>
+            <li>
+                <a href="">联系方式</a>
+            </li>
+        </ul>
+        <div class="box"></div>
+    </div>
+
+    <script src="../library/jquery.js"></script>
+    <script>
+        $("li").hover(
+            function() {
+                var left = $(this).position().left;
+                console.log(left);
+                $(".box").stop().animate({
+                    left: left
+                })
+            },
+            function() {
+                $(".box").stop().animate({
+                    left: 0
+                })
+            }
+        )
+    </script>
+</body>
+
+</html>

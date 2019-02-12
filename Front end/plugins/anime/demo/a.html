@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="JSobjectProp">
+        <span>{"myProperty":"0"}</span>
+    </div>
+    <script src="../anime.js"></script>
+    <script>
+
+        var myObject = {
+            prop1: 0,
+            prop2: '0%'
+        }
+        var JSobjectProp = anime({
+            targets: myObject,
+            prop1: 50,
+            prop2: '100%',
+            easing: 'linear',
+            round: 1,
+            update: function () {
+                var el = document.querySelector('#JSobjectProp span');
+                el.innerHTML = JSON.stringify(myObject);
+            }
+        });
+    </script>
+</body>
+
+</html>

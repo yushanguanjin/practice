@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .normal {
+            color: green;
+        }
+        
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul id="tab">
+            <li class="normal" v-for="(item,index) in items" v-on:click="change(index)" :class="{active:isActive == index}">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: ".box",
+            data: {
+                items: [
+                    "item1",
+                    "item2",
+                    "item3"
+                ],
+                isActive: 0 //索引值默认为0，即item1为默认激活的选项卡
+            },
+            methods: {
+                change: function(index) {
+                    this.isActive = index;
+                    console.log(index);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

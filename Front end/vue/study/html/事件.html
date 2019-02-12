@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 方法只执行一次 -->
+        <h1 v-on:click.once="add(10)">{{age}}</h1>
+        <h1 v-on:click="reduce(20)">{{age}}</h1>
+        <div id="canvas" @mousemove="updateXY">
+            {{X}},{{Y}}
+            <!-- 事件修饰符 -->
+            <div @mousemove.stop="">
+                stopPropagation
+            </div>
+        </div>
+        <!-- 阻止默认事件 -->
+        <a @click.prevent="preventDefault()" href="www.baidu.com">百度</a>
+        <label for="">姓名</label>
+        <input type="text" name="" id="" v-on:keypress.alt.enter="keypress">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: ".box",
+            data: {
+                age: 10,
+                X: 10,
+                Y: 10
+            },
+            methods: {
+                add: function(increase) {
+                    this.age += increase;
+                },
+                reduce: function() {
+                    this.age -= 1;
+                },
+                updateXY: function(event) {
+                    this.X = event.offsetX;
+                    this.Y = event.offsetY;
+                },
+                stopPropagation: function(event) {
+                    event.stopPropagation();
+                },
+                preventDefault: function(event) {
+                    console.log(10);
+                },
+                keypress: function() {
+                    console.log("123456789101112");
+                }
+            },
+        });
+        // el:需要获取的元素，一定是html中的根容器元素,
+        // data:用于数据的存取
+    </script>
+</body>
+
+</html>

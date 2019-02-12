@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>内容不固定，文字居中显示</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0px;
+        }
+        
+        .box1 {
+            width: 350px;
+        }
+        
+        .clearfix::after {}
+        
+        .fl {
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .fr {
+            float: right;
+            width: 200px;
+            height: 30px;
+        }
+        
+        .a {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+        }
+        
+        .b {
+            width: 100px;
+            height: 200px;
+            background: #00ff00;
+        }
+        
+        .c {
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+        
+        .d {
+            width: 100px;
+            height: 100px;
+            background: #000000;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1 clearfix">
+        <div class="fl a"></div>
+        <div class="fl b"></div>
+        <div class="fl c"></div>
+        <div class="fl d"></div>
+    </div>
+    <div class="box2"></div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <style>
+        #container {
+            width:465px;
+            height: 355px;
+            border: 1px solid #000;
+        }
+        .amap-icon img {
+            width: 25px;
+            height: 34px;
+        }
+
+        .amap-marker-label{
+            border: 0;
+            background-color: transparent;
+        }
+
+        .info{
+            position: relative;
+            top: 0;
+            right: 0;
+            min-width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.11&key=3882027fe9aad0be91ef44742afa8da2"></script>
+    <script>
+        var map = new AMap.Map('container', {
+            //zoom:10,
+            zoom: 12,
+            center: [119.67464, 29.09123],//中心点坐标
+        });
+        var marker = new AMap.Marker({
+            position: map.getCenter(),
+            icon: 'img/poi-marker-default.png',
+            offset: new AMap.Pixel(-13, -30)
+        });
+
+        marker.setMap(map);
+
+        // 设置鼠标划过点标记显示的文字提示
+        marker.setTitle('我是marker的title');
+
+        // 设置label标签
+        // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+        marker.setLabel({
+            //修改label相对于maker的位置
+            offset: new AMap.Pixel(-40, -40),
+            content: "<div class='info'>金华万达广场-4号楼</div>"
+        });
+
+    </script>
+</body>
+
+</html>

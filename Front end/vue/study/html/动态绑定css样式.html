@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+        
+        .changeColor {
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <h1 v-bind:class="{red:true}">示例1</h1>
+        <h2 v-on:click="changeColor = !changeColor" v-bind:class="{changeColor:changeColor}">示例2</h1>
+            <button v-on:click="changeColor=!changeColor">改变颜色</button>
+            <div v-bind:class="compareClasses">
+                示例3
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: ".box1",
+            data: {
+                changeColor: false,
+                changeLength: false
+            },
+            computed: {
+                compareClasses: function() {
+                    return {
+                        changeColor: this.changeColor,
+                        changeLength: false
+                    }
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div" style="height: 300px; background: #ddd;">这是一个外部文件里面的内容</div>
+    <script src="../library/jquery.js"></script>
+    <script>
+        console.log($("div").text());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <my-component></my-component>
+    </div>
+    <div class="box2">
+        <my-component></my-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        Vue.component("my-component", {
+            template: `<p>
+            {{name}}:年龄20
+            <button v-on:click="changeName" value="改名">改名</button>
+            </p>`,
+            data: function() {
+                return {
+                    name: "a"
+                }
+            },
+            methods: {
+                changeName: function() {
+                    this.name = "b";
+                }
+            }
+        })
+        new Vue({
+            el: ".box1"
+        })
+        new Vue({
+            el: ".box2"
+        })
+    </script>
+</body>
+
+</html>

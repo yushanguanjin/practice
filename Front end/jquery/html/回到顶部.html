@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style>
+        html,
+        body {
+            z-index: 1;
+        }
+        
+        p {
+            width: 100%;
+            height: 1000px;
+            background: #ff0000;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            top: 90%;
+            right: 10%;
+            width: 100px;
+            height: 40px;
+            background: #0000ff;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            z-index: 10;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p></p>
+    <!-- 回顶部 -->
+    <div class="back-to-top">
+        回到顶部
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+        // 回顶部
+        $(document).ready(function() {
+            $(".back-to-top").hide() //隐藏按钮
+            $(function() {
+                $(window).scroll(function() {
+                    console.log($("html,body").scrollTop());
+                    if ($(this).scrollTop() > 1) { //当window的scrolltop距离大于1时，按钮淡出，反之淡入
+                        $(".back-to-top").fadeIn();
+                    } else {
+                        $(".back-to-top").fadeOut();
+                    }
+                });
+            });
+
+            // 给按钮一个点击事件
+            $(".back-to-top").click(function() {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 800); //点击按钮时，以800的速度回到顶部，这里的800可以根据你的需求修改
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>

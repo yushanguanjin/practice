@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="jack">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,
+ 		user-scalable=no" />
+    <!-- 适应手机屏幕，防止屏幕缩放 -->
+
+    <!--样式-->
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+</head>
+
+<body>
+    <title>固定表头和首列的表格</title>
+    <style type="text/css">
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .table-tips-wrap {
+            margin-top: 17px;
+        }
+        
+        .table-tips {
+            height: 37px;
+            line-height: 37px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        #matrix-table-display-wrap {
+            margin-top: 18px;
+            width: 100%;
+        }
+        
+        #matrix-table-wrap th,
+        td {
+            border: 2px solid #e4e4e4;
+            padding: 0;
+        }
+        
+        #matrix-table-wrap {
+            margin-top: 18px;
+            margin-bottom: 72px;
+            height: 872px;
+            overflow: auto;
+            border-top: 4px solid #d2d6de;
+            background: #ffffff;
+            font-family: "微软雅黑";
+        }
+        
+        .matrix-table-header {}
+        
+        #matrix-table-header-left-border {
+            position: absolute;
+        }
+        
+        .matrix-table-header th div {
+            width: 60px;
+            text-align: center;
+        }
+        
+        #matrix-table th div {
+            text-align: center;
+        }
+        
+        .matrix-table-equipment {
+            height: 36px;
+        }
+        
+        .matrix-table-header-left {
+            width: 180px !important;
+            height: 116px;
+            background-repeat: no-repeat;
+        }
+        
+        .matrix-table-data {
+            text-align: center;
+            line-height: 46px;
+        }
+        /*表格左部*/
+        
+        .matrix-table-left-equipment,
+        .resolution-left-hertz,
+        .matrix-table-left-out {
+            width: 60px;
+            height: 46px;
+            text-align: center;
+            line-height: 46px;
+        }
+        
+        .matrix-table-left-out {
+            color: #4d4d4d;
+            font-weight: bold;
+        }
+        
+        .matrix-table-left-out td div {
+            text-align: center;
+            line-height: 46px;
+        }
+        
+        canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e4e4e4;
+        }
+        
+        .matrix-table {}
+        
+        #matrix-table-wrap th,
+        td {
+            border: 2px solid #e4e4e4;
+        }
+        
+        #matrix-table-wrap {
+            width: 1127px;
+            height: 872px;
+            overflow: scroll;
+            border-top: 4px solid #d2d6de;
+        }
+        
+        .matrix-table-header {}
+        
+        #matrix-table-header-left-border {
+            position: absolute;
+        }
+        
+        .matrix-table-header th div {
+            width: 60px;
+            text-align: center;
+        }
+        
+        #matrix-table th div {
+            text-align: center;
+        }
+        
+        .matrix-table-equipment {
+            height: 36px;
+        }
+        
+        .matrix-table-header-left {
+            width: 180px !important;
+            height: 116px;
+            background-repeat: no-repeat;
+        }
+        
+        .matrix-table-data {
+            text-align: center;
+            line-height: 46px;
+        }
+        /*表格左部*/
+        
+        .matrix-table-left-equipment,
+        .resolution-left-hertz,
+        .matrix-table-left-out {
+            width: 60px;
+            height: 46px;
+            text-align: center;
+            line-height: 46px;
+        }
+        
+        .matrix-table-left-out {
+            color: #4d4d4d;
+            font-weight: bold;
+        }
+        
+        .matrix-table-left-out td div {
+            text-align: center;
+            line-height: 46px;
+        }
+        
+        canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e4e4e4;
+        }
+        
+        .td-bgcolor-f2c627 {
+            background: #f2c627;
+        }
+        
+        .td-bgcolor-24c9f2 {
+            background: #24c9f2;
+        }
+        
+        .td-bgcolor-1ff269 {
+            background: #1ff269;
+        }
+    </style>
+    <div class="table-tips-wrap clearfix">
+        <a href="javascript:void(0);" class="table-tips table-tips-audio fl" style="width: 82px;background: #f2c627;color: #333333;margin-right: 18px;">Audio</a>
+        <a href="javascript:void(0);" class="table-tips table-tips-video fl" style="width: 82px;background: #24c9f2;color: #333333;margin-right: 18px;">Video</a>
+        <a href="javascript:void(0);" class="table-tips table-tips-audio-video fl" style="width: 110px;background:#1ff269;color: #333333;margin-right: 18px;">Audio+Video</a>
+        <a href="javascript:void(0);" class="table-tips fl" style="width: 82px;background: #f2c627;color: #333333;margin-right: 18px;">预设按钮</a>
+        <a href="javascript:void(0);" class="table-tips table-tips-cancel fl" style="width: 82px;background: transparent;border: 1px solid #00c0ef;">取消</a>
+        <a href="" class="table-tips fr" style="width: 110px;background: transparent;border: 1px solid #00c0ef;">设备故障及记录</a>
+        <a href="" class="table-tips fr" style="width: 82px;background:#00c0ef;color: #fff;color: #fff;margin-right: 24px;">设备详情</a>
+        <input type="text" id="tablecell" />
+    </div>
+    <div id="matrix-table-wrap">
+        <table id="matrix-table" class="matrix-table">
+            <tr class="matrix-table-header">
+                <th rowspan="3" colspan="3" style="position:relative;">
+                    <canvas id="myCanvas" width="170" height="116">
+        </th>
+        <th style="border: 0;">
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+        <th>
+          <div class="matrix-table-equipment">显示器</div>
+        </th>
+      </tr>
+      <tr>
+        <th style="border: 0;">
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+        <th>
+          <div class="resolution-hertz">1080p/<br />60hz</div>
+        </th>
+      </tr>
+      <tr>
+        <th style="border: 0;">
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+        <th>
+          <div class="matrix-table-in">In1</div>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+
+  <!--脚本-->
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="./bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.moveTo(180, 0);
+    ctx.lineTo(10, 110);
+    ctx.stroke();
+
+    for (var i = 0; i < 24; i++) {
+      var count = i + 1;
+      var a = '<tr class="matrix-table-data divdata' + count + '" data1 ="' + count + '">\
+	        <td><div class="matrix-table-left-equipment">显示器</div></td>\
+	    	<td><div class="resolution-left-hertz"><div style="height: 22px;line-height: 22px;">1080p/</div><div style="height: 22px;line-height: 22px;">60hz</div></div></td>\
+	    	<td><div class="matrix-table-left-out">Out1</div></td>\
+	        <td data="1" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="2" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="3" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="4" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="5" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="6" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="7" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="8" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="10" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="11" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="12" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="13" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="14" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="15" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="16" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="17" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="18" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="19" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        <td data="20" class="matrix-table-data-checked"><div>'+ i + '</div></td>\
+	        </tr>';
+      $("#matrix-table").append(a);
+    }
+    $("body").on("click", ".matrix-table-data-checked", function (index, item) {
+      var colum = $(this).attr('data');
+      var row = $(this).parent().attr('data1');
+      $('#tablecell').val(colum + "|" + row);
+    })
+
+
+    var arr=[];
+    $("body").on("click", ".table-tips", function (index, item) {
+      var colum = $('#tablecell').val().split('|')[0];
+      var row = $('#tablecell').val().split('|')[1];
+      var _this = $(this)
+      $(".divdata" + row).each(function (index, item) {
+        $(this).find('td').each(function () {
+          if ($(this).attr('data') == colum) {
+            if (_this.hasClass("table-tips-audio")) {
+              $(this).addClass("td-hasBgcolor td-bgcolor-f2c627");
+              arr.push($(this));
+            } else if (_this.hasClass("table-tips-video")) {
+              $(this).addClass("td-hasBgcolor td-bgcolor-24c9f2");
+              arr.push($(this));
+            } else if (_this.hasClass("table-tips-audio-video")) {
+              $(this).addClass("td-hasBgcolor td-bgcolor-1ff269");
+              arr.push($(this));
+            } 
+          }
+        })
+
+      })
+    })
+   
+    $(".table-tips-cancel").on("click",function() {
+      console.log(arr);
+      arr[arr.length-1].removeClass("td-bgcolor-f2c627  td-bgcolor-24c9f2 td-bgcolor-1ff269");
+      arr.splice(arr.length-1,1);
+    })
+
+
+  </script>
+</body>
+
+</html>

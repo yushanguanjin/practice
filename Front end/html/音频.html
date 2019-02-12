@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function myFunction(x) {
+            if (x.matches) { // 媒体查询
+                document.body.style.backgroundColor = "yellow";
+            } else {
+                document.body.style.backgroundColor = "pink";
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 700px)")
+        myFunction(x) // 执行时调用的监听函数
+        x.addListener(myFunction) // 状态改变时添加监听器
+    </script>
+</body>
+
+</html>

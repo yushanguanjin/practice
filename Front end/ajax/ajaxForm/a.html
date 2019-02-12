@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>jQuery Form插件例子-ajaxForm()</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="http://img9.tongzhuo100.com/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://img9.tongzhuo100.com/js/jquery.form.min.js"></script>
+    <script type="text/javascript">
+        $('#button').click(function() {
+            var options = {
+                type: 'post', //post提交
+                url: 'http://ask.tongzhuo100.com/server/****.php?=' + Math.random(), //url
+                dataType: "json", //json格式
+                data: {
+                    'name': name,
+                    ....
+                }, //如果需要提交附加参数，视情况添加
+                clearForm: true, //成功提交后，清除所有表单元素的值
+                resetForm: true, //成功提交后，重置所有表单元素的值
+                cache: false,
+                async: false, //同步返回
+                success: function(data) {
+                    //服务器端返回处理逻辑
+                },
+                error: function(XmlHttpRequest, textStatus, errorThrown) {
+                    alert('操作失败');
+                }
+            };
+            $('#submit').ajaxSubmit(options);
+        })
+    </script>
+</head>
+
+<body>
+    <form method="post" action="#" id="submit">
+        标题：<input type="text" name="title" value="" /> 图片：
+        <input type="file" name="image" />
+        <input type="button" value="提交" id="button" />
+    </form>
+</body>
+
+</html>

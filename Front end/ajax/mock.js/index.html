@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style type="text/css">
+        .p1 {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .p2 {
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        .p3 {
+            font-size: 14px;
+            color: #ff5f19;
+        }
+
+        .product {
+            width: 100%;
+            position: relative;
+            margin: 20px 0 5px 0;
+            height: 100px;
+            background: #fafafa;
+        }
+
+        .img {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .p {
+            display: inline-block;
+            float: left;
+            width: 50%;
+            margin-top: 6px;
+            font-family: Microsoft YaHei;
+        }
+
+        .p1 {
+            margin-top: 16px;
+        }
+    </style>
+    <div>
+        <h1 id="mockjs">mockjs</h1>
+    </div>
+    <script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script>
+        Mock.mock(
+            'http://mockjs', {
+                "userName": '@name',     //模拟名称
+                "age|1-100": 100,          //模拟年龄(1-100)
+                "color": "@color",    //模拟色值
+                "date": "@date('yyyy-MM-dd')",  //模拟时间
+                "url": "@url()",     //模拟url
+                "content": "@cparagraph()" //模拟文本
+            }
+        );
+
+
+        //ajax请求
+        $("#mockjs").click(function () {
+            $.ajax({
+                url: "http://mockjs",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+                data: {},    //参数值
+                type: "GET",   //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (req) {
+                    //请求成功时处理
+                    console.log(req);
+                },
+                complete: function () {
+                    //请求完成的处理
+                },
+                error: function () {
+                    //请求出错处理
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

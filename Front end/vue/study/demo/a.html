@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg-pic {
+            width: 200px;
+            height: 200px;
+            margin-left: 200px;
+            margin-top: 100px;
+            border: 1px solid #dddddd;
+            background: url("../../../img/1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        
+        .jindutiao {
+            width: 200px;
+            height: 20px;
+            margin-left: 200px;
+            margin-top: 20px;
+            background: #ff0000;
+        }
+        
+        .button-wrap {
+            margin-left: 200px;
+            margin-top: 20px;
+        }
+        
+        input[type="button"] {
+            width: 60px;
+            height: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="bg-pic" v-show="show">
+        </div>
+        <div v-bind:class="{jindutiao:!jindutiao}" v-bind:style="{width:storage + 'px'}"></div>
+        <div class="button-wrap">
+            <input v-on:click="reduce" type="button" value="减少">
+            <input v-on:click="recovery" type="button" value="恢复">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el: ".box1",
+            data: {
+                jindutiao: false,
+                storage: 200,
+                show: true
+            },
+            methods: {
+                reduce: function() {
+                    this.storage -= 10;
+                    if (this.storage <= 0) {
+                        this.show = false;
+                    }
+                },
+                recovery: function() {
+                    this.storage = 200;
+                    this.show = true;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

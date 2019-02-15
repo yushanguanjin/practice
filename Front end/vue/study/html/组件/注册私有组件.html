@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    /*参考网址：https://www.cnblogs.com/smyhvae/p/9195261.html*/
+    <template id="my-account">
+        <div>
+                123456
+        </div>
+    </template>
+    <div id="app">
+        <account></account>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            components:{
+                account:{
+                    template:"#my-account"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+        
+        .changeColor {
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--静态传递数据-->
+        <input v-model="parentMsg" type="text">
+         <my-component  message="parentMsg"></my-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+      Vue.component("my-component",{
+          props:["message"],
+          data:function() {
+              return {
+                 message1: this.message + "用data选项对数据进行处理"
+              }
+          },
+          computed:{
+            normalizedSize:function(){
+                return this.message.trim().toLowerCase()
+              }
+          },
+          template:'<div>' +
+                    '<span>{{message1}}</span>'+
+                    '<span>{{normalizedSize}}</span>'+
+                  '</div>'
+      })
+      
+      new Vue({
+          el:"#app",
+          data:function() {
+              return {
+                parentMsg:'哈哈哈'
+              }
+          }
+      })
+    </script>
+</body>
+
+</html>

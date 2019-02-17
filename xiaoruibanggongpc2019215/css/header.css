@@ -1,0 +1,106 @@
+.header-pc{
+    height: 80px;
+}
+.xiaoruibangong-logo{
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /*解决ie10及以下图片会有边框样式*/
+    border: 0;
+}
+.header-pc  .page-content{
+    position: relative;
+    height: 100%;
+}
+.logo-wrap{
+    display: block;
+    
+}
+.page-menu{
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 275px;
+    background-color: transparent;
+}
+.page-menu li{
+    margin-right: 65px;
+    letter-spacing: 2px;
+}
+.page-menu li:last-of-type{
+    margin-right: 0;
+}
+.page-menu li a{
+    position: relative;
+    color: #62656f;
+}
+.header-menu-a:after {
+    content:"";
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    background: #fcb64f;
+    -webkit-animation: animate 0.5s;
+    animation: animate 0.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes animate{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+@keyframes animate{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+.page-menu-active{
+    color: #49b3f5 !important;
+}
+
+
+.login-and-registration{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.login-and-registration a{
+    display: block;
+    width: 108px;
+    height: 46px;
+    border-radius: 5px;
+    color:#fff;
+    text-align: center;
+    line-height: 46px;
+}
+.registration{
+    background: -webkit-gradient(linear, left top, right top, from(rgb(40,142,254)), to(rgb(92,209,254)));
+    background: linear-gradient(to right, rgb(40,142,254), rgb(92,209,254));
+}
+.registration:hover{
+    background: -webkit-gradient(linear,  left top, right top,  from(rgb(92,209,254)),to(rgb(40,142,254)));
+    background: linear-gradient(to right,  rgb(92,209,254),rgb(40,142,254));
+}
+.login{
+    margin-left: 13px;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(241,149,74)), to(rgb(255,177,58)));
+    background: linear-gradient(to right, rgb(241,149,74), rgb(255,177,58));
+}
+.login:hover{
+    background: -webkit-gradient(linear, left top, right top, from(rgb(255,177,58)), to(rgb(241,149,74)));
+    background: linear-gradient(to right, rgb(255,177,58), rgb(241,149,74));
+}

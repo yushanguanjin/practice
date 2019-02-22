@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 写法一 -->
+
+    <div id="app1">
+        <account></account>
+    </div>
+    <template id="myAccount">
+        <div>
+            <div>
+                123456
+            </div>
+        </div>
+    </template>
+    <!-- 写法二 -->
+    <div id="app2">
+        <account></account>
+    </div>
+    <!-- 写法三 -->
+    <!-- 定义模板 -->
+    <template id="myAccount">
+        <div>
+            <h2>登录页面</h2>
+            <h3>注册页面</h3>
+        </div>
+    </template>
+    <div id="app3">
+        <!-- 使用组件 -->
+        <account> </account>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        // 写法一
+        var myAccount = Vue.extend({
+            template: '<div><h2>登录页面</h2> <h3>注册页面</h3></div>' // 通过 template 属性，指定了组件要展示的HTML结构。template 是 Vue 中的关键字，不能改。
+        })
+        Vue.component("account", myAccount);
+
+        new Vue({
+            el: "#app1"
+        })
+        // 写法二
+        Vue.component("account", {
+            template: '<div><h2>登录页面</h2> <h3>注册页面</h3></div>'
+        })
+        /*第一个参数是标签名称*/
+
+        new Vue({
+            el: "#app2"
+        })
+        // 写法三
+        //定义、注册组件
+        Vue.component('account', {
+            template: '#myAccount'    // template 是 Vue 中的关键字，不能改。
+        });
+
+        new Vue({
+            el: '#app3'
+        });
+    </script>
+</body>
+
+</html>

@@ -25,6 +25,7 @@ export default {
   //属性传值,父传子
   //子级props属性声明时，使用小驼峰或者中划线写法都可以,而子级模板使用从父级传来的变量时，需要使用对应的小驼峰写法
   props:{
+    //声名users，引用父组件的数据:users
     users:{
       type:Array,
       required:true

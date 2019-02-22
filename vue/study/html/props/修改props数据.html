@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 修改 props 数据通常有两种原因：prop 作为初始值传入后，子组件想把它当做局部数据来用。prop 作为初始值传入后，由子组件处理成其他数据输出 -->
+    <div id="example">
+        <parent></parent>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var childNode = {
+            template: `
+            <div class="child">
+                <div>
+                <span>子组件数据</span>
+                <input v-model="forChildMsg"/>
+                </div>
+                <p>{{forChildMsg}}</p>
+                <p>ownChildMsg : {{ownChildMsg}}</p>
+            </div>
+            `,
+
+            /*子组件的模板使用从父组件传来的变量时，需要使用对应的小驼峰写法*/
+            props: {
+                "for-child-msg": String
+            },
+            data: function () {
+                return {
+                    // 使用变量ownChildMsg，存储 prop 的初始值
+                    ownChildMsg: this.forChildMsg
+                }
+            },
+            watch: {
+                // watch 观察prop值的变化,观察forChildMsg，并随时更新ownChildMsg的值
+                forChildMsg: function () {
+                    this.ownChildMsg = this.forChildMsg;
+                }
+            }
+            /*子组件 props 属性声明时，使用小驼峰或者中划线写法都可以；*/
+        };
+        var parentNode = {
+            template: `
+            <div>
+                <p>parentNode</p>
+                <child v-bind:for-child-msg="childMsg"></child>
+               
+            </div>
+            `,
+            /*对于 props 声明的属性，在父组件的 template 模板中，属性名需要使用中划线写法；*/
+            components: {
+                child: childNode
+            },
+            data: function () {
+                return {
+                    childMsg: "Dynamic props msg for child-1",
+                }
+            }
+        };
+        new Vue({
+            el: "#example",
+            components: {
+                parent: parentNode
+            }
+        });
+    </script>
+</body>
+
+</html>

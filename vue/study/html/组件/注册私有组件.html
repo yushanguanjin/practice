@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    /*参考网址：https://www.cnblogs.com/smyhvae/p/9195261.html*/
+
+    <!-- 方法一 -->
+    <div id="app1">
+        <!-- 使用Vue实例内部的私有组件 -->
+        <my-login></my-login>
+    </div>
+    <!-- 方法二 -->
+    <template id="my-account">
+        <div>
+            123456
+        </div>
+    </template>
+    <div id="app2">
+        <account></account>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        //方法一
+        new Vue({
+            el: '#app1',
+            data: {},
+            components: { // 定义、注册Vue实例内部的私有组件
+                myLogin: {
+                    template: '<h3>这是私有的login组件</h3>'
+                }
+            }
+        });
+        // 方法二
+        new Vue({
+            el: "#app2",
+            components: {
+                account: {
+                    template: "#my-account"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -38,7 +38,7 @@ button {
 }
 
 a:focus,
-a:active,
+a:active
 {
     border: 0;
     outline: 0;

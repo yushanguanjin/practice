@@ -13,7 +13,8 @@ export default {
   },
   data() {
     return {
-      title1: "Vue Demo"
+      title1: "Vue Demo",
+      title:""
     };
   },
   methods: {

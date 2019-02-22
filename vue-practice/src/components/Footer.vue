@@ -13,7 +13,8 @@ export default {
   },
   data () {
     return {
-      copyright: 'vue copyright'
+      copyright: 'vue copyright',
+       title:""
     }
   }
 }

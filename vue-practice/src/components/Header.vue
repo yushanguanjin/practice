@@ -14,14 +14,40 @@ export default {
   data() {
     return {
       title1: "Vue Demo",
-      title:""
+      title: ""
     };
   },
   methods: {
     changeTitle: function() {
-        this.title = "changed";
+      //this.title = "changed";
+      this.$emit("titleChanged", "子向父组件传值"); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
     }
-  }
+  },
+  //生命周期
+  // beforeCreate: function() {
+  //   alert("组件实例化之前执行的函数");
+  // },
+  // created: function() {
+  //   alert("组件实例化完毕，但页面还未显示");
+  // },
+  // beforeMount: function() {
+  //   alert("组件挂载前，页面仍未展示，但虚拟dom已配置");
+  // },
+  // mounted: function() {
+  //   alert("组件挂载后，此方法执行后，页面展示");
+  // },
+  // beforeUpdate: function() {
+  //   alert("组件更新前，页面仍未更新，但虚拟dom已配置");
+  // },
+  // updated: function() {
+  //   alert("组件更新，此方法执行后，页面更新");
+  // },
+  // beforeDestroy: function() {
+  //   alert("组件销毁前");
+  // },
+  // destroyed: function() {
+  //   alert("组件销毁");
+  // }
 };
 </script>
 

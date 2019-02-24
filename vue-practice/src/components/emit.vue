@@ -12,7 +12,6 @@ export default {
   props: ['count', 'list'],
   methods: {
     sendMsg: function () { //传参方法
-   
       this.$emit('headCallBack', '子组件的参数内容'); //第一个参数是父组件中v-on绑定的自定义回调方法，第二个参数为传递的参数
         console.log(this);
     }

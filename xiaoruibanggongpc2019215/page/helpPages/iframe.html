@@ -50,7 +50,7 @@
             </li> -->
             <li class="js_li active" data="1">
 
-                <div class="leftdiv">
+                <div class="leftdiv catalog-title-wrap">
                     <a href="preface.html" class="active  installation-problem-a directory-header" style="position: relative;font-size: 18px;color: #2c3e50 !important;">前言</a>
                 </div>
 
@@ -418,24 +418,7 @@
         console.log(targetFirstSubTitleHref);
 
 
-        //企业微信，钉钉链接
-        $(".menu-first-sub-title-a").each(function() {
-            if ($(this).attr("href") == targetFirstSubTitleHref) {
 
-                console.log($(this).attr("href"));
-                $(this).addClass("menu-first-sub-title-a-active");
-                $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
-
-            }
-        })
-        $(".menu-second-sub-title-a").each(function() {
-
-                console.log(100);
-                $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
-                $(this).addClass("menu-second-sub-title-a-active");
-
-            })
-            //企业微信，钉钉链接下面的锚点
 
 
         setTimeout(function() {
@@ -451,16 +434,27 @@
                     }
                 })
             }, 0)
-            //安装
+            //企业微信，钉钉链接
+        setTimeout(function() {
+                $(".menu-first-sub-title-a").each(function(index, item) {
+                    if ($(this).attr("href") == targetFirstSubTitleHref) {
+                        $(".menu-first-sub-title-a").removeClass("menu-first-sub-title-a-active");
+                        $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
+                        $(this).addClass("menu-first-sub-title-a-active");
+                    }
+                })
+            }, 200)
+            //企业微信，钉钉链接下面的锚点
         setTimeout(function() {
             $(".menu-second-sub-title-a").each(function(index, item) {
                 if ($(this).attr("href") == targetSecondTitleHref) {
-
+                    $(".menu-first-sub-title-a").removeClass("menu-first-sub-title-a-active");
                     $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
+                    $(this).addClass("menu-second-sub-title-a-active");
 
                 }
             })
-        }, 0)
+        }, 200)
 
 
         $('.menu-sub-title-a').click(function() {
@@ -496,7 +490,7 @@
 
             //当前一级目录标题改变时，跳转
             if (window.location.href.indexOf(menuSubTitleUrl) < 0) {
-                $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
+                //$(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
                 localStorage.setItem("menuSubTitleUrl", menuSubTitleUrl);
                 localStorage.setItem("secondTitleHref", secondTitleHref);
                 window.location.href = menuSubTitleUrl + secondTitleHref;
@@ -504,7 +498,7 @@
                 //当前一级目录标题不改变时，不跳转
                 $(".menu-first-sub-title-a").removeClass("menu-first-sub-title-a-active");
                 $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
-                $(this).addClass("menu-second-sub-title-a-active");
+                //$(this).addClass("menu-second-sub-title-a-active");
                 console.log(10);
                 $('html, body').animate({
                     scrollTop: $(secondTitleHref).offset().top - 62
@@ -551,6 +545,9 @@
                 //$(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
                 $(".menu-sub").hide();
                 $(this).parent().siblings(".menu-sub").show();
+                $(".menu-first-sub-title-a").removeClass("menu-first-sub-title-a-active");
+                $(".menu-second-sub-title-a").removeClass("menu-second-sub-title-a-active");
+                $(".menu-sub-title-a").removeClass("menu-sub-title-a-active");
                 return false;
             })
             // $(".catalog-title-wrap").click(

@@ -140,7 +140,27 @@
         </div>
     </div>
     <script src="../../js/library/jquery-2.1.4.js"></script>
-    <script src="../../js/page/help.js"></script>
+
+    <script>
+        // $(document).ready(function() {
+        //     $("#enterprise-wechat-sub-title-a").addClass("menu-first-sub-title-a-active");
+        // })
+
+        //载入文档初始化页面
+        $("#each-help-page").load("iframe.html", function() {
+            $(".leftdiv a").removeClass("active");
+            $("body").on("click", ".menu-sub-title-a", function() {
+                $(".menu-sub-title>a").removeClass("menu-sub-title-a-active");
+                $(this).addClass("menu-sub-title-a-active");
+            })
+            $(".right-content-wrap").append($(".right-content"));
+            $(".right-content").show();
+
+            $("#nail-sub-title-a").addClass("menu-first-sub-title-a-active");
+
+            $("#enterprise-wechat-sub-title-a").addClass("menu-first-sub-title-a-active");
+        });
+    </script>
 </body>
 
 </html>

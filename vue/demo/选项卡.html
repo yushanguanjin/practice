@@ -7,6 +7,9 @@
     <meta charset="UTF-8">
 
     <title>选项卡</title>
+    <style>
+
+    </style>
 
 
 
@@ -16,83 +19,76 @@
             float: left;
             margin-right: 20px;
         }
+        
+        .div-content-wrap {
+            width: 200px;
+            height: 100px;
+        }
+        
+        .div-content {
+            width: 200px;
+            height: 100%;
+        }
+        
+        .active {
+            color: #ff0000;
+        }
     </style>
 
 </head>
 
 <body>
 
-    <p class="app">
-
-        <ul>
-
-            <li v-for="(item,index) in list" @click="tab(index)">{{item.tab}}
-
-                <p v-show="item.show">
-
-                    {{item.title}}
-
-                </p>
-
+    <div id="app">
+        <ul class="clearfix">
+            <li v-for="(list,index) in lists" :key="index" v-on:click="showCurrentcontent(index)" v-bind:class="{active: isActive == index}">
+                {{list}}
             </li>
-
         </ul>
-
-    </p>
+        <div class="div-content-wrap">
+            <component is="currentTabContent"></component>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
-        let obj = [
-
-            {
-                "tab": "选项一",
-                "show": true,
-                "title": "1111"
-            },
-
-            {
-                "tab": "选项二",
-                "show": false,
-                "title": "2222"
-            },
-
-            {
-                "tab": "选项三",
-                "show": false,
-                "title": "3333"
-            }
-
+        var lists = [
+            "选项卡1",
+            "选项卡2",
+            "选项卡3"
         ];
-
-        var vm = new Vue({
-
-            el: ".app",
-
+        var content1 = {
+            template: "<div class='div-content'>选项卡1</div>"
+        };
+        var content2 = {
+            template: "<div class='div-content'>选项卡2</div>"
+        };
+        var content3 = {
+            template: "<div class='div-content'>选项卡3</div>"
+        };
+        new Vue({
+            el: "#app",
             data: {
-
-                list: obj
-
+                index: 0,
+                lists: lists,
+                isActive: 0,
+                arr: [content1, content2, content3]
             },
-
-            methods: {
-
-                tab: function(index) {
-
-                    for (var i = 0; i < this.list.length; i++) {
-
-                        this.list[i].show = false;
-
-                        if (i == index) {
-                            // console.log(index);
-                            this.list[index].show = true;
-
-                        }
-
-                    }
-
+            components: {
+                "content1": content1,
+                "content2": content2,
+                "content3": content3
+            },
+            computed: {
+                currentTabContent: function() {
+                    return this.arr[this.isActive]
                 }
-
+            },
+            method: {
+                showCurrentcontent: function(index) {
+                    console.log(index);
+                    this.isActive = index;
+                }
             }
-
         })
     </script>
 

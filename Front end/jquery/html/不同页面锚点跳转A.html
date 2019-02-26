@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折叠面板，回顶部,轮播图</title>
+    <style>
+        .div {
+            width: 10vw;
+            height: 10vh;
+            background: #ff0000;
+        }
+        
+        p {
+            width: 100px;
+            height: 20px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <a href="#pageB">页面跳转</a>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+       $("a").click(function() {
+           window.location.href = "不同页面锚点跳转B.html" + "#pageB"
+       })
+    </script>
+</body>
+
+</html>

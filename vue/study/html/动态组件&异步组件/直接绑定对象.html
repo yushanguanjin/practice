@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="example">
+        <button @click="change">切换页面</button>
+        <component :is="currentView"></component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#example',
+            data: {
+                index: 0,
+                arr: [
+                    { template: `<div>我是主页</div>` },
+                    { template: `<div>我是提交页</div>` },
+                    { template: `<div>我是存档页</div>` }
+                ],
+            },
+            computed: {
+                currentView() {
+                    return this.arr[this.index];
+                }
+            },
+            methods: {
+                change() {
+                    this.index = (++this.index) % 3;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

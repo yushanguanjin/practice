@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- <div id="app1">
+        <child>
+            <template slot-scope="a">
+                {{a}}
+            </template>
+        </child>
+    </div> -->
+    <div id="app2">
+        <child :lists="nameList">
+            <template slot-scope="a">
+                <div v-if='a.bbbbb.id==1'>你好：<span>{{a.bbbbb.name}}</span></div>
+                <div v-else>{{a.bbbbb.name}}</div>
+            </template>
+        </child>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        //     Vue.component('child',{
+        //     template:`
+        //         <div>
+        //             <slot say="你好"></slot>
+        //         </div>
+        //     `
+        // })
+
+        // let vm = new Vue({
+        //     el:'#app1',
+        //     data:{
+
+        //     }
+        // })
+
+        Vue.component('child', {
+            props: ['lists'],
+            template: `
+            <div>
+                <ul>
+                    <li v-for="list in lists">
+                        <slot :bbbbb="list"></slot>
+                    </li>
+                </ul>
+            </div>
+        `
+        })
+
+        let vm = new Vue({
+            el: '#app2',
+            data: function () {
+                return {
+                    nameList: [
+                        { id: 1, name: '孙悟空' },
+                        { id: 2, name: '猪八戒' },
+                        { id: 3, name: '沙和尚' },
+                        { id: 4, name: '唐僧' },
+                        { id: 5, name: '小白龙' },
+                    ]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

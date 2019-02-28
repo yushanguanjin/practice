@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .show {
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 定义一个vue的管理区块，（MVVM中的View） -->
+    <div id="app">
+        <button @click="toggle">显示/隐藏</button><br>
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div class="show"  v-show="isshow">itcast 传智</div>
+        </transition>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    // 实例化vue对象（MVVM中的View Model）
+    new Vue({
+        // vm控制的区块为id为app的div，此div中的所有vue指令均可以被vm解析
+        el: '#app',
+        data: {
+            // 数据 （MVVM中的Model）   
+            isshow: false
+        },
+        methods: {
+            toggle: function () {
+                this.isshow = !this.isshow;
+            },
+            // 以下三个与enter相关的方法只会在元素由隐藏变为显示的时候才会执行
+            // el:指的是当前调用这个方法的元素对象
+            // done:用来决定是否要执行后续的代码如果不执行这个方法，那么将来执行完before执行完enter以后动画就会停止  
+            beforeEnter: function (el) {
+                console.log("beforeEnter");
+                // 当入场之前会执行 v-enter
+                el.style = "padding-left:100px";
+            },
+            enter: function (el, done) {
+                // 当进行的过程中每执行 v-enter-active
+                console.log("enter");
+                // 为了能让代码正常进行，在设置了结束状态后必须调用一下这个元素的
+                // offsetHeight / offsetWeight  只是为了让动画执行
+                el.offsetHeight;
+
+                // 结束的状态最后啊写在enter中
+                el.style = "padding-left:0px";
+
+
+                // 执行done继续向下执行
+                done();
+            },
+            afterEnter: function (el) {
+                // 当执行完毕以后会执行
+                console.log("afterEnter");
+                this.isshow = false;
+            }
+        }
+    })
+
+</script>
+
+</html>

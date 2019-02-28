@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ul-box {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .ul-enter-active,
+        .ul-leave-active {
+            transition: all 0.5s;
+        }
+
+        .ul-enter,
+        .ul-leave-to {
+            height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="show = !show">
+            slideToggle
+        </button>
+        <transition name="ul">
+            <ul v-if="show" class="ul-box">
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+                <li>11111111111111</li>
+            </ul>
+        </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        // 实例化vue对象（MVVM中的View Model）
+        new Vue({
+            // vm控制的区块为id为app的div，此div中的所有vue指令均可以被vm解析
+            el: '#app',
+            data: {
+                // 数据 （MVVM中的Model）
+                show: true
+            }
+        })
+    </script>
+</body>
+
+</html>

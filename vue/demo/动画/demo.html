@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background: orange;
+        }
+
+        .fade-leave-active {
+            transition: all ease 3s;
+            background: blue;
+        }
+
+        .fade-leave {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+        <!-- v-enter:定义目标元素在消失后，又开始出现时的状态；
+
+        　　v-leave:定义目标元素正准备消失时的状态；
+        
+        　　但是以上两个都是一瞬间的事情，就好比flash动画的一帧内容，至于第二帧至结尾的内容就交给v-enter-ative和v-leave-active了。
+        
+        　　v-enter-active：定义目标元素出现在文档中的最终状态（最后一帧）；
+        
+        　　v-leave-active：定义目标元素离开文档时的最终状态（最后一帧），展现完这一状态后就消失了。 
+
+             注意：这两个样式一定要定义在对应的v-enter或者v-leave之前，否则显示是无效的。
+        -->
+
+       
+    <div id="app">
+        <button v-on:click="show = !show">按钮</button>
+        <transition name="fade">
+            <div v-if="show" class="div1">
+
+            </div>
+        </transition>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+
+                    show: true
+                }
+            },
+            mounted: function(){
+                alert("123456")
+            }
+        })
+    </script>
+</body>
+
+</html>

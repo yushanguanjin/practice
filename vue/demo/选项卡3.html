@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+        .active{
+            color:#ff0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tab" >
+        <ul class="clearfix">
+            <li v-for="(item,index) in items" v-bind:class="{active:isActive == index}" v-on:click="toggleTab(index)">{{item}}</li>
+        </ul>
+        <ul class="clearfix">
+            <li v-for="(content,contentIndex) in  contents " v-show="contentIndex == isActive">{{content}}</li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#tab",
+            data: function () {
+                return {
+                    items: ["选项一", "选项二", "选项三", "选项四"],
+                    contents: ["选项内容一", "选项内容二", "选项内容三", "选项内容四"],
+                    isActive:0
+                }
+            },
+            methods:{
+                toggleTab:function(index) {
+                    console.log(index);
+                    this.isActive = index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

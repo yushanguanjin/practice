@@ -1,0 +1,44 @@
+/********** 基础样式 **********/
+
+
+/* 字体样式  开始*/
+*{
+    font-family: PingFangSC-Medium, sans-serif;
+}
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs32 {
+    font-size: 32px;
+}
+
+
+/* 字体样式  结束*/
+
+
+/* 清除浮动部分 开始 */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+   
+}
+
+
+/* 清除浮动部分 结束 */

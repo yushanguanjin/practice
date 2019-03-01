@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>企业微信扫码登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../img/logo1.png" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        html,body{
+            min-width: 1200px;
+        }
+        .saoma-login {
+            padding-top: 170px;
+            background-image: url(../img/login-bg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 1000px;
+        }
+
+        .right-saoma-login {
+            width: 600px;
+            height: 600px;
+            background: #ffffff;
+        }
+        .login-page-content{
+            position: relative;
+            left: 100%;
+        }
+    </style>
+    <script>
+    </script>
+
+</head>
+
+<body>
+    <!-- 头部    开始 -->
+    <header class="header">
+        <!-- 头部大屏幕 -->
+        <div class="header-pc">
+            <div class="page-content clearfix">
+                <a href="index.html" class="logo-wrap fl">
+                    <img src="../img/logo.png" alt="" class="xiaoruibangong-logo">
+                </a>
+                <ul class="page-menu clearfix fl " lay-filter="">
+                    <li class=" fl"><a href="index.html" class="page-menu-active header-menu-a">产品介绍</a></li>
+                    <li class=" fl"><a href="helpPages/preface.html">文档</a></li>
+                    <li class=" fl"><a href="contactUs.html">联系我们</a></li>
+                </ul>
+                <div class="login-and-registration  clearfix">
+                    <a href="register.html" class="registration fl">注册</a>
+                    <a href="login.html" class="login fl">登录</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 头部    结束 -->
+
+    <div class="saoma-login">
+        <div class="page-content" style="position:relative;overflow: hidden;">
+            <div class="login-page-content clearfix">
+                <img class="fl" src="../img/saoma-left.png" alt="">
+                <div class="fl right-saoma-login" style="padding-top:60px;">
+                    <p style="font-size:30px;text-align: center;">登录小睿办公企业微信版后台</p>
+                    <img src="../img/qiyeweiixn_login-erweima.png" alt="" style="display: block;width: 300px;margin-top: 50px;margin-bottom: 70px;margin-left: auto;margin-right: auto;">
+                    <p style="font-size: 14px;color: #ababab;text-align: center;">还有问题？请点击
+                        <a href="helpPages/preface.html" style="font-size: 14px;color: #047dff;">文档</a>
+                        查看</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../js/library/jquery-2.1.4.js"></script>
+    <script>
+        $(".page-menu li a").hover(
+            function () {
+                $(".page-menu li a").removeClass("page-menu-active header-menu-a");
+                $(this).addClass("page-menu-active header-menu-a");
+            },
+            function () {
+
+            }
+        )
+
+        $(".online-consult").click(function () {
+            $(this).animate({
+                "right": "-78px"
+            }, 500, function () {
+                $(".online-consult2").animate({
+                    "right": "66px"
+                })
+            }
+            )
+        })
+        $(".online-consult2").click(function () {
+            $(this).animate({
+                "right": "-168px"
+            }, 500, function () {
+                $(".online-consult").animate({
+                    "right": "66px"
+                })
+            }
+            )
+        })
+
+        $(".login-page-content").animate({
+            "left":"0"
+        },"slow")
+    </script>
+</body>
+
+</html>

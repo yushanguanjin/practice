@@ -1,0 +1,42 @@
+/*尾部*/
+.footer{
+    margin: 0;
+    background: #393b46;
+    padding-top: 40px;
+}
+.footer-info-li:first-of-type{
+    
+}
+.footer-info-li:nth-of-type(2){
+   
+}
+.footer-info-li:nth-of-type(3){
+    margin-left: 240px;
+}
+.footer-info-li:nth-of-type(4){
+    margin-left: 52px;
+}
+.footer-info-li>li{
+    font-size: .22rem;
+    color: #ffffff;
+    margin-bottom: .22rem;
+}
+.footer-info-li:nth-of-type(4)>li{
+    margin-bottom: 17px;
+}
+.footer-content{
+    width: 3.9rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer hr{
+    border: 0.5px solid #75767e;
+}
+.banquan{
+    padding-top: 22px;
+    padding-bottom: 22px;
+    font-size: .2rem;
+    color: #ffffff;
+    text-align: center;
+}
+/*尾部 结束*/

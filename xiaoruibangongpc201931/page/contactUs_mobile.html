@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>联系我们</title>
+    <link href="../img/logo1.png" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header_mobile.css">
+    <link rel="stylesheet" href="../css/footer_mobile.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/page/index_mobile.css">
+    <style>
+        .lianxi-textarea{
+            resize: none;
+        }
+    </style>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '6.25rem';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+</head>
+
+<body>
+    <!-- 头部    开始 -->
+    <header class="header">
+        <div class="header-mobile">
+            <div class="mobile-content clearfix">
+                <a href="index_mobile.html">
+                    <img src="../img/logo.png" alt="" class="menu-mobile-logo fl">
+                </a>
+                <img src="../img/header/menu.png" alt="" class="menu-mobile-menu fr">
+               
+            </div>
+
+        </div>
+    </header>
+    <!-- 头部    结束 -->
+    <div class="product-introduction">
+            <div class="product-introduction-overburden">
+                    <a href="index_mobile.html" class="menu-content-item menu-content-item-problems">产品介绍</a>
+                    <a href="helpPages/preface.html" class="menu-content-item menu-content-item-problems">文档</a>
+                    <a href="contactUs_mobile.html" class="menu-content-item  menu-content-item-introduction">联系我们</a>
+                </div>
+                <div class="lianxi">
+                        <div class="mobile-content">
+                            <p>联系我们</p>
+                            <textarea class="lianxi-textarea" name="" id="" cols="30" rows="10" placeholder="请输入您的称呼"></textarea>
+                            <textarea class="lianxi-textarea" name="" id="" cols="30" rows="10" placeholder="请输入您的邮箱"></textarea>
+                            <textarea class="lianxi-textarea" name="" id="" cols="30" rows="10" placeholder="请输入内容"
+                                style="height:2.17rem;"></textarea>
+                            <a href="feedback-success-tips_mobile.html" class="fasong">
+                                发送
+                            </a>
+                        </div>
+                </div>
+
+    <!-- 尾部    开始 -->
+    <footer class="footer">
+            <div class="mobile-content clearfix">
+    
+                <ul class="footer-info-li fl">
+                    <li>公司地址</li>
+                    <li>联系电话</li>
+                    <li>工作时间</li>
+                    <li>关注我们</li>
+                </ul>
+                <ul class="footer-info-li fr">
+                    <li>上海市静安区中山北路900号2-211室</li>
+                    <li>021-62083106</li>
+                    <li>周一至周五 9:00—18:00</li>
+                    <li>扫码关注微信公众号 <img src="../img/footer-erweima.png" alt="" style="width: 1.2rem;vertical-align: top;">
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <p class="banquan">©上海睿风信息技术有限公司 沪ICP备11008813号</p>
+        </footer>
+        </div>
+        <!-- 尾部    结束 -->
+   
+    <script src="../js/library/jquery-2.1.4.js"></script>
+    <script src="../js/library/swiper.min.js"></script>
+    <script>
+        var clickCount = 0;
+        $(".menu-mobile-menu").click(function () {
+            if (clickCount % 2 == 0) {
+                $(".product-introduction-overburden").animate({
+                    "left": "0"
+                }, "fast");
+            } else {
+                $(".product-introduction-overburden").animate({
+                    "left": "100%"
+                }, "fast");
+            }
+            clickCount++;
+        })
+
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+        })
+    </script>
+</body>
+
+</html>

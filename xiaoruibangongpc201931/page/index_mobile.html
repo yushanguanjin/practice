@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <link href="../img/logo1.png" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header_mobile.css">
+    <link rel="stylesheet" href="../css/footer_mobile.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/page/index_mobile.css">
+    <script src="../js/library/jquery-2.1.4.js"></script>
+   
+   
+    <script src="../js/library/swiper.min.js"></script>
+    <script>
+        
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '6.25rem';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+         
+
+       
+        
+       
+    
+    </script>
+
+</head>
+
+<body>
+    <!-- 头部    开始 -->
+    <header class="header">
+        <div class="header-mobile">
+            <div class="mobile-content clearfix">
+                <a href="index_mobile.html">
+                    <img src="../img/logo.png" alt="" class="menu-mobile-logo fl">
+                </a>
+                <img src="../img/header/menu.png" alt="" class="menu-mobile-menu fr">
+               
+            </div>
+
+        </div>
+    </header>
+    <!-- 头部    结束 -->
+    <div class="product-introduction">
+            <div class="product-introduction-overburden">
+                    <a href="index_mobile.html" class="menu-content-item menu-content-item-introduction">产品介绍</a>
+                    <a href="helpPages/preface.html" class="menu-content-item menu-content-item-problems">文档</a>
+                    <a href="contactUs_mobile.html" class="menu-content-item menu-content-item-problems">联系我们</a>
+                </div>
+    <!-- 导航   开始-->
+    <nav class="nav">
+        <div class="mobile-content clearfix">
+            <p class="nav-first-title">功能完整、文档齐全、每天只需1元起</p>
+            <p class="nav-second-title"> 强大完整的功能方便企业更好的管理，齐全完整的文档让小白用户也能够快速上手使用，优惠的价格让微小企业方便使用。同时，小睿办公支持企业微信和钉钉。</p>
+            <img src="../img/bgpic.png" alt="" style="display: block;width: 4.6rem;margin-left: auto;margin-right: auto;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img" style="background-image:url('../img/mobile-advantages1.png')">
+                          
+                        </div>
+        
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img" style="background-image:url('../img/mobile-advantages2.png')">
+                            
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-img" style="background-image:url('../img/mobile-advantages3.png')">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+               
+            </div>
+        </div>
+    </nav>
+    <!-- 导航   结束-->
+
+    <!-- 产品特点   开始 -->
+    <div class="chanpin-tedian-item" style="background:#f4fbff;">
+        <div class="chanpin-tedian-item-contain">
+            <img class="chanpin-tedian-item-icon" src="../img/gongneng.png" alt="" style="width: .85rem;">
+            <div class="chanpin-tedian-item-title">
+                功能完整
+            </div>
+            <div class="chanpin-tedian-item-content">
+                项目管理、人员管理、考勤管理、费用管理、记工作量等功能，让企业清楚记录每一个内容，方便管理查看。
+            </div>
+
+        </div>
+
+    </div>
+    <div class="chanpin-tedian-item">
+        <div class="chanpin-tedian-item-contain">
+            <img class="chanpin-tedian-item-icon" src="../img/wendang.png" alt="">
+            <div class="chanpin-tedian-item-title">
+                文档齐全
+            </div>
+            <div class="chanpin-tedian-item-content">
+                使用说明文档齐全，用文字加图片的形式说明您可能遇到问题，让小白用于也能一目了然，轻松上手使用小睿办公。
+            </div>
+
+        </div>
+
+    </div>
+    <div class="chanpin-tedian-item" style="background:#f4fbff;">
+        <div class="chanpin-tedian-item-contain">
+            <img class="chanpin-tedian-item-icon" src="../img/jiage.png" alt="">
+            <div class="chanpin-tedian-item-title">
+                价格实惠
+            </div>
+            <div class="chanpin-tedian-item-content">
+                跟其他厂商不同，我们的免费版和标准版将所有功能都开放给用户，用最优惠的价格体验全功能的产品。
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 产品特点   结束 -->
+    <div class="chankan-wendang">
+        <div class="mobile-content">
+            <p class="chankan-wendang-tip">还有问题，请点击<a href="../page/helpPages/preface.html" style="font-size: .24rem;">文档</a>查看</p>
+            <div class="wendnag-wrap">
+                <a href="../page/helpPages/preface.html" style="display:block;">
+
+                    <img class="chanpin-tedian-item-icon" src="../img/mobile-wendang.png" alt=""
+                    style="width:.6rem;margin-bottom: 0;">
+                <p style="text-align:center;font-size:.3rem;color:#fff;">文档</p>
+                </a>
+               
+            </div>
+        </div>
+    </div>
+    <!-- 尾部    开始 -->
+    <footer class="footer">
+        <div class="mobile-content clearfix">
+
+            <ul class="footer-info-li fl">
+                <li>公司地址</li>
+                <li>联系电话</li>
+                <li>工作时间</li>
+                <li>关注我们</li>
+            </ul>
+            <ul class="footer-info-li fr">
+                <li>上海市静安区中山北路900号2-211室</li>
+                <li>021-62083106</li>
+                <li>周一至周五 9:00—18:00</li>
+                <li>扫码关注微信公众号 <img src="../img/footer-erweima.png" alt="" style="width: 1.2rem;vertical-align: top;">
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <p class="banquan">©上海睿风信息技术有限公司 沪ICP备11008813号</p>
+    </footer>
+    </div>
+    <!-- 尾部    结束 -->
+    <script>
+        var clickCount = 0;
+        $(".menu-mobile-menu").click(function () {
+            if (clickCount % 2 == 0) {
+                $(".product-introduction-overburden").animate({
+                    "left": "0"
+                }, "fast");
+            } else {
+                $(".product-introduction-overburden").animate({
+                    "left": "100%"
+                }, "fast");
+            }
+            clickCount++;
+        })
+        $(window).load(function() {
+            var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+        })
+        })
+      
+    </script>
+   
+</body>
+
+</html>

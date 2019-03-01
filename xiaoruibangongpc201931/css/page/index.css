@@ -1,0 +1,174 @@
+html,body{
+    min-width: 1200px;
+}
+/*导航*/
+.nav{
+    position: relative;
+    padding-top: 125px;
+    background: #fafdff;
+}
+.nav .page-content {
+    padding-bottom: 118px;
+}
+.big-nav-title{
+    font-size: 48px;
+    line-height: 74px;
+    letter-spacing: 10px;
+}
+.nav-content-left{
+    width: 630px;
+}
+.detail-nav-title{
+    margin-top: 12px;
+    font-size: 24px;
+    color: #737b81;
+    line-height: 48px;
+    letter-spacing: 7px;
+}
+.login-immediately{
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin-top: 48px;
+    border-radius: 5px;
+    color:#fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(40,142,254)), to(rgb(92,209,254)));
+    background: linear-gradient(to right, rgb(40,142,254), rgb(92,209,254));
+}
+.login-immediately:hover{
+    background: -webkit-gradient(linear,  left top, right top,  from(rgb(92,209,254)),to(rgb(40,142,254)));
+    background: linear-gradient(to right,  rgb(92,209,254),rgb(40,142,254));
+}
+.product-advantages-item{
+    position: relative;
+    width: 320px;
+    height: 220px;
+    margin-top: 80px;
+    margin-right: 120px;
+    padding-top: 50px;
+    border: 1px solid #e7f3ff;
+    border-radius: 2px;
+}
+.product-advantages-item:last-of-type{
+    margin-right: 0;
+}
+.product-advantages-item-text1{
+    font-size: 20px;
+    color: #5f7181;
+    margin-bottom: 18px;
+    text-align: center
+}
+.product-advantages-item-text2{
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+.product-advantages-item-text2-advantages{
+    font-size: 24px;
+    font-weight: bold;
+    color: #fcb64f;
+    letter-spacing: 1px;
+}
+.product-advantages-item-text2-banben{
+    font-size: 20px;
+    line-height: 35px;
+    color:#118cfe;
+}
+.product-advantages-item-hr{
+    width: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    color:#118cfe;
+}
+.product-advantages-item-text3{
+    font-size: 30px;
+    color: #118cfe;
+    text-align: center;
+    margin-top: 15px;
+}
+.product-advantages-item-text3>span{
+    font-size: 30px;
+    color: #118cfe;
+}
+.online-consult{
+    position: fixed;
+    right: 66px;
+    top: 163px;
+    z-index: 10;
+}
+.online-consult2{
+    position: fixed;
+    right: -168px;
+    top: 163px;
+    z-index: 10;
+}
+.online-consult2-content{
+    position: absolute;
+    left: 25px;
+    top: 35px;
+}
+.online-consult2-way{
+    font-size: 12px;
+    margin-right: 20px;
+}
+.online-consult2-way-contact{
+    display:inline-block;
+    
+   
+    text-align: center;
+    line-height: 18px;
+    
+    font-size: 12px;
+}
+.chanpin-tedian{
+    position: relative;
+    padding-top: 168px;
+    padding-bottom: 195px;
+}
+.chanpin-tedian-item{
+    width: 33.3%;
+}
+.chanpin-tedian-item-icon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 65px;
+}
+.chanpin-tedian-item-title{
+    font-size: 24px;
+    line-height: 34.5px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: "SimHei" !important;
+}
+.chanpin-tedian-item-contain{
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chanpin-tedian-item-content{
+    font-size: 18px;
+    line-height: 34.5px;
+    color:#707586;
+    font-family: "SimHei" !important;
+}
+@media (max-width: 1217px) {
+    .nav-content-left {
+       padding-left: 30px;
+    }
+}
+/* @media (max-width: 1600px) {
+    .online-consult {
+        left: 20px;
+    }
+    .online-consult2{
+        left: 0;
+    }
+} */

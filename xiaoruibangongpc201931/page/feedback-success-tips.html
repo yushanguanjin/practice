@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>联系我们</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../img/logo1.png" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <!-- 头部    开始 -->
+    <header class="header">
+        <!-- 头部大屏幕 -->
+        <div class="header-pc">
+            <div class="page-content clearfix">
+                <a href="index.html" class="logo-wrap fl">
+                    <img src="../img/logo.png" alt="" class="xiaoruibangong-logo">
+                </a>
+                <ul class="page-menu clearfix fl " lay-filter="">
+                    <li class=" fl"><a href="index.html" >产品介绍</a></li>
+                    <li class=" fl"><a href="helpPages/preface.html">文档</a></li>
+                    <li class=" fl"><a href="contactUs.html" class="page-menu-active header-menu-a">联系我们</a></li>
+                </ul>
+                <div class="login-and-registration  clearfix">
+                    <a href="" class="registration fl">注册</a>
+                    <a href="" class="login fl">登录</a>
+                </div>
+            </div>
+        </div>
+        <!-- 头部小屏幕 -->
+        <!-- <div class="header-mobile">
+            <img src="../../img/menu.png" alt="" class="menu-mobile-menu">
+            <a href="register.html">
+                <img src="../../img/logo.png" alt="" class="menu-mobile-logo">
+            </a>
+        </div> -->
+    </header>
+    <!-- 头部    结束 -->
+    <div class="feedback-success-tips">
+        <div class="page-content" style="padding-top: 280px;padding-bottom:200px;">
+            <img src="../img/feedback-success-tips.png" alt="" style="margin-left:510px;">
+            <p style="margin-top:65px;font-size: 24px;text-align: center;">您的反馈内容我们已经收到，提交后一个工作日内我们会联系您</p>
+        </div>
+    </div>
+
+    <!-- 尾部    开始 -->
+    <footer class="footer">
+        <div class="page-content clearfix">
+            <ul class="footer-info-li fl">  
+                <li>公司地址</li>
+                <li>联系电话</li>
+                <li>工作时间</li>
+            </ul>
+            <ul class="footer-info-li fl">
+                <li>上海市静安区中山北路900号2-211室</li>
+                <li>021-62083106</li>
+                <li>周一至周五 9:00—18:00</li>
+            </ul>
+            <ul class="footer-info-li fl">
+                    <li>关注我们</li>
+                   
+            </ul>
+            <ul class="footer-info-li fl">
+                    <li>微信扫码关注我们公众号</li>
+                    <li>
+                        <img src="../img/footer-erweima.png" alt="">
+                    </li>
+            </ul>
+        </div>
+        <hr>
+        <p class="banquan">©上海睿风信息技术有限公司 沪ICP备11008813号</p>
+    </footer>
+    <!-- 尾部    结束 -->
+    <script src="../js/library/jquery-2.1.4.js"></script>
+    <script>
+        $(".page-menu li a").hover(
+            function () {
+                $(".page-menu li a").removeClass("page-menu-active header-menu-a");
+                $(this).addClass("page-menu-active header-menu-a");
+            },
+            function () {
+
+            }
+        )
+
+        $(".online-consult").click(function() {
+            $(this).animate({
+                "right":"-78px"
+            },500,function() {
+                $(".online-consult2").animate({
+                    "right":"66px"
+                })}
+            )
+        })
+        $(".online-consult2").click(function() {
+            $(this).animate({
+                "right":"-168px"
+            },500,function() {
+                $(".online-consult").animate({
+                    "right":"66px"
+                })}
+            )
+        })
+    </script>
+</body>
+
+</html>

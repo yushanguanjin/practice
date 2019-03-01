@@ -1,0 +1,48 @@
+html,body{
+    min-width: 1200px;
+}
+.login-page{
+    padding-top: 250px;
+    background-image: url("../../img/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 1000px;
+}
+.page-content{
+    height: 600px;
+    background: #fff;
+}
+.login-page-content{
+    padding: 80px 60px 0 100px;
+}
+.login-way{
+    padding-top: 35px;
+    padding-bottom: 120px;
+    border-right: 1px solid #e5e5e5;
+}
+.login-way>p{
+    font-size: 30px;
+}
+.dianji-login-way{
+    margin-top: 100px;
+    width: 320px;
+    height: 150px;
+    border: 1px solid #e5e5e5;
+    padding-top: 24px;
+}
+.dianji-login-way-img{
+    display: block;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dianji-login-way p{
+    font-size: 18px;
+    color: #747c8c;
+    text-align: center;
+    margin-top: 20px;
+}
+.login-way-checked{
+    border: 1px solid #49b3f5;
+}

@@ -1,0 +1,223 @@
+.nav{
+    margin-top: 1.4rem;
+    margin-bottom: .58rem;
+}
+.mobile-content{
+    margin-left: .47rem;
+    margin-right: .47rem;
+}
+.nav-first-title{
+    width: 5rem;
+    margin-top: .44rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .25rem;
+    font-size: .48rem;
+    text-align: center;
+}
+.nav-second-title{
+    width:4.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .28rem;
+    font-size: .30rem;
+    font-family: "SimHei" !important;
+}
+.chanpin-tedian{
+    margin-top: .5rem;
+}
+.product-introduction {
+    position: relative;
+    overflow: hidden;
+}
+.product-advantages-item{
+    width: 1.63rem;
+    height: 1.14rem;
+    padding-top: .18rem;
+    border: .01rem solid #e7f3ff;
+    border-radius: .02rem;
+}
+.product-advantages-item-text1{
+    font-size: .12rem;
+    text-align: center;
+}
+.product-advantages-item-text2-advantages {
+    font-size: .3rem;
+    font-weight: bold;
+    color: #fcb64f;
+    letter-spacing: 1px;
+}
+.product-advantages-item-text2-banben {
+    font-size: 20px;
+    line-height: 35px;
+    color: #118cfe;
+}
+.product-advantages-item-text2-banben {
+    font-size: .2rem;
+    color: #118cfe;
+}
+.product-advantages-item{
+    margin-right: 0.20rem;
+}
+.product-advantages-item:last-of-type{
+    margin-right: 0;
+}
+.chanpin-tedian-item{
+    padding-top: .44rem;
+    padding-bottom: .36rem;
+}
+.chanpin-tedian-item-icon{
+    display: block;
+    width: .74rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .34rem;
+}
+.chanpin-tedian-item-title {
+    font-size: .3rem;
+    font-weight: bold;
+    line-height: .345rem;
+    text-align: center;
+    margin-bottom: .2rem;
+    font-family: "SimHei" !important;
+}
+.chanpin-tedian-item-content {
+    font-size: .25rem;
+    /* line-height: .27rem; */
+    color: #707586;
+    font-family: "SimHei" !important;
+    width: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.product-advantages-item-text2{
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chankan-wendang-tip{
+    padding: .3rem 0;
+    text-align: center;
+    font-size: .24rem;
+}
+.chankan-wendang-tip a{
+    color: #0681ff;
+}
+/* .chankan-wendang-tip a:hover{
+    border-bottom: 1px solid #0681ff;
+} */
+.chankan-wendang{
+    padding-bottom: .3rem;
+}
+ .swiper-container{
+   margin-top: .5rem;
+   height: 137.5px;
+}
+.swiper-wrapper{
+   
+}
+.swiper-slide-img{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.product-advantages-item-text1 {
+    font-size: 13px;
+    color: #5f7181;
+    margin-bottom: .12rem;
+    text-align: center;
+}
+.product-advantages-item-text2-advantages{
+    font-size: 18px;
+    font-weight: bold;
+    color: #fcb64f;
+    letter-spacing: 1px;
+}
+.swiper-button-prev{
+    background-image: url("../../img/arrow-left.png");
+    height: 30px;
+}
+.swiper-button-next{
+    background-image: url("../../img/arrow-right.png");
+    height: 30px;
+}
+.product-advantages-hr{
+    width: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #118cfe;
+}
+.product-advantages-item-text3{
+    font-size: .24rem;
+    color: #118cfe;
+    text-align: center;
+    margin-top: .15rem;
+}
+.product-advantages-item{
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 180px;
+    height: 120px;
+    border: 1px solid #e7f3ff;
+    border-radius: 2px;
+}
+.wendnag-wrap{
+    padding-top: .22rem;
+    padding-bottom: .22rem;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(129,190,255)), to(rgb(151,231,255)));
+    background: linear-gradient(to right, rgb(129,190,255), rgb(151,231,255));
+}
+.lianxi{
+    margin-top: 1.4rem;
+}
+.lianxi p{
+    font-size: .4rem;
+    margin-bottom: .31rem;
+    font-family: "SimHei" !important;
+}
+.lianxi-textarea{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: .73rem;
+    border: 2px solid #d1e7ff;
+    padding-top: .15rem;
+    padding-left: .15rem;
+    color: #000000;
+    font-size: .24rem;
+    margin-bottom: .24rem;
+}
+.lianxi-textarea:last-of-type{
+    margin-bottom: 0;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #d1e7ff;
+}
+input:-moz-placeholder, textarea:-moz-placeholder{
+    color: #d1e7ff;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #d1e7ff;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #d1e7ff;
+}
+.fasong{
+    display: block;
+    height: .7rem;
+    text-align: center;
+    line-height: .7rem;
+    margin-top: .43rem;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(40,142,254)), to(rgb(92,209,254)));
+    background: linear-gradient(to right, rgb(40,142,254), rgb(92,209,254));
+    color: #ffffff;
+    font-size: .3rem;
+    margin-bottom: .24rem;
+}

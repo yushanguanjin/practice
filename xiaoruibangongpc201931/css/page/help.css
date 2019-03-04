@@ -270,6 +270,8 @@ tbody tr:nth-of-type(2n) {
     }
     td{
         font-size: 12px;
+        height: 25px;
+        line-height: 25px;
     }
 }
 

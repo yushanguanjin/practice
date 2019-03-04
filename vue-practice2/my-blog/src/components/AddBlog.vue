@@ -48,7 +48,7 @@ export default {
             content:"",
             categories:[],
             author:""
-        },
+        },   
         authors:["小明","小红","小刚","小丽"],
         submitted:false
     }

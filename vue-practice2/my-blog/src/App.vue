@@ -4,20 +4,22 @@
       <li>  <router-link to="/">首页</router-link></li>
       <li><router-link to="/AddBlog">添加博客</router-link></li>
       <li> <router-link to="/ShowBlogs">展示博客</router-link></li>
+      <li><router-link to="/user/123">User123</router-link></li>
+      <li><router-link to="/user/456">User456</router-link></li>
     </ul>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import AddBlog from '@/components/AddBlog'
-import ShowBlogs from '@/components/ShowBlogs'
+//import AddBlog from '@/components/AddBlog'
+//import ShowBlogs from '@/components/ShowBlogs'
 
 export default {
   name: 'App',
-  components:{
-    AddBlog,ShowBlogs
-  }
+  // components:{
+  //   AddBlog,ShowBlogs
+  // }
 }
 </script>
 

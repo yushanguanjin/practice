@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router'// import router 的router 一定要小写， 不要写成Router, 否则报 can't match的报错
 import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
@@ -29,7 +29,7 @@ Vue.directive("theme", {
     /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    router,
+    router,// 注入到根实例中
     components: { App },
     template: '<App/>'
 })

@@ -20,7 +20,7 @@ export default {
   },
   created:function() {
       this.$http.get("http://jsonplaceholder.typicode.com/posts").then(function(data) {
-          console.log(data);
+          //console.log(data);
           this.blogs = data.body.slice(0,10);
       })
   }
@@ -37,6 +37,6 @@ export default {
     padding: 20px;
     margin: 20px 0;
     box-sizing: border-box;
-    background: #ff0000;
+    /* background: #ff0000; */
 }
 </style>

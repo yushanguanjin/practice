@@ -46,6 +46,13 @@ $("#each-help-page").load("iframe.html", function () {
     //         }
     //     })
     // })
-
+    
+    var srcArray = ["../../img/logo.png","../../img/menu.png"];
+    $("img").click(function () {
+        var imgSrc = $(this).attr("src");
+        if(srcArray.indexOf($(this).attr("src")) == -1) {
+            window.open(imgSrc);
+        }
+    })
 
 });

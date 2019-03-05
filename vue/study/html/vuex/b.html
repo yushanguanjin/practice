@@ -14,43 +14,42 @@
     </div>
 </body>
 <script>
-    Vue.use(Vuex);
-   var myStore =  new Vuex.Store({
-        state:{
-            //存放组件之间共享的数据
-            name:"jjk"
-        },
-         mutations:{
-             //显式的更改state里的数据
-         },
-         getters:{
-             //过滤state数据
-         },
-         actions:{
-             //
-         }
-    });
+   Vue.use(Vuex);
+   var myStore = new Vuex.Store({
+       state:{
+           //存放组件之间共享的数据
+           name:"jjk"
+       },
+       mutations:{
+           //显示的更改state里的数据
+       },
+       getters:{
+           //过滤state数据,可以把getters看成是store的计算属性
+       },
+       actions:{
 
-    Vue.component('hello',{
-        template:"<p>{{name}}</p>",
-        computed: {
-            name:function(){
-                return this.$store.state.name
-            }
-        },
-         mounted:function(){
-            console.log(this)
-        }
-    })
-    new Vue({
-        el:"#app",
-        data:{
-            name:"dk"
-        },
-        store:myStore,
-        mounted:function(){
-            console.log(this)
-        }
-    })
+       }
+   })
+   Vue.component("hello",{
+       template:"<p>name</p>",
+       computed:{
+           name:function() {
+               return this.$store.state.name
+           }
+       },
+       mounted:function() {
+           console.log(this);
+       }
+   })
+   new Vue({
+       el:"#app",
+       data:{
+           name:"dk"
+       },
+       //store:myStore,
+       mounted:function() {
+           console.log(this);
+       }
+   })
 </script>
 </html>

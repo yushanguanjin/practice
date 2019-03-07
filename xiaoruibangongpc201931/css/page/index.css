@@ -99,7 +99,7 @@ html,body{
 }
 .online-consult{
     position: fixed;
-    right: 66px;
+    right: 30px;
     top: 163px;
     z-index: 10;
 }

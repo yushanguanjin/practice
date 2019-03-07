@@ -29,24 +29,23 @@ export default {
   computed:{
       filteredBlogs:function() {
           return this.blogs.filter((blog)=> {
-             
               return blog.title.match(this.search);
                console.log(this.search);
           })
       }
   },
   filters:{
-      "to-uppercase":function(value) {
+      toUppercase:function(value) {
             return value.toUpperCase();
         },
-      "snippet":function(value) {
+      snippet:function(value) {
         return value.slice(0, 100) + "...";
         }
   },
-  directive:{
-      'rainbow':{
+  directives:{
+      rainbow:{
           bind(el, binding, vnode) {
-        el.style.color = "#" + Math.random().toString(16).slice(2, 8);
+            el.style.color = "#" + Math.random().toString(16).slice(2, 8);
         }
       }
   }

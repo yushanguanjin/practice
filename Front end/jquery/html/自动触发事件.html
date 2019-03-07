@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+       .box1{
+           width: 100px;
+           height: 100px;
+           background: #ff0000;
+       }
+       .box2{
+           width: 100px;
+           height: 100px;
+           background: #0000ff;
+       }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box1">
+       12345678910  
+
+    </div>
+    <div class="box2">
+            12345678910  
+
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script>
+       $(".box1").click(function() {
+            //直接调用click:
+            $(".box2").click();
+            //或者用trigger来触发:$(".box2").trigger("click");
+       })
+       $(".box2").click(function() {
+           console.log(10);
+        })
+
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -4,16 +4,17 @@
 <head>
     <meta charset="utf-8">
     <style>
-       .box1{
-           width: 100px;
-           height: 100px;
-           background: #ff0000;
-       }
-       .box2{
-           width: 100px;
-           height: 100px;
-           background: #0000ff;
-       }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
     </style>
 </head>
 
@@ -21,26 +22,43 @@
 
 
     <div class="box1">
-       12345678910  
+        12345678910
 
     </div>
     <div class="box2">
-            12345678910  
+        12345678910
 
     </div>
     <script src="../js/jquery.js"></script>
     <script>
-       $(".box1").click(function() {
+        $(".box1").click(function () {
             //直接调用click:
             $(".box2").click();
             //或者用trigger来触发:$(".box2").trigger("click");
-       })
-       $(".box2").click(function() {
-           console.log(10);
+        })
+        $(".box2").click(function () {
+            console.log(10);
         })
 
+        //原生js
+        var oBox1 = document.getElementsByClassName("box1")[0];
+        var oBox2 = document.getElementsByClassName("box2")[0];
+        oBox1.onclick = function () {
+            oBox2.onclick();
+        }
+        oBox2.onclick = function () {
+            console.log(10);
+        }
 
-        
+        //原生js事件嵌套
+        var oBox1 = document.getElementsByClassName("box1")[0];
+        var oBox2 = document.getElementsByClassName("box2")[0];
+        oBox1.onclick = function () {
+            console.log('处理a过程')
+            oBox2.onclick = function () {
+                console.log('处理b过程')
+            }
+        }
     </script>
 
 </body>

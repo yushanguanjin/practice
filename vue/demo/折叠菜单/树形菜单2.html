@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .menu {
+            width: 300px;
+            border-bottom: 1px solid #f1f1f1;
+            background: #bf0000;
+            color: #ffffff;
+        }
+        .subItem-wrap{
+           
+        }
+        .subItem{
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+            background: #f1f1f1;
+            border-bottom: 1px solid #bf0000;
+        }
+        .item{
+            height: 40px;
+            line-height: 40px;
+        }
+        .isSubItemWrapShow{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="tree-menu">
+        <div>
+            <div class="menu" v-for="(menu,menuIndex) in menus" :key="menu" @click="slideToggle(menuIndex)">
+                <div class="item">
+                        {{menu}}
+                </div>
+                <div class="subItem-wrap" v-show="subItemWrap" :class="{isSubItemWrapShow: isSubItemWrapShow == menuIndex}">
+                    <div class="subItem" v-for="(subItem,subItemIndex) in subItems" :key="subItem" v-show="subItemIndex == isShow">{{subItem}}</div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div id="app">
+
+        <tree-menu></tree-menu>         
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+
+
+        Vue.component("tree-menu", {
+            template: "#tree-menu",
+            data: function () {
+                return {
+                    menus: ["item1", "item2", "item3"],
+                    subItems: ["subItem1", "subItem2", "subItem3"],
+                    subItemWrap:false,
+                    isShow:false
+                }
+            },
+            methods: {
+                slideToggle: function (menuIndex) {
+                    this.isShow =  !this.isShow
+                    subItemIndex = menuIndex
+                    console.log(menuIndex);
+                    if()
+                }
+            }
+        })
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue点击切换显示隐藏</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        ul {
+            width: 200px;
+            height: auto;
+        }
+
+        h2 {
+            background: green;
+            border: 1px solid #fff;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 24px;
+        }
+
+        h3 {
+            background: #999;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #fff;
+            text-indent: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="sidebar">
+            <ul class="menu">
+                <li v-for="(navList,index) in navLists" :key="index" class="forRealitive"
+                    v-on:mouseover="showToggle(index)" v-on:mouseout="handleHide">
+                    <a class="sidebar-link" :href="navList.eTitle">{{navList.title}}</a>
+                    <ul class="menu-sub" v-show="index===isShow">
+                        <li v-for="(item,idx) in navList.child" :key="idx">
+                            <a class="section-link" :href="item.esubTitle" v-on:click="handleHide">{{item.subTitle}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: "#app",
+            data: {
+                navLists: [
+                    {
+                        'title': '项目信息',
+                        'eTitle': '#projectMessage',
+                        'child': [
+                            {
+                                'subTitle': '项目简介',
+                                'esubTitle': '#projectIntroduction'
+                            },
+                            {
+                                'subTitle': '样品信息',
+                                'esubTitle': '#sampleInformation'
+                            }
+                        ]
+                    },
+                    {
+
+                    }
+
+                ],
+                isShow: 0
+            },
+            mounted: function () {
+                // 避免第一个渲染的显示
+                this.isShow = -1
+            },
+            methods: {
+                showToggle: function (index) {
+                    this.isShow = index
+                },
+                handleHide: function () {
+                    this.isShow = !this.isShow
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+html,body{
+    height: 100%;
+    
+}
+.bg{
+  
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-top: .4rem;
+}
+.logo{
+    display: block;
+    width: 5.3rem;
+    margin-left: .32rem;
+    vertical-align: top;
+}
+.title{
+    display: block;
+    width: 100%;
+    margin-top: 0.6rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.drag-container{
+    position: relative;
+    width: 90%;
+    height: 6rem;
+    margin-top: 0.4rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f8fcf9;
+}
+.drag-object{
+    position: absolute;
+}
+.put-container-wrap{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+}
+.put-container{
+    width: 25%;
+}

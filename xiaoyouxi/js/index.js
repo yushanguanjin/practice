@@ -1,3 +1,4 @@
+//$(".bg").height(document.documentElement.height);
 //初始化，图片随机排序
 //图片路径数组
 var srcArr = ["a", "b", "c", "d", "e", "f", "g"];
@@ -21,18 +22,28 @@ var sortable = new Sortable(dragObject[0], {
     animation: 150, 
     onStart: function (evt) {
        //拖动的元素初始位置
-       var itemLeft = $(evt.item).css("left");
-       var itemTop = $(evt.item).css("top");
-       console.log(itemLeft,itemTop);
+       var itemLeft = evt.item.offsetLeft;
+       var itemTop = evt.item.offsetTop;
+       //$(".temp-storage").val(itemLeft+"|"+itemTop);
+      
 
     },
     onEnd:function(evt) {
-       //拖动的元素初始位置
-       var itemLeft = $(evt.item).position().left;
-       var itemTop = $(evt.item).position().top;
-       console.log($(evt.item));
+       //拖动的元素结束位置
+        var  endLeft = evt.target.offsetLeft;
+        var  endTop = evt.target.offsetTop;
+        $(".temp-storage").val(endLeft+"|"+endTop);
+        console.log(evt);
+        // var differX = endLeft -  $(".temp-storage").val().split("|")[0];
+        // var differY = endTop -  $(".temp-storage").val().split("|")[1];
+        // var differY = endTop - itemTop;
+        // console.log(differX);
+        // console.log(differY);
+
     }
 })
+
+
 
 
 

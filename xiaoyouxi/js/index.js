@@ -1,7 +1,7 @@
 //$(".bg").height(document.documentElement.height);
 //初始化，图片随机排序
 //图片路径数组
-var srcArr = ["a", "b", "c", "d", "e", "f", "g"];
+var srcArr = ["a_1", "a_2", "b_1", "b_2", "c_1", "c_2", "d_1", "d_2"];
 
 $(".drag-object").each(function (index, item) {
     //随机返回数组中一张图片选项
@@ -13,6 +13,19 @@ $(".drag-object").each(function (index, item) {
     //console.log(srcIndex);//1 
     //console.log(srcArr);
     $(this).attr("src", "img/" + srcItem + ".png");
+    var dataCategory = $(this).attr("src");
+    console.log(dataCategory);
+
+    if (dataCategory.indexOf("a") != -1) {
+        console.log("data-a");
+        $(this).attr("data-category", "data-a");
+    } else if (dataCategory.indexOf("b") != -1) {
+        $(this).attr("data-category", "data-b");
+    } else if (dataCategory.indexOf("c") != -1) {
+        $(this).attr("data-category", "data-c");
+    } else {
+        $(this).attr("data-category", "data-d");
+    }
 })
 //图片拖拽
 // $(".draggable").on("touchend",function() {
@@ -26,6 +39,11 @@ $(".drag-object").each(function (index, item) {
 //         e.preventDefault();
 //     }
 // }
+//存放容器的offset().top
+$(".put-container").eq(0).offset().top;
+    console.log($(".put-container").eq(0).offset().top);
+
+
 var dragObjects = document.getElementsByClassName('drag-object');
 var maxW = document.body.clientWidth - dragObjects[0].offsetWidth;
 console.log(maxW);
@@ -39,8 +57,9 @@ for (var i = 0; i < dragObjects.length; i++) {
         oT = touch.clientY - this.offsetTop;
 
         console.log(this.offsetLeft);
-        $(".temp-storage").val(this.offsetLeft+"|"+this.offsetTop);
-        
+        //console.log($(this).offset().top);
+        $(".temp-storage").val(this.offsetLeft + "|" + this.offsetTop);
+
         document.addEventListener("touchmove", defaultEvent, false);
     })
 
@@ -67,35 +86,16 @@ for (var i = 0; i < dragObjects.length; i++) {
     })
     dragObjects[i].addEventListener('touchend', function () {
         document.removeEventListener("touchmove", defaultEvent);
-        var  differX =  this.offsetLeft - $(".temp-storage").val().split("|")[0];
-        var  differY =  this.offsetTop - $(".temp-storage").val().split("|")[1];
-        //斜率
-        //var k = differY/differX;
-       
-        
-        //var _this = this;
-        //运动轨迹
-       
+        var differX = this.offsetLeft - $(".temp-storage").val().split("|")[0];
+        var differY = this.offsetTop - $(".temp-storage").val().split("|")[1];
+
+        console.log($(this));
         $(this).animate({
-                left:"-="+differX+"px",
-                top:"-="+differY+"px"
-            })
-        },30);
-        // setInterval(function() {
-            
-        //     _this.offsetLeft -=10;
-        //     // _this.offsetLeft -=1;
-        //     // _this.offsetTop -= (1 - _this.offsetTop + k*_this.offsetLeft)/k;
-            
-            
+            left: "-=" + differX + "px",
+            top: "-=" + differY + "px"
+        })
+    })
 
-        //     // _this.style.left =  _this.offsetLeft + 'px';
-        //     // _this.style.top =  _this.offsetTop + 'px';
-
-        //     // console.log(  _this.offsetLeft);
-        // },100)
-        
-   
 }
 
 function defaultEvent(e) {

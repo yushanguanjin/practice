@@ -1,0 +1,51 @@
+<body>
+    <style>
+        img {
+            position: absolute;
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
+   
+
+</body>
+
+<script type="text/javascript" language="javascript">
+    //打乱图片方法
+    function fun() {
+        var x = [];
+        var y;
+        for (var i = 1; i < 10; i++) {
+            var div = document.getElementById("d" + i + "");
+            div.removeChild(document.getElementById("img" + i + ""));
+        }
+        for (var i = 1; i < 10; i++) {
+            var img = document.createElement('img'); //动态创建img标签
+            var div1 = document.getElementById("d" + i + "");
+            var p = [1, 2, 3, 4, 5, 6, 7, 8, 9];　　　　//用p[]数组保存图片的代号
+            var j = Math.round(Math.random() * 8);　　//通过随机数j产生随机图片代号p[j]
+            for (var u = 0; u < x.length; u++) //遍历x[]数组防止后面出现与前面一样的图片代号
+            {
+                if (x[u] == p[j]) {
+                    y = x[u];
+                    break;
+                }
+            }
+            if (p[j] == y) {
+                i -= 1;
+                continue;
+            } else {
+                img.setAttribute("src", "../../img/" + [j] + ".jpg");
+                img.id = "img" + i + "";
+            }
+            div1.appendChild(img);
+            x.push(p[j]); //添加已经出现的图片号数进入x[]数组
+        }
+        dragdrop();//拖动图片方法
+    }
+    fun()
+
+
+</script>

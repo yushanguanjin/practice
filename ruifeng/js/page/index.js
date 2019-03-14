@@ -73,7 +73,6 @@ if (("onhashchange" in window) && ((typeof document.documentMode === "undefined"
 }
 function hashChangeFire() {
     var hash = window.location.hash;
-    alert(hash);
     var nextPage = hash.slice(-1);
     //锚点变化，头部菜单样式发生变化
     if(hash!= "#page1") {

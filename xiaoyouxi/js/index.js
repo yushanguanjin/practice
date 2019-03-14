@@ -1,7 +1,7 @@
 //$(".bg").height(document.documentElement.height);
 //初始化，图片随机排序
 //图片路径数组
-var srcArr = ["imgFirst_1", "imgFirst_2", "imgSecond_1", "imgSecond_2", "imgThird_1", "imgThird_2", "imgFourth_1", "imgFourth_2"];
+var srcArr = ["a_1", "a_2", "b_1", "b_2", "c_1", "c_2", "d_1", "d_2"];
 
 $(".drag-object").each(function (index, item) {
     //随机返回数组中一张图片选项
@@ -16,15 +16,15 @@ $(".drag-object").each(function (index, item) {
     var dataCategory = $(this).attr("src");
     //console.log(dataCategory);
 
-    if (dataCategory.indexOf("imgFirst") != -1) {
+    if (dataCategory.indexOf("a") != -1) {
         //console.log("data-a");
-        $(this).attr("data-category", "data-First");
-    } else if (dataCategory.indexOf("imgSecond") != -1) {
-        $(this).attr("data-category", "data-Second");
-    } else if (dataCategory.indexOf("imgThird") != -1) {
-        $(this).attr("data-category", "data-Third");
+        $(this).attr("data-category", "data-a");
+    } else if (dataCategory.indexOf("b") != -1) {
+        $(this).attr("data-category", "data-b");
+    } else if (dataCategory.indexOf("c") != -1) {
+        $(this).attr("data-category", "data-c");
     } else {
-        $(this).attr("data-category", "data-Fourth");
+        $(this).attr("data-category", "data-d");
     }
 })
 
@@ -81,7 +81,7 @@ for (var i = 0; i < dragObjects.length; i++) {
                 if (dragObjectLeft >= $(this).offset().left && dragObjectLeft <= $(this).offset().left + 80) {
                     console.log($(this).attr("data-category"));
                     //如果垃圾匹配垃圾桶，垃圾消失
-                    if (dragObjectAttr.indexOf($(this).attr("data-category")) != -1) {
+                    if (_this.attr("data-category") == $(this).attr("data-category")) {
                         _this.remove();
                     } else {
                         //如果垃圾不匹配垃圾桶，出现错误提示

@@ -9,15 +9,15 @@
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
     <script>
         $.validator.setDefaults({
-            submitHandler: function() {
+            submitHandler: function () {
                 alert("提交事件!");
             }
         });
 
-        $().ready(function() {
+        $().ready(function () {
             // 提交时验证表单
             var validator = $(".form_div").validate({
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     // Append error within linked label
                     $(element).closest("form").find("label[for='" + element.attr("id") + "']").append(error);
                 },
@@ -60,12 +60,14 @@
     <form class="form_div">
         <div class="form_div_s">
             <img class="form_img" src="${basePath}/images/account.png" />
-            <input type="text" name="name" class="form_input username" value="" placeholder="Please enter the user name" />
+            <input type="text" name="name" class="form_input username" value=""
+                placeholder="Please enter the user name" />
         </div>
         <hr class="form_hr" />
         <div class="form_div_s">
             <img class="form_img" src="${basePath}/images/psw.png" />
-            <input type="password" name="name" class="form_input password" value="" placeholder="Please enter your password" />
+            <input type="password" name="name" class="form_input password" value=""
+                placeholder="Please enter your password" />
         </div>
     </form>
 
@@ -94,10 +96,6 @@
 
             // 注意 firstChild lastChild firstElementChild firstElementChild的不同
         }
-
-        js或jquery如何获得并修改元素的子元素（ 文本元素） 的一部分
-
-        如 < div > 从0到10 < /div>，想把从，到改为由，至两个字，不能直接通过修改div的全部文本，比如text()方法，只能修改从，到这两个字，该用什么方法才能修改，显示在页面上。麻烦大家谁会的给我指导一下，谢谢。
     </script>
 </body>
 

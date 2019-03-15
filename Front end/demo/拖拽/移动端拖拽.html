@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .div1:first-of-type {
+            width: 50px;
+            height: 50px;
+            background: cyan;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        .div1:nth-of-type(2) {
+            width: 50px;
+            height: 50px;
+            background: cyan;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+    </div>
+    <div class="div1">
+    </div>
+    <script>
+        var div1 = document.getElementsByClassName('div1');
+        var body = document.getElementsByTagName('body')[0];
+        var maxW = document.body.clientWidth - div1[0].offsetWidth;
+        var maxH = document.body.clientHeight - div1[0].offsetHeight;
+
+        for (var i = 0, len = div1.length; i < len; i++) {
+            console.log(i);//i == 0,1
+            div1[i].addEventListener("touchstart", function (e) {
+                var ev = e || window.event;
+                // console.log(ev);
+                //手指触摸初始位置
+                var touch = ev.targetTouches[0];
+                //不用var 定义就是全局变量了，在其它事件就可以直接获取这个变量
+                oL = touch.pageX - this.offsetLeft;
+                oT = touch.pageY - this.offsetTop;
+                //阻止默认事件
+                e.preventDefault();
+                console.log(i);//i == 2
+            }, false)
+           div1[i].index = i;
+            div1[i].addEventListener("touchmove", function touch(e) {
+                console.log(i);//i == 2
+                var ev = e || window.event;
+                var touch = ev.targetTouches[0];
+                  //手指拖动位置 - 手指触摸开始
+                oLeft = touch.pageX - oL;
+                oTop = touch.pageY - oT;
+                // oLeft < 0表示拖出屏幕水平方向左侧外面了
+                if (oLeft < 0) {
+                    oLeft = 0;
+                } else if(oLeft >maxW) {  // oLeft > maxWa表示拖出屏幕水平方向右侧外面了
+                    oLeft = maxW;
+                }
+                if (oTop < 0) {
+                    oTop = 0;
+                } else if(oTop >maxH) {  // oLeft > maxWa表示拖出屏幕水平方向右侧外面了
+                    oTop = maxH;
+                }
+                this.style.left = oLeft + "px";
+                this.style.top = oTop + "px";
+            }, false)
+            div1[i].addEventListener('touchend', function () {
+                console.log(i);//i == 0,1
+                console.log('结束')
+            })
+        }
+
+    </script>
+</body>
+
+</html>

@@ -82,12 +82,6 @@
             div1[i].addEventListener('touchend', function () {
                 document.removeEventListener("touchmove", defaultEvent);
             })
-
-            div1[i].addEventListener("touchenter",function(e) {
-                e.preventDefault();
-                console.log(e);
-            })
-
         }
      
         function defaultEvent(e) {

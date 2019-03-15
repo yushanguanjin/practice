@@ -29,9 +29,7 @@ $(".drag-object").each(function (index, item) {
 })
 
 var dragObjects = document.getElementsByClassName('drag-object');
-var maxW = document.body.clientWidth - dragObjects[0].offsetWidth;
-//console.log(maxW);
-var maxH = document.body.clientHeight - dragObjects[0].offsetHeight;
+var dragContainer = document.getElementById('drag-container');
 
 for (var i = 0; i < dragObjects.length; i++) {
     dragObjects[i].addEventListener('touchstart', function (e) {
@@ -46,6 +44,11 @@ for (var i = 0; i < dragObjects.length; i++) {
 
 
     dragObjects[i].addEventListener('touchmove', function (e) {
+        var maxW = dragContainer.offsetWidth - dragObjects[0].offsetWidth;
+        console.log(dragObjects[0].offsetWidth);
+        console.log(maxW);
+        var maxH = document.body.clientHeight - dragObjects[0].offsetHeight;
+
         var ev = e || window.event;
         var touch = ev.targetTouches[0];
         var oLeft = touch.clientX - oL;
@@ -63,6 +66,7 @@ for (var i = 0; i < dragObjects.length; i++) {
 
         this.style.left = oLeft + 'px';
         this.style.top = oTop + 'px';
+        this.style.zIndex = 20;
     })
     dragObjects[i].addEventListener('touchend', function (e) {
         document.removeEventListener("touchmove", defaultEvent);
@@ -72,38 +76,50 @@ for (var i = 0; i < dragObjects.length; i++) {
         var dragObjectLeft = $(this).offset().left;
         var dragObjectAttr = $(this).attr("src");
         var _this = $(this);
-        console.log(dragObjectLeft);
-        console.log(dragObjectAttr);
+        //console.log(dragObjectTop);
+        //console.log(dragObjectAttr);
         //获取put-container要写在dom,图片渲染完成之后
-        $(".put-container").each(function () {
-            if (dragObjectTop > $(this).offset().top) {
-                console.log($(this).offset().left);
-                if (dragObjectLeft >= $(this).offset().left && dragObjectLeft <= $(this).offset().left + 80) {
-                    console.log($(this).attr("data-category"));
-                    //如果垃圾匹配垃圾桶，垃圾消失
-                    if (_this.attr("data-category") == $(this).attr("data-category")) {
-                        _this.remove();
-                    } else {
-                        //如果垃圾不匹配垃圾桶，出现错误提示
-                        layer.msg("它不是这个分类哦");
-                    }
-                }
-            }
-        })
-
         $(this).animate({
             left: "-=" + differX + "px",
             top: "-=" + differY + "px"
         })
+        $(".put-container").each(function () {
+            if (dragObjectTop + 40 > $(this).offset().top) {
+                console.log($(this).offset().left);
+                //console.log($(this).offset().top);
+                if (dragObjectLeft >= $(this).offset().left && dragObjectLeft <= $(this).offset().left + 80) {
+                    //console.log($(this).attr("data-category"));
+                    //console.log($(this).offset().left);
+                    //如果垃圾匹配垃圾桶，垃圾停止回到之前起始位置的动画
+                    if (_this.attr("data-category") == $(this).attr("data-category")) {
+                        console.log($(this).attr("data-category"));
+                        //_this.remove();
+                        _this.stop();
+                        if ($(".drag-object").length == 0) {
+                            $(".bgcover").show();
+                            $(".tip").show();
+                            $(".close").show();
+                        }
+                    } else {
+                        //如果垃圾不匹配垃圾桶，出现错误提示
+                        layer.msg("它不是这个分类哦", { time: 1000 });
+                    }
+                }
+            }
+        })
     })
-
-
 }
 
 function defaultEvent(e) {
     e.preventDefault();
 }
-
+//点击叉号关闭
+$(".close").click(function () {
+    //  $(".bgcover").hide();
+    //  $(".tip").hide();
+    //  $(".close").hide();
+    location.reload();
+})
 
 
 

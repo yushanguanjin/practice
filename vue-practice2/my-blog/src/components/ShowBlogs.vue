@@ -3,7 +3,10 @@
       <h1>博客总览</h1>
       <input type="text" v-model="search" placeholder="搜索">
       <div v-for="blog in filteredBlogs" :key="blog" class="single-blog">
-          <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
+          <router-link :to="'/blog/' + blog.id">
+                 <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
+          </router-link>
+       
           <article>
               {{blog.body | snippet}}
           </article>

@@ -1,11 +1,21 @@
 <template>
   <div id="app">
     <ul>
-      <li>  <router-link to="/">首页</router-link></li>
-      <li><router-link to="/AddBlog">添加博客</router-link></li>
-      <li> <router-link to="/ShowBlogs">展示博客</router-link></li>
-      <li><router-link to="/user/123">User123</router-link></li>
-      <li><router-link to="/user/456">User456</router-link></li>
+      <li>
+        <router-link to="/">首页</router-link>
+      </li>
+      <li>
+        <router-link to="/AddBlog">添加博客</router-link>
+      </li>
+      <li>
+        <router-link to="/ShowBlogs">展示博客</router-link>
+      </li>
+      <li>
+        <router-link to="/user/123">User123</router-link>
+      </li>
+      <li>
+        <router-link to="/user/456">User456</router-link>
+      </li>
     </ul>
     <router-view></router-view>
   </div>
@@ -16,20 +26,20 @@
 //import ShowBlogs from '@/components/ShowBlogs'
 
 export default {
-  name: 'App',
+  name: "App"
   // components:{
   //   AddBlog,ShowBlogs
   // }
-}
+};
 </script>
 
 <style>
-ul:after{
-  content:"";
+ul:after {
+  content: "";
   height: 0;
   clear: both;
 }
-li{
+li {
   float: left;
   list-style: none;
   margin-left: 20px;

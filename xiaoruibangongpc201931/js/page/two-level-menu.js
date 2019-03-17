@@ -38,7 +38,6 @@ if (("onhashchange" in window) && ((typeof document.documentMode === "undefined"
 function hashChangeFire() {
     var hash = window.location.hash;
     if (!hash) {
-
         $(".two-level-menu-title").each(function () {
             if (location.href.indexOf($(this).attr("href")) > 0) {
                 $(this).addClass("two-level-menu-title-active");

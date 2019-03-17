@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>移动h5自适应布局</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="bg">
+        <img src="img/logo.png" alt="" class="logo">
+        <img src="img/title.png" alt="" class="title">
+        <div id="drag-container">
+            <img alt="" class="drag-object " style="left:10px;top:20px;">
+            <img alt="" class="drag-object " style="left: 120px;top: 20px;">
+            <img alt="" class="drag-object " style="left: 10px;top: 100px;">
+            <img alt="" class="drag-object " style="left: 120px;top: 100px;">
+            <img alt="" class="drag-object " style="left: 10px;top: 180px;">
+            <img alt="" class="drag-object " style="left: 120px;top: 180px;">
+            <img alt="" class="drag-object " style="left: 10px;top: 260px;">
+            <img alt="" class="drag-object " style="left:120px;top:260px;">
+        </div>
+        <div class="put-container-wrap clearfix">
+            <img alt="" class="put-container fl" src="img/put-container1.png" data-category="data-a">
+            <img alt="" class="put-container fl" src="img/put-container2.png" data-category="data-b">
+            <img alt="" class="put-container fl" src="img/put-container3.png" data-category="data-c">
+            <img alt="" class="put-container fl" src="img/put-container4.png" data-category="data-d">
+        </div>
+        <input type="hidden" name="" class="temp-storage">
+        <div class="bgcover"></div>
+        <div class="tip">
+            <img src="img/tip.png" alt="" class="tip-img">
+            <img src="img/close.png" alt="" class="close">
+        </div>
+       
+    </div>
+    <script src="js/library/jquery-3.2.1.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <!-- <script src="js/library/hammer.js"></script> -->
+    <script src="js/index.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

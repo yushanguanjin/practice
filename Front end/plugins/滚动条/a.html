@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ff0000;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 插件文档：https://nicescroll.areaaperta.com/ -->
+    <div class="box">
+        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+        测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    </div>
+    <script src="../../library/jquery.js"></script>
+    <script src="jquery.nicescroll.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                $(".box").niceScroll();
+            }
+        );
+    </script>
+</body>
+
+</html>

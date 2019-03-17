@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;list-style:none;}
+body{position:absolute;background:#ccc;}
+.div2{position:relative;width:1.172058134083451rem;height:50px;background:#fff;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h1 class="test">test</h1>
+            <h1 class="test">test</h1>
+    </div>
+  
+    <script src="../../library/jquery.js"></script>
+    <script src="hammer.js"></script>
+    <script>
+        var tests = document.getElementsByClassName("test");
+       for(var i = 0;i< i < tests.length;i++) {
+            var hammertime = new Hammer(tests[i]);
+                hammertime.on("panstart",function() {
+            console.log(10);
+            })
+       }
+       
+      
+    </script>
+</body>
+</html>

@@ -51,6 +51,7 @@ $("#each-help-page").load("iframe.html", function () {
     $("img").click(function () {
         var imgSrc = $(this).attr("src");
         if(srcArray.indexOf($(this).attr("src")) == -1) {
+            //window.location.href=imgSrc;
             window.open(imgSrc);
         }
     })

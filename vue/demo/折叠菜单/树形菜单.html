@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1em;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+
+        .label-wrapper {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+
+        }
+
+        .has-children {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h4>Vue.js Expandable Tree Menu<br /><small>(Recursive Components)</small></h4>
+        <div id="app">
+            <tree-menu :nodes="tree.nodes" :depth="0" :label="tree.label"></tree-menu>
+        </div>
+    </div>
+
+
+    <script type="text/x-template" id="tree-menu">
+        <div class="tree-menu">
+          <div class="label-wrapper" @click="toggleChildren">
+            <div :style="indent" :class="labelClasses">
+              <i v-if="nodes" class="fa" :class="iconClasses"></i>
+              {{ label }}
+            </div>
+          </div>
+          <tree-menu 
+            v-if="showChildren"
+            v-for="node in nodes" 
+            :nodes="node.nodes" 
+            :label="node.label"
+            :depth="depth + 1"   
+          >
+          </tree-menu>
+        </div>
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+
+        let tree = {
+            label: 'root',
+            nodes: [
+                {
+                    label: 'item1',
+                    nodes: [
+                        {
+                            label: 'item1.1'
+                        },
+                        {
+                            label: 'item1.2',
+                            nodes: [
+                                {
+                                    label: 'item1.2.1'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: 'item2',
+                    nodes: [
+                        {
+                            label: 'item2.1'
+                        },
+                        {
+                            label: 'item2.2',
+                            nodes: [
+                                {
+                                    label: 'item2.2.1'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        Vue.component('tree-menu', {
+            template: '#tree-menu',
+            props: ['nodes', 'label', 'depth'],
+            data() {
+                return {
+                    showChildren: false
+                }
+            },
+            computed: {
+                iconClasses() {
+                    return {
+                        'fa-plus-square-o': !this.showChildren,
+                        'fa-minus-square-o': this.showChildren
+                    }
+                },
+                labelClasses() {
+                    return { 'has-children': this.nodes }
+                },
+                indent() {
+                    return { transform: `translate(${this.depth * 50}px)` }
+                }
+            },
+            methods: {
+                toggleChildren() {
+                    this.showChildren = !this.showChildren;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                tree
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ff0000;
+            overflow: hidden; /*隐藏滚动条，消除小球碰到滚动条出现的窗口闪动*/
+        }
+    </style>
+   
+</head>
+
+<body>
+    <div id="box">
+        
+    </div>
+    <script>
+            console.log(Math.random());
+            var box = document.getElementById("box");
+    
+            //文档片段
+            var fragment = document.createDocumentFragment();
+            for (var i = 0, len = Math.random() * 100; i < len; i++) {
+                //生成小球
+                var ball = document.createElement("div");
+    
+                //大小
+                var width = Math.random() * 30 + 1 + "px";
+                var height = width;
+                
+                //颜色
+                var r = Math.random() * 256;
+                var g = Math.random() * 256;
+                var b = Math.random() * 256;
+    
+                //位置
+                var l = parseInt(Math.random()*470) + "px";
+                var t = parseInt(Math.random()*270)+ "px";
+              
+    
+                ball.style = "position:absolute;left:"+l+";top:"+t+";width:"+width+";height:"+height+";border-radius:50%;background:rgb(" + r + "," + g + "," + b + ")";
+                console.log(ball);
+                ball.setAttribute("class", "ball");
+                fragment.appendChild(ball);
+            }
+    
+            box.appendChild(fragment);
+    
+    
+            var balls = document.querySelectorAll(".ball");
+            balls.forEach(function (item, index) {
+                console.log(item);
+                //随机一个沿着x轴移动的初始值
+                var speedX = parseInt(Math.random() * 10 + 1);
+                //console.log(speedX);
+                //随机一个沿着y轴移动的初始值
+                var speedY = parseInt(Math.random() * 10 + 1);
+                //console.log(speedY);
+                //获得当前小球的left值
+                var nowLeft = item.offsetLeft;
+                //获得当前小球的top值
+                var nowTop = item.offsetTop;
+                console.log(nowLeft, nowTop);
+                //获得小球x轴最大的移动距离
+                var maxWidth = box.offsetWidth - item.offsetWidth;
+                //console.log(maxWidth);
+                //获得小球y轴最大的移动距离
+                var maxHeight = box.offsetHeight - item.offsetHeight;
+                //console.log(maxHeight);
+                setInterval(function () {
+                    nowLeft += speedX;
+                    nowTop += speedY;
+                    if (nowLeft >= maxWidth) {
+                        speedX = -speedX;
+                    }
+                    if (nowLeft <= 0) {
+                        speedX = -speedX;
+                    }
+                    if (nowTop >= maxHeight) {
+                        speedY = -speedY;
+                    }
+                    if (nowTop <= 0) {
+                        speedY = -speedY;
+                    }
+    
+                    item.style.left = nowLeft + "px";
+    
+                    item.style.top = nowTop + "px";
+                }, 30)
+            })
+    
+    
+    
+        </script>
+</body>
+
+</html>

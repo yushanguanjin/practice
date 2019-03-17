@@ -33,6 +33,11 @@ $(function () {
     
     console.log($(window).height());
     //$(".section").not(":eq(0)").height($(window).height() - 70);
+
+
+
+
+    
 });
 
 //箭头点击到下一页
@@ -51,6 +56,8 @@ window.reload = function () {
         window.location.hash = "page1";
     }
 }
+
+$(window).load(function() {
 //页面第一次打开以后，鼠标滚动，根据url的hash值在当前页面发生动画
 if (("onhashchange" in window) && ((typeof document.documentMode === "undefined") || document.documentMode == 8)) {
     // 浏览器支持onhashchange事件
@@ -66,7 +73,6 @@ if (("onhashchange" in window) && ((typeof document.documentMode === "undefined"
 }
 function hashChangeFire() {
     var hash = window.location.hash;
-    console.log(hash);
     var nextPage = hash.slice(-1);
     //锚点变化，头部菜单样式发生变化
     if(hash!= "#page1") {
@@ -103,6 +109,8 @@ function hashChangeFire() {
             $(".section").eq(nextPage - 1).addClass("animated zoomIn");
         },100)
 }
+})
+
 /*小屏幕适配*/
 $("#mobile-menu").click(function() {
     $(".menu-mobile").toggle();

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 参考文章：https://blog.csdn.net/huangmengfeng/article/details/81005161 -->
+    <input type="button" value="BtnA" class="BtnA">
+    <input type="button" value="BtnB" id="BtnB">
+    <script src="../js/jquery.js"></script>
+    <script>
+        //原因：每点击一次BtnA，都会为BtnB绑定一次处理b过程的内容，所以BtnA点击了几次，去点击Btnb时，就会触发几次b过程的处理
+        $('.BtnA').click(function () {
+            console.log('处理a过程')
+            //$('#BtnB).click(function(){代码}) 是绑定click事件，并不会直接运行。所以在嵌套的时候就有可能出现重复绑定的问题
+            $("#BtnB").click(function () {
+                console.log('处理b过程')
+            })
+
+        })
+        //扩展：如果内层有ajax请求，这样一瞬间发了好多个ajax，ajax是异步，导致数据读取不到 没有及时更新）
+
+
+        
+        //解决办法：
+        //方法一
+          /*每次点击BtnA的时候，判断BtnB是否已经绑定了事件，如果没有绑定则进行绑定事件（这里事件就是处理b过程），
+            如果已经绑定事件，那么可以把BtnB绑定的事件进行解绑，然后重新绑定事件（或者已经绑定，就不做处理），保证BtnB绑定的事件只有一次。*/
+        $('.BtnA').click(function () {
+            console.log("绑定处理b过程")
+            //判断是否绑定了click事件，每点一次编辑按钮，就会绑定一次保存按钮的点击事件，造成多次提交，需要判断
+            var objEvt = $._data($('#BtnB')[0], 'events');
+            if (objEvt && objEvt['click']) {
+                console.log('已经绑定了,进行接触绑定');
+                $('#BtnB').unbind('click')
+            }
+            console.log('没有绑定');
+            $("#BtnB").click(function () {
+                console.log("绑定处理b过程")
+            })
+        })
+        //方法二
+        /*但是还是不推荐使用解绑的方法，请大家牢牢记住，事件与事件不要嵌套，都当做一个个整体给独立出来，这样就不会出现错误了。也不用担心独立出来会被无意中执行了，
+        放心吧，用户不去主动触发事件，事件绑定的代码是不会执行的！*/
+        $('.BtnA').click(function () {
+            console.log('处理a过程')
+            //先解绑off()，在绑定 
+            $("#BtnB").off("click").click(function () {
+                console.log('处理b过程')
+            })
+
+        })
+
+
+        //注:在一个事件里调用另一个事件，不会出现事件绑定，因为两个事件是独立的，只是在一个事件中调用另一个事件
+        $(".box1").click(function() {
+            //直接调用click:
+            $(".box2").click();
+            //或者用trigger来触发:$(".box2").trigger("click");
+       })
+       $(".box2").click(function() {
+           console.log(10);
+        })
+    </script>
+
+</body>
+
+</html>

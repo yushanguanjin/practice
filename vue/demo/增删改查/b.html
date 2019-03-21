@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: auto;
+        }
+
+        p,
+        div {
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        table {
+            width: 1200px;
+        }
+
+        th {
+            width: 20%;
+        }
+
+        tr:nth-of-type(2n+1) {
+            background: #ffffff;
+        }
+
+        tr:nth-of-type(2n) {
+            background: #f9f9f9;
+        }
+
+        td {
+            height: 50px;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .add-btn {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            background-color: #286090;
+            border-color: #204d74;
+        }
+
+        .edit {
+            background-color: #31b0d5;
+            color: #ffffff;
+        }
+
+        .delete {
+            background-color: #c9302c;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="example">
+        <div class="container">
+            <h1>Vue基础CRUD演示</h1>
+            <h2>畅销书排行</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            序号
+                        </th>
+                        <th>
+                            书名
+                        </th>
+                        <th>
+                            作者
+                        </th>
+                        <th>
+                            价格
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(book,index) in books">
+                        <td>{{index + 1}}</td>
+                        <td>{{book.name}}</td>
+                        <td>{{book.auther}}</td>
+                        <td>{{book.price}}</td>
+                        <td>
+                            <button class="edit" @click="edit(index,book)">编辑</button>
+                            <button class="delete" @click="del(index)">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                总价：{{sumPrice}}
+            </div>
+        </div>
+        <div class="container">
+            <h2>添加书信息</h2>
+            <div>
+                <span>书名</span>
+                <input type="text" v-model="bookName">
+            </div>
+            <div>
+                <span>作者</span>
+                <input type="text" v-model="bookAuthor">
+            </div>
+            <div>
+                <span>价格</span>
+                <input type="text" v-model="bookPrice">
+            </div>
+            <div class="add-btn" @click="add()" v-show="!isEdit">添加</div>
+            <div class="add-btn" @click="upData()" v-show="isEdit">更新数据</div>
+        </div>
+    </div>
+    <template>
+        <el-button :plain="true" @click="open2">成功</el-button>
+        <el-button :plain="true" @click="open3">警告</el-button>
+        <el-button :plain="true" @click="open">消息</el-button>
+        <el-button :plain="true" @click="open4">错误</el-button>
+    </template>
+    <template>
+  <el-button type="text" @click="open4">点击打开 Message Box</el-button>
+</template>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var books = [
+            {
+                name: "红楼梦",
+                auther: "曹雪芹",
+                price: "32"
+            },
+            {
+                name: "水浒传",
+                auther: "施耐庵",
+                price: "30"
+            },
+            {
+                name: "西游记",
+                auther: "吴承恩",
+                price: "40"
+            },
+            {
+                name: "三国演义",
+                auther: "罗贯中",
+                price: "39"
+            }
+        ]
+        // localStorage.setItem("books",JSON.stringify(books));
+        // var bookLists = JSON.parse(localStorage.books);
+        // console.log(bookLists);
+        var vm = new Vue({
+            el: "#example",
+            data: function () {
+                return {
+                    books: books,
+                    bookName: "",
+                    bookAuthor: "",
+                    bookPrice: "",
+                    currentIndex: 0,
+                    isEdit: false
+                    // bookLists:bookLists
+                }
+            },
+            methods: {
+                //增
+                add: function () {
+                    console.log(10);
+
+                    if (this.bookName == "" || this.bookAuthor == "" || this.bookPrice == "") {
+                        this.open3();
+                    } else {
+                        var newBookInfo = {};
+                        newBookInfo.bookName = this.bookName;
+                        newBookInfo.bookAuthor = this.bookAuthor;
+                        newBookInfo.bookPrice = this.bookPrice;
+                        this.books.push(newBookInfo);
+                        console.log(this.books);
+                        this.$set(this.books, this.books.indexOf(newBookInfo), newBookInfo);
+                        this.bookName = "";
+                        this.bookAuthor = "";
+                        this.bookPrice = "";
+                    }
+                    // console.log(books);
+                    // console.log(this.books);
+                    // console.log(books.indexOf(newBookInfo));
+                    // this.items.splice(newBookInfo,0,)
+
+                    //this.upDatabase();
+                },
+                //删
+                del: function (index) {
+                    this.currentIndex = index;
+                    console.log(this.currentIndex);
+                    this.books.splice(index, 1);
+                },
+                //编辑
+                edit: function (index, book) {
+                    this.currentIndex = index;
+                    this.bookName = book.name;
+                    this.bookAuthor = book.auther;
+                    this.bookPrice = book.price;
+                    if (this.isEdit == false) {
+                        this.isEdit = !this.isEdit;
+                    }
+                },
+                //改
+                upData: function (index) {
+                    console.log("edit");
+                    Vue.set(this.books[this.currentIndex], "name", this.bookName);
+                    Vue.set(this.books[this.currentIndex], "author", this.bookAuthor);
+                    Vue.set(this.books[this.currentIndex], "price", this.bookPrice);
+                    this.bookName = "";
+                    this.bookAuthor = "";
+                    this.bookPrice = "";
+                    this.isEdit = !this.isEdit;
+                },
+                upDatabase: function () {
+                    //  localStorage.bookLists = JSON.stringify(this.bookLists);
+                },
+                open3() {
+                    this.$message({
+                        message: '书信息不能为空',
+                        type: 'warning'
+                    });
+                },
+            },
+            computed: {
+                sumPrice: function () {
+                    var sum = null;
+                    for (var i = 0, len = books.length; i < len; i++) {
+                        sum += Number(books[i].price);
+                    }
+                    return sum;
+                }
+            },
+            mounted: function () {
+                // console.log(this.books);
+            },
+        })
+    </script>
+</body>
+
+</html>

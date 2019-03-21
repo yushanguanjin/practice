@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dddddd;
+        }
+
+        .changeColor {
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{num}}</p>
+        <p>{{getNum()}}</p>
+
+        <button v-on:click="num++">Num++</button>
+        <button v-on:click="num--">Num--</button>
+        <button v-on:click="num2++">Num2++</button>
+        <button v-on:click="value3++">value3++</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                num: 1,
+                num2: 2,
+                value3: 88
+
+            },
+            methods: {
+                getNum: function () { //每次更新页面的时候就会执行
+                    alert("methods");
+                    return "现在的num：";
+                }
+            },
+            computed: {
+                getNum2: function () { //第一次执行，后面当依赖的属性发生改变的时候执行
+                    alert("computed");
+                    return "num2：" + this.num2;
+                }
+            },
+            watch: {
+                value3: function (value) {  //value3是已经在data中定义的属性，value是该属性发生改变的时候的值
+                    alert(" 现在的value：" + value);
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

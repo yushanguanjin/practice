@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: auto;
+        }
+
+        p,
+        div {
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        table {
+            width: 1200px;
+        }
+
+        th {
+            width: 20%;
+        }
+
+        tr:nth-of-type(2n+1) {
+            background: #ffffff;
+        }
+
+        tr:nth-of-type(2n) {
+            background: #f9f9f9;
+        }
+
+        td {
+            height: 50px;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .add-btn {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            background-color: #286090;
+            border-color: #204d74;
+        }
+
+        .edit {
+            background-color: #31b0d5;
+            color: #ffffff;
+        }
+
+        .delete {
+            background-color: #c9302c;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <el-upload class="upload-demo" ref="upload" action="doUpload" :limit="1" :file-list="fileList"
+            :before-upload="beforeUpload">
+            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+            <a href="./static/moban.xlsx" rel="external nofollow" download="模板">
+                <el-button size="small" type="success">下载模板</el-button>
+            </a>
+            <!-- <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button> -->
+            <div slot="tip" class="el-upload__tip">只能上传excel文件，且不超过5MB</div>
+            <div slot="tip" class="el-upload-list__item-name">{{fileName}}</div>
+        </el-upload>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="visible = false">取消</el-button>
+            <el-button type="primary" @click="submitUpload()">确定</el-button>
+        </span>
+        <template>
+            <el-button :plain="true" @click="open2">成功</el-button>
+            <el-button :plain="true" @click="open3">警告</el-button>
+            <el-button :plain="true" @click="open">消息</el-button>
+            <el-button :plain="true" @click="open4">错误</el-button>
+        </template>
+        <template>
+            <el-button type="text" @click="open4">点击打开 Message Box</el-button>
+        </template>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

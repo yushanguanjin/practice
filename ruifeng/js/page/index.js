@@ -1,7 +1,7 @@
 $(function () {
     //全屏滚动
     $('#fullPage').fullpage({
-        sectionsColor: ['#ffffff', '#4BBFC3', '#7BAABE', '#f90', '#ff0000', '#00ff00', '#0000ff', '#000000'],
+        sectionsColor: ['#ffffff', '#4BBFC3', '#fff', '#f90', '#ff0000', '#00ff00', '#0000ff', '#000000'],
         anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8'],
         menu: '#menu',
         'navigation': true,

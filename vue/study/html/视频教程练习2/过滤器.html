@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .inner {
+            height: 150px;
+            background: darkcyan;
+        }
+        
+        .outer {
+            padding: 40px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <div>
+            {{msg | myFormat("a","b") | test}}
+        </div>
+    </div>
+</body>
+<script>
+    Vue.filter("myFormat", function(msg, a, b) {
+        return msg.replace(/小刚/g, "小丽" + a + b);
+    })
+    Vue.filter("test", function(msg) {
+        return msg + "......"
+    })
+    var vm = new Vue({
+        el: ".app",
+        data: {
+            msg: "小刚说小刚的名字叫小刚"
+        },
+        methods: {
+
+        }
+
+    })
+</script>
+
+</html>

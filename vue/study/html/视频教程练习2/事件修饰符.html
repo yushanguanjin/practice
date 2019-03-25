@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .inner {
+            height: 150px;
+            background: darkcyan;
+        }
+        
+        .outer {
+            padding: 40px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 事件修饰符可以串联 -->
+        <!-- .self与.stop的区别：.self只终止自身的冒泡行为的触发，不终止其它元素的冒泡 -->
+        <a href="" @click.prevent.once="linkClick"></a>
+    </div>
+</body>
+<script>
+    var a = 10;
+    // console.log(a);
+
+    // 双向数据绑定 v-model  vm->v   v->vm
+</script>
+
+</html>

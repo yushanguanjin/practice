@@ -14,22 +14,23 @@ html,body{
     font-size: 48px;
     line-height: 74px;
     letter-spacing: 10px;
+    font-weight: bold;
 }
 .nav-content-left{
     width: 630px;
 }
 .detail-nav-title{
     margin-top: 12px;
-    font-size: 24px;
+    font-size: 18px;
     color: #737b81;
-    line-height: 48px;
+    line-height: 30px;
     letter-spacing: 7px;
 }
 .login-immediately{
     display: block;
     width: 200px;
     height: 50px;
-    margin-top: 48px;
+    margin-top: 26px;
     border-radius: 5px;
     color:#fff;
     text-align: center;
@@ -70,10 +71,18 @@ html,body{
     margin-bottom: 20px;
 }
 .product-advantages-item-text2-advantages{
-    font-size: 24px;
+    display: inline-block;
+    width: 40px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 12px;
+    vertical-align: middle;
     font-weight: bold;
-    color: #fcb64f;
-    letter-spacing: 1px;
+    background: #fdaa31;
+    color: #fff;
+    border-radius: 4%;
+   
 }
 .product-advantages-item-text2-banben{
     font-size: 20px;
@@ -157,7 +166,7 @@ html,body{
     font-size: 18px;
     line-height: 34.5px;
     color:#707586;
-    font-family: "SimHei" !important;
+    font-family: PingFangSC-Regular, sans-serif !important;
 }
 @media (max-width: 1217px) {
     .nav-content-left {

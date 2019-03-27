@@ -31,18 +31,20 @@
         <div class="clearfix">
             <div class="float">
                 <label for="">id:</label>
-                <input type="text" v-model="id">
+                <input type="text" v-model="id" @keyup.enter="add()">
             </div>
             <div class="float">
                 <label for="">name:</label>
-                <input type="text" v-model="name">
+                <input type="text" v-model="name" @keyup.enter="add()">
             </div>
             <div class="float">
                 <input type="button" value="添加" @click="add()">
             </div>
             <div class="float">
                 <label for="" @click="search">搜索:</label>
-                <input type="text" v-model="keywords">
+                <!-- 注意：Vue中的所有指令，在调用的时候，都以v--开头 -->
+                <!-- 注意：'#0000ff'是一个字符串 -->
+                <input type="text" v-model="keywords" id="search" v-focus v-color="'#0000ff'">
             </div>
         </div>
         <table class="table table-bordered table-hover table-striped">
@@ -69,7 +71,7 @@
     </div>
 
     <div class="app2">
-        <div>
+        <div v-fontweight="'bold'" v-fontsize="'30px'">
             {{ctime | myFormat()}}
         </div>
 
@@ -80,16 +82,54 @@
     //过滤器中的function,第一个参数是过滤器管道符前面传递过来的数据
     //pattern = "" es6用法，如果第二个参数实参没有，形参就为空字符串，pattern就不会报错（不会因为pattern为undefined,toLowerCase()不存在报错）
     Vue.filter('myFormat', function(dateStr, pattern = "") {
-        var y = new Date(dateStr).getFullYear();
-        var m = new Date(dateStr).getMonth() + 1;
-        var d = new Date(dateStr).getDate();
-        if (pattern.toLowerCase() == "yy--mm-dd") {
-            return `${y}-${m}-${d}`;
-        } else {
-            var hh = new Date(dateStr).getHours();
-            var mm = new Date(dateStr).getMinutes();
-            var ss = new Date(dateStr).getSeconds();
-            return `${y}-${m}-${d}-${hh}-${mm}-${ss}`;
+            var y = new Date(dateStr).getFullYear();
+            var m = (new Date(dateStr).getMonth() + 1).toString().padStart(2, "0");
+            var d = new Date(dateStr).getDate().toString().padStart(2, "0");
+            if (pattern.toLowerCase() == "yy--mm-dd") {
+                return `${y}-${m}-${d}`;
+            } else {
+                var hh = new Date(dateStr).getHours().toString().padStart(2, "0");
+                var mm = new Date(dateStr).getMinutes().toString().padStart(2, "0");
+                var ss = new Date(dateStr).getSeconds().toString().padStart(2, "0");
+                return `${y}-${m}-${d}-${hh}-${mm}-${ss}`;
+            }
+
+        })
+        //自定义全局按键修饰符
+        // Vue.config.keywords.f2 = 113;
+
+    //参数一：指令的名称。定义指令不需要v-前缀
+    //参数二：是一个对象，这个对象上有相关的函数指令的名称。
+
+    Vue.directive("focus", {
+        //每当指令绑定到元素上的时候，会立即执行bind函数，只执行一次
+        bind: function(el) {
+            //注意：在每个函数中，第一个参数，永远是el,表示被绑定了指令的元素怒，这个el参数是一个原生的js对象
+            //在元素刚绑定了指令的时候，还没有插入到DOM中去，这时候，调用focus方法没有作用
+            //因为一个元素，只有插入到DOM之后，才能获取焦点
+        },
+        //元素插入到dom中的时候，会执行insereted函数，触发一次
+        inserted: function(el) {
+            el.focus();
+        },
+        //当vNode更新的时候，会执行updated,可能会触发多次
+        updated: function() {
+
+        }
+    })
+    Vue.directive("color", {
+        //样式，只要通过指令绑定给了元素，不管元素有没有被插入到页面中，这个页面肯定有了以个内联样式
+        //将来元素肯定会显示到页面中，这时候，浏览器的渲染引擎必然会解析样式，应用给这个元素
+
+        //和样式相关的在最好在inserted中执行
+        bind: function(el, binding) {
+            //el.style.color = "#ff0000"
+            console.log(binding.value);
+            el.style.color = binding.value;
+        },
+        //和js相关的在最好在inserted中执行
+        inserted: function() {
+
         }
 
     })
@@ -143,27 +183,40 @@
 
     //局部过滤
     var vm2 = new Vue({
-        el: ".app2",
-        data: {
-            id: "",
-            name: "",
-            keywords: "",
-            ctime: new Date()
-        },
-        filters: {
-            myFormat: function(dateStr, pattern = "") {
-                var y = new Date(dateStr).getFullYear();
-                var m = new Date(dateStr).getMonth() + 1;
-                var d = new Date(dateStr).getDate();
-                if (pattern.toLowerCase() == "yy--mm-dd") {
-                    return `${y}-${m}-${d} ~~`;
-                } else {
-                    var hh = new Date(dateStr).getHours();
-                    var mm = new Date(dateStr).getMinutes();
-                    var ss = new Date(dateStr).getSeconds();
-                    return `${y}-${m}-${d}-${hh}-${mm}-${ss}`;
+            el: ".app2",
+            data: {
+                id: "",
+                name: "",
+                keywords: "",
+                ctime: new Date()
+            },
+            filters: {
+                myFormat: function(dateStr, pattern = "") {
+                    var y = new Date(dateStr).getFullYear();
+                    var m = new Date(dateStr).getMonth() + 1;
+                    var d = new Date(dateStr).getDate();
+                    if (pattern.toLowerCase() == "yy--mm-dd") {
+                        return `${y}-${m}-${d} ~~`;
+                    } else {
+                        var hh = new Date(dateStr).getHours();
+                        var mm = new Date(dateStr).getMinutes();
+                        var ss = new Date(dateStr).getSeconds();
+                        return `${y}-${m}-${d}-${hh}-${mm}-${ss}`;
+                    }
+                }
+            },
+            directives: {
+                "fontweight": {
+                    bind: function(el, binding) {
+                        el.style.fontWeight = binding.value;
+                    }
+                },
+                //简写，注意这个function等同于把代码写到了bind和update中
+                "fontsize": function(el, binding) {
+                    el.style.fontSize = parseInt(binding.value) + "px";
                 }
             }
-        }
-    })
+        })
+        //文本框聚焦
+        // document.getElementById("search").focus();
 </script>

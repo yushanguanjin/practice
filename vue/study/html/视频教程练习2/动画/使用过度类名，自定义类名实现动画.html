@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 2s ease;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            transform: translateY(200px);
+            opacity: 0;
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 使用过度类名实现动画 -->
+        <button @click="flag=!flag" value="按钮">按钮</button>
+        <transition>
+            <h3 v-if="flag">动画</h3>
+        </transition>
+        <hr>
+        <!-- 使用自定义前缀实现动画 -->
+        <button @click="flag2=!flag2" value="按钮2">按钮2</button>
+        <transition name="my">
+            <h6 v-if="flag2">动画</h6>
+        </transition>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: false,
+            flag2: false
+        }
+    })
+</script>
+
+</html>

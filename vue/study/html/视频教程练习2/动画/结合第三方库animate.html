@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <link rel="stylesheet" href="../../../../../Front end/plugins/animate/animate.css">
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 使用过度类名实现动画 -->
+        <button @click="flag=!flag" value="按钮">按钮</button>
+        <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" :duration="{ enter: 500, leave: 800 }">
+            <h3 v-if="flag">动画</h3>
+        </transition>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: false
+        }
+    })
+</script>
+
+</html>

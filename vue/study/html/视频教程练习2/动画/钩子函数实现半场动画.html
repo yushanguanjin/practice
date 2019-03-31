@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .ball {
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 钩子函数才能实现半场动画 -->
+    <div id="app">
+        <!-- 使用过度类名实现动画 -->
+        <button @click="flag=!flag" value="按钮">按钮</button>
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div class="ball" v-show="flag"></div>
+        </transition>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: false
+        },
+        methods: {
+            beforeEnter(el) {
+                el.style.transform = "translate(0,0)"
+            },
+            enter(el, done) {
+                // 表示动画 开始之后的样式，这里，可以设置小球完成动画之后的样式，结束状态
+                //el.offsetWidth没有实际作用，可以认为会强制动画刷新
+
+                console.log(el);
+                el.offsetWidth
+                el.style.transform = "translate(150px,450px)"
+                el.style.transition = "all 1s ease"
+                    //done()调用afterEnter函数
+                done()
+            },
+            afterEnter(el) {
+                console.log(10);
+                this.flag = !this.flag
+            }
+        }
+
+
+    })
+</script>
+
+</html>

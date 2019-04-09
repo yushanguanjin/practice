@@ -28,7 +28,6 @@ $("#each-help-page").load("iframe.html", function () {
 
         }
     }, 20)
-
     // $("img").click(function () {
     //     var _this = $(this);  
     //     $(this).addClass("img-enlarge");

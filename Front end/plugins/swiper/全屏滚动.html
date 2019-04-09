@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏Swiper</title>
+    <link href="https://cdn.bootcss.com/Swiper/4.2.6/css/swiper.min.css" rel="stylesheet">
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 768px;
+        }
+        .Slide1{
+            background: seagreen;
+        }
+        .Slide2{
+            background: skyblue;
+        }
+        .Slide3{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="Slide1">Slide1</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Slide2">Slide2</div>
+            </div>
+            <div class="swiper-slide">
+                <div class="Slide3">Slide3</div>
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.2.6/js/swiper.min.js"></script>
+    <script type="text/javascript">
+        var height = $(window).height();
+        $(".swiper-slide").children().css("height",height);
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical',
+    
+           
+            mousewheel: true,//鼠标滚轮控制
+        })
+    </script>
+</html>

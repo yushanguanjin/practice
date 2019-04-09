@@ -1,0 +1,134 @@
+/* 清除浮动部分 开始 */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 清除浮动部分 结束 */
+*{
+    font-family:"SimHei"
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bg1{
+    background-image: url("../img/p1.png");
+}
+.bg2{
+    background-image: url("../img/p2.png");
+}
+.bg4{
+    background-image: url("../img/p4.png");
+}
+.bg5{
+    background-image: url("../img/p5.png");
+}
+.bg6{
+    background-image: url("../img/p6.png");
+    background-color: rgb(249,253,255);
+}
+.bg7{
+    background-image: url("../img/p7.png");
+}
+.programme{
+    width: 1090px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 647px;
+}
+.programme-img-wrap{
+    position: relative;
+    width: 544px;
+    height: 100%;
+}
+.programme-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.contact-us{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 50px;
+    background: #2e3133;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+.contact-us:hover{
+    background: #ff0000;
+}
+.contact-us:active{
+    background: #ff0000;
+}
+.customer-service-wrap{
+    position: fixed;
+    width: 170px;
+    right: 30px;
+    bottom: 30px;
+}
+.customer-service-wrap img{
+    display: block;
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.extra-special-price{
+    display: none;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+.extra-special-price>img{
+    width: 100%;
+}
+.extra-special-price p{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+@media  (max-height:770px){
+    .programme{
+        width: 950.16px;
+        height: 600px;
+    }
+    .programme-img-wrap{
+        width: 475.09px;
+        height: 600px;
+    }
+}
+@media  (max-height:690px){
+    .programme{ 
+        width: 867.04px;
+        height: 550px;
+    }
+    .programme-img-wrap{
+        width: 433.52px;
+        height: 550px;
+    }
+}

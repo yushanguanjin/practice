@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        li {
+            list-style: none;
+            border: 1px solid #dddddd;
+            width: 200px;
+            height: 40px;
+            background: #ffffff;
+        }
+
+        .active{
+            background:  #016000;
+            transition: all 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 在实现列表过渡的时候，如果需要过渡的元素，是通过v-for循环渲染出来的，不能使用transition包裹 -->
+    <div id="app">
+        <ul>
+           
+                <li v-for="item in lists" :key="item.id"     @mouseover="animate(item)"  :class="{active:isActive}" ref="li">
+                    {{item.id}} -- {{item.name}}
+                </li>
+          
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            isActive:false,
+            lists: [
+                {
+                    id: 0,
+                    name: "html"
+                },
+                {
+                    id: 1,
+                    name: "css"
+                },
+                {    
+                    id: 2,
+                    name: "js"
+                }
+            ]
+        },
+        methods: {
+            animate(item) {
+                for(var i = 0;i< this.$refs.li.length;i++) {
+                    this.$refs.li[i].isActive = false
+                };
+                this.isActive = !this.isActive
+               
+               
+            }
+            
+        }
+
+
+    })
+</script>
+
+</html>

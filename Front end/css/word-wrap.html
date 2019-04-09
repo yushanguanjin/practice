@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>js实现连续英文字符自动换行</title> 
+</head> 
+<body> 
+<div id="ff" style="width:500px;background:#f3f3f3;">Baidu Translation English Online Translation Baidu Translation English Online Translation Baidu Translation English Online Translation Baidu Translation English Online Translation</div> 
+<script> 
+function toBreakWord(intLen){ 
+var obj=document.getElementById("ff");//文字内容所在容器的id 
+var strContent=obj.innerHTML; 
+var strTemp=""; 
+while(strContent.length>intLen){ 
+strTemp+=strContent.substr(0,intLen)+"<br />"; 
+strContent=strContent.substr(intLen,strContent.length); 
+} 
+strTemp+=strContent; 
+obj.innerHTML=strTemp; 
+} 
+toBreakWord(50);//一行的最大字符数 
+</script> 
+</body> 
+</html> 

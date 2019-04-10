@@ -68,6 +68,7 @@
     position: absolute;
     bottom: 50px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 170px;
     height: 50px;
@@ -114,7 +115,7 @@
 }
 @media  (max-height:770px){
     .programme{
-        width: 950.16px;
+        width: 955px;
         height: 600px;
     }
     .programme-img-wrap{
@@ -122,6 +123,7 @@
         height: 600px;
     }
 }
+
 @media  (max-height:690px){
     .programme{ 
         width: 867.04px;

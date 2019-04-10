@@ -16,9 +16,9 @@
         }
 
         #newBridge .nb-icon-left-center {
-            left: auto !important;
+
             top: calc(100% - 127px) !important;
-            right: -15px !important;
+            left: calc(100% - 79px) !important;
         }
 
         #newBridge {
@@ -38,15 +38,24 @@
         $(function () {
             $('#dowebok').fullpage({
                 anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
-                scrollingSpeed: 300,
-                touchSensitivity: 100
+                scrollingSpeed: 300
             });
         });
 
+        //百度商桥
         var _hmt = _hmt || [];
         (function () {
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?6fb8e175f0bd5cb5b1e0bd4ea063a80f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        //百度统计
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?457d3bba27adcd32d4117071e4760784";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
@@ -165,10 +174,13 @@
                 } else {
                     $(".extra-special-price").hide();
                 }
+                console.log(window.location.href);
+                //百度统计
+                _hmt.push(['_trackPageview', window.location.href]);
             }
             //返回顶部
             $(".return-top").click(function () {
-                window.location.hash = "#page1"
+                window.location.hash = "#page1";
             })
             //是否有特价
             $(".extra-special-price").click(function () {

@@ -113,6 +113,38 @@
     width: 100%;
     text-align: center;
 }
+.phone-wrap{
+    position: absolute;
+    bottom: 0;
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.phone{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+.small-program{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+}
+.erweima{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+}
 @media  (max-height:770px){
     .programme{
         width: 955px;
@@ -132,5 +164,11 @@
     .programme-img-wrap{
         width: 433.52px;
         height: 550px;
+    }
+}
+
+@media  (max-height:845px){
+    .phone-wrap{
+        width: 300px;
     }
 }

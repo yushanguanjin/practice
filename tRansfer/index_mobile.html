@@ -66,7 +66,6 @@
     <header class="header">
         <div class="main clearfix">
             <p class="header-title fl">
-                <a href="index_mobile.html">睿风电商小程序</a>
             </p>
             <img class="menu fr" src="img/menu.png" alt="">
         </div>
@@ -98,18 +97,21 @@
             <div class="programme ">
                 <div class="programme-img-wrap ">
                     <img src="img/out-of-the-box-mobile-initial.png" alt="" class="programme-img" id="out-of-the-box">
-                    <a href="http://www.refineit.com.cn/" class="contact-us" target="_blank">联系我们</a>
+                    <a href="http://p.qiao.baidu.com/cps2/chatIndex?reqParam=%7B%22from%22%3A0%2C%22sessionid%22%3A%22%22%2C%22siteId%22%3A%2213256135%22%2C%22tid%22%3A%22-1%22%2C%22userId%22%3A%225647100%22%2C%22ttype%22%3A1%2C%22siteConfig%22%3A%7B%22wsUrl%22%3A%22wss%3A%2F%2Fp.qiao.baidu.com%2Fcps2%2Fwebsocket%22%2C%22eid%22%3A%225647100%22%2C%22queuing%22%3A%22%22%2C%22likeVersion%22%3A%22%22%2C%22siteId%22%3A%2213256135%22%2C%22online%22%3A%22true%22%2C%22webRoot%22%3A%22%2F%2Fp.qiao.baidu.com%2Fcps2%2F%22%2C%22bid%22%3A%22155496437427647331%22%2C%22userId%22%3A%225647100%22%2C%22isGray%22%3A%22false%22%2C%22invited%22%3A0%7D%2C%22config%22%3A%7B%22themeColor%22%3A%224d74fa%22%7D%7D" class="contact-us" target="_blank">联系我们</a>
                 </div>
                 <div class="programme-img-wrap ">
                     <img src="img/independent-installation-mobile.png" alt="" class="programme-img">
-                    <a href="http://www.refineit.com.cn/" class="contact-us" target="_blank">联系我们</a>
+                    <a href="http://p.qiao.baidu.com/cps2/chatIndex?reqParam=%7B%22from%22%3A0%2C%22sessionid%22%3A%22%22%2C%22siteId%22%3A%2213256135%22%2C%22tid%22%3A%22-1%22%2C%22userId%22%3A%225647100%22%2C%22ttype%22%3A1%2C%22siteConfig%22%3A%7B%22wsUrl%22%3A%22wss%3A%2F%2Fp.qiao.baidu.com%2Fcps2%2Fwebsocket%22%2C%22eid%22%3A%225647100%22%2C%22queuing%22%3A%22%22%2C%22likeVersion%22%3A%22%22%2C%22siteId%22%3A%2213256135%22%2C%22online%22%3A%22true%22%2C%22webRoot%22%3A%22%2F%2Fp.qiao.baidu.com%2Fcps2%2F%22%2C%22bid%22%3A%22155496437427647331%22%2C%22userId%22%3A%225647100%22%2C%22isGray%22%3A%22false%22%2C%22invited%22%3A0%7D%2C%22config%22%3A%7B%22themeColor%22%3A%224d74fa%22%7D%7D" class="contact-us" target="_blank">联系我们</a>
                 </div>
             </div>
         </div>
         <div class="section">
-            <div class="bg bg4">
-
-            </div>
+                <div class="bg bg4" style="position:relative;">
+                    <div class="phone-wrap">
+                        <img class="small-program" src="img/small-program-phone.png" alt="">
+                        <img class="erweima" src="img/erweima-phone.png" alt="">
+                    </div>
+                </div>
         </div>
         <div class="section">
             <div class="bg bg5">
@@ -139,7 +141,12 @@
         </a>
     </div>
     <script>
+       
         $(window).load(function () {
+            //初始加载，屏幕高度小于650的时候，不是第一屏，头部隐藏，防止每一屏因为屏幕高度太低，内容被剪切
+            if( $(window).height() < 650 && window.location.hash != "#page1") {
+                    $(".header").hide();
+            }
             //菜单
             var clickCount = 0;
             $(".menu").click(function () {
@@ -166,6 +173,12 @@
             }
             window.onhashchange = function () {
                 console.log(window.location.hash);
+                 //屏幕高度小于650的时候，不是第一屏，头部隐藏，防止每一屏因为屏幕高度太低，内容被剪切，是第一屏，头部显示
+                if( $(window).height() < 650 && window.location.hash != "#page1") {
+                    $(".header").hide();
+                } else if ($(window).height() < 650 && window.location.hash == "#page1"){
+                    $(".header").show();
+                }
                 if (window.location.hash == "#page3") {
                     $(".extra-special-price").show();
                     $(".customer-service-wrap img").css({
@@ -195,7 +208,26 @@
             })
         })
 
+        //第四屏
+        $(window).load(function() {
+        $(".phone-wrap").height($(".small-program").height() || $(".erweima").height());
+    })
+   
 
+    $(window).resize(function() {
+        $(".phone-wrap").height($(".small-program").height() || $(".erweima").height());
+    })
+    
+    $(".small-program").click(
+        function() {
+            $(".erweima").show();
+         }
+    )
+    $(".erweima").click(
+        function() {
+            $(this).hide();
+         }
+    );
 
     </script>
 

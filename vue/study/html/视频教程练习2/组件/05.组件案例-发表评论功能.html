@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <com1 @func="loadComents"></com1>
+        <ul>
+            <li v-for="(item,index) in list" :key="item.id">
+                {{item.id}} -- {{item.user}} -- {{item.content}}
+            </li>
+        </ul>
+    </div>
+    <template id="tmpl">
+        <div>
+            <div>
+                    <input type="button" value="发表评论" @click="postComent">
+                </div>
+            <div>
+                <label for="">评论人</label>
+                <input type="text" v-model="user">
+            </div>
+            <div>
+                <label for="">评论内容</label>
+                <input type="text" v-model="content">
+            </div>
+           
+        </div>
+    </template>
+
+</body>
+<script>
+    var com1 = {
+        template: "#tmpl",
+        data() {
+            return {
+                user: "",
+                content: "",
+            }
+        },
+        methods: {
+            postComent: function() {
+                if (this.user == "" || this.content == "") {
+                    return
+                }
+                var item = {
+                        id: new Date().getTime(),
+                        user: this.user,
+                        content: this.content
+                    }
+                    //获取存储的评论并存储新的评论
+                var list = JSON.parse(localStorage.getItem("list") || "[]");
+                //数组里加入新的评论内容
+                var newList = list.unshift(item);
+                console.log(list);
+                localStorage.setItem("list", JSON.stringify(list));
+                this.user = "",
+                    this.content = ""
+                this.$emit("func")
+            }
+
+        }
+    }
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            list: [{
+                id: new Date().getTime(),
+                user: "李白",
+                content: "花间一壶酒"
+            }, {
+                id: new Date().getTime() + 1,
+                user: "杜甫",
+                content: "黄四娘家花满蹊"
+            }, {
+                id: new Date().getTime() + 2,
+                user: "白居易",
+                content: "大珠小珠落玉盘"
+            }]
+        },
+        created: function() {
+
+            this.loadComents();
+
+            console.log(10);
+        },
+        methods: {
+            loadComents() {
+                var list = JSON.parse(localStorage.getItem("list") || "[]");
+                this.list = list;
+
+            }
+        },
+        components: {
+            com1: com1
+        }
+    })
+</script>

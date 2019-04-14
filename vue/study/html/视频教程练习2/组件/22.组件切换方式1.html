@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <a href="" @click.prevent="flag = true">登录</a>
+        <a href="" @click.prevent="flag = false">注册</a>
+        <login v-if="flag"></login>
+        <register v-else="flag"></register>
+    </div>
+
+
+</body>
+<script>
+    //这样是共享的
+    // var dataObj = {
+    //     count: 0
+    // }
+    Vue.component("login", {
+        template: "<h3>登录组件</h3l>"
+    })
+    Vue.component("register", {
+        template: "<h3>注册组件</h3l>"
+    })
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: true
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</html>

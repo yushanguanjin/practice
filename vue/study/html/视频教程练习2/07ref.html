@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .inner {
+            height: 150px;
+            background: darkcyan;
+        }
+        
+        .outer {
+            padding: 40px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <input type="button" value="获取元素" @click="getElement" ref="myBtn">
+        <h3 id="myh3" ref="myh3">aaaaa</h3>
+
+        <hr>
+        <login ref="myLogin"></login>
+    </div>
+</body>
+<script>
+    //v-for可以用在数组及对象上
+
+    var login = {
+        template: "<div>登录组件</div>",
+        data() {
+            return {
+                msg: "登录组件data"
+            }
+        },
+        methods: {
+            show() {
+                console.log("登录组件方法")
+            }
+        }
+    }
+    var vm = new Vue({
+        el: ".app",
+        data: {
+
+        },
+        methods: {
+            getElement() {
+                console.log(this.$refs.myh3.innerText);
+                console.log(this.$refs.myBtn);
+                //调用组件的数据
+                console.log(this.$refs.myLogin.msg);
+                //调用组件的方法
+                console.log(this.$refs.myLogin.show());
+            }
+        },
+        components: {
+            login: login
+        }
+
+    })
+</script>
+
+</html>

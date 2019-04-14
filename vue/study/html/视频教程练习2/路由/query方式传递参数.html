@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>查询字符串</title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <!-- 1.安装路由模块 -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+    <style>
+        .router-link-active {
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <router-link to="/login?id=10&name=zs" tag="span">登录</router-link>
+        <router-link to="/register" tag="span">注册</router-link>
+
+        <router-view></router-view>
+
+    </div>
+</body>
+<script>
+    //组件模板对象
+    var login = {
+        template: "<div>登录组件 -- {{$route.query.id}} -- {{$route.query.name}}</div>",
+        created() {
+            console.log(this.$route.query.id);
+            console.log(this.$route.query.name);
+        }
+    }
+    var register = {
+        template: "<div>注册组件</div>"
+    }
+    var routerObj = new VueRouter({
+
+        routes: [
+
+            {
+                path: '/',
+                redirect: '/login'
+            }, {
+                path: '/login',
+                component: login
+            }, {
+                path: '/register',
+                component: register
+            }
+        ]
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        },
+        router: routerObj
+    })
+</script>
+
+</html>

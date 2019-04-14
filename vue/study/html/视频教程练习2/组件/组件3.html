@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 2s ease;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            transform: translateY(200px);
+            opacity: 0;
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <my-com3></my-com3>
+    </div>
+    <!-- 在被控制的#app外面，使用template元素，定义组件的html模板结构 -->
+    <template id="tmpl">
+        <div>
+            <h1>通过template元素，在外部定义的组件结构，这个方式，有代码的智能提示和高亮</h1>
+        </div>
+    </template>
+</body>
+<script>
+    Vue.component("myCom3", {
+        template: "#tmpl"
+    })
+    var vm = new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>

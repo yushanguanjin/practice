@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <counter></counter>
+        <counter></counter>
+        <counter></counter>
+    </div>
+
+    <template id="tmpl">
+        <div>
+            <input type="button" value="+1" @click="increment">
+            <h3>{{count}}</h3>
+        </div>
+    </template>
+</body>
+<script>
+    //这样是共享的
+    // var dataObj = {
+    //     count: 0
+    // }
+    Vue.component("counter", {
+        template: "#tmpl",
+        data: function() {
+            return dataObj
+        },
+        methods: {
+            increment() {
+                this.count++
+            }
+        }
+    })
+    Vue.component("counter", {
+        template: "#tmpl",
+        data: function() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            increment() {
+                this.count++
+            }
+        }
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        }
+    })
+</script>
+
+</html>

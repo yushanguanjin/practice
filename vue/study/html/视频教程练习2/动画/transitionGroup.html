@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 2s ease;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            transform: translateY(200px);
+            opacity: 0;
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <transition-group appear tag="ul">
+            <li v-for="(item,i) in list" :key="item.id" @click="del(i)">
+                {{item.id}} --- {{item.name}}
+            </li>
+         </transition-group>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            flag: false,
+            flag2: false
+        }
+    })
+</script>
+
+</html>

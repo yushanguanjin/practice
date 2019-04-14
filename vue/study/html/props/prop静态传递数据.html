@@ -17,15 +17,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script>
-
-
         var childNode = {
             template: `
             <div>{{forChildMsg}}</div>
             `,
             /*子组件的模板使用从父组件传来的变量时，需要使用对应的小驼峰写法*/
-            props:["for-child-msg"]
-            /*子组件 props 属性声明时，使用小驼峰或者中划线写法都可以；*/
+            props: ["for-child-msg"]
+                /*子组件 props 属性声明时，使用小驼峰或者中划线写法都可以；*/
         };
         var parentNode = {
             template: `

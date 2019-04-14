@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <!-- 1.安装路由模块 -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header-box {
+            background: #ff0000;
+            height: 100px;
+        }
+        
+        .wrap {
+            display: flex;
+            height: 600px;
+        }
+        
+        .left-box {
+            background: #00ff00;
+            flex: 2;
+        }
+        
+        .main-box {
+            background: #0000ff;
+            flex: 8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <div class="wrap">
+            <!-- left,main是个值，不是表达式，使用了:name时是个表达式 -->
+            <router-view name="left"></router-view>
+            <router-view name="main"></router-view>
+        </div>
+    </div>
+</body>
+<script>
+    //组件模板对象
+    var header = {
+        template: "<div class='header-box'>头部内容</div>"
+    }
+    var left = {
+        template: "<div class='left-box'>左侧内容</div>"
+    }
+    var main = {
+        template: "<div class='main-box'>主题内容</div>"
+    }
+    var router = new VueRouter({
+        routes: [{
+            path: "/",
+            components: {
+                default: header,
+                left: left,
+                main: main
+            }
+        }]
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        },
+        router: router
+    })
+</script>
+
+</html>

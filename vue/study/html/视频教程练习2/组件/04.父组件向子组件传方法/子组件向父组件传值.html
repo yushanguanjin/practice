@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 父组件，可以在引用子组件的时候，通过属性绑定的形式，把需要传递给子组件中的数据，以属性绑定的形式，传递到子组件的内部，供子组件使用 -->
+        <com1 v-on:func="show"></com1>
+    </div>
+    <template id="tmpl">
+        <div>
+            <h1>父组件向子组件传方法</h1>
+            <input type="button" value="这是子组件中的按钮--点击它，触发父组件传递过来的func方法" @click="myClick()">
+        </div>
+    </template>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            datamsgFromSon: null
+        },
+        methods: {
+            show: function(name, age) {
+                //name,age为父组件接受$emit传过来的参数
+                console.log("调用了父组件身上的show方法" + name + age);
+                this.datamsgFromSon = name + age;
+                console.log(this.datamsgFromSon);
+            }
+        },
+        components: {
+            com1: {
+                template: "#tmpl",
+                data: function() {
+                    return {
+                        sonmsg: {
+                            name: "小头儿子",
+                            age: 6
+                        }
+                    }
+                },
+                methods: {
+                    myClick: function() {
+                        //func：自定义事件
+                        //emit:触发，调用
+                        //第二个参数，第三个参数为传递的值
+                        this.$emit("func", this.sonmsg.name, this.sonmsg.age);
+                    }
+
+                }
+            }
+        }
+    })
+</script>
+
+</html>

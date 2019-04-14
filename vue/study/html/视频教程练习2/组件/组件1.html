@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 2s ease;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            transform: translateY(200px);
+            opacity: 0;
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 2s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+       <my-com1></my-com1>
+    </div>
+</body>
+<script>
+    // 1.1
+    var com1 = Vue.extend({
+        template:"<h3>创建组件1</h3>"
+    })
+    // 1.2
+    Vue.component("myCom1",com1)
+    var vm = new Vue({
+        el: "#app"
+    })
+</script>
+
+</html>

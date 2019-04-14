@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <!-- 1.安装路由模块 -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.js"></script>
+    <style>
+        .router-link-active {
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/account">Account</router-link>
+        <router-view></router-view>
+
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是Account组件</h1>
+            <router-link to="/account/login">登录</router-link>
+            <router-link to="/account/register">注册</router-link>
+            <router-view></router-view>
+        </div>
+    </template>
+</body>
+<script>
+    //组件模板对象
+    var account = {
+        template: "#tmp1"
+    }
+    var login = {
+        template: "<h3>登录</h3>"
+    }
+    var register = {
+        template: "<h3>注册</h3>"
+    }
+    var router = new VueRouter({
+        routes: [{
+                path: "/account",
+                component: account,
+                //使用children属性，实现子路由，同时，子路由的path前面，不要带/。否则，永远以根路请求，这样不方便用户理解url地址
+                children: [{
+                    path: 'login',
+                    component: login
+                }, {
+                    path: 'register',
+                    component: register
+                }]
+            }
+
+        ]
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods: {
+
+        },
+        router: router
+    })
+</script>
+
+</html>

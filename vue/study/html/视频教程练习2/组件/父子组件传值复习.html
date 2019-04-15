@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <com1 v-bind:parentmsg="msg" @func="getMsgFromSon(data)">父组件中的数据{{msgFromSon}}</com1>
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是子元素{{parentmsg}}</h1>
+            <input type="button" value="子组件给父组件传值" @click="post()">
+        </div>
+    </template>
+</body>
+<script>
+    var com1 = {
+        template: "#tmp1",
+        data() {
+            return {
+                sonMsg: "dad,给你的钱"
+            }
+        },
+        props: [
+            'parentmsg'
+        ],
+        methods: {
+            post() {
+                console.log(this.sonMsg);
+                this.$emit("func", this.sonMsg);
+            }
+        }
+    }
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "这是父组件中的数据，爸爸有一百块钱，my son ,要不",
+            msgFromSon: " "
+        },
+        methods: {
+            getMsgFromSon(data) {
+                console.log(data);
+                this.msgFromSon = data
+            }
+        },
+        components: {
+            com1: com1
+        }
+    })
+</script>
+
+</html>

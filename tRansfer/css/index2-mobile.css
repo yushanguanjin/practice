@@ -1,0 +1,291 @@
+/* 基础元素样式重置  开始*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    /* 设置浏览器默认字体大小 */
+    color: #333;
+}
+
+div,
+ul,
+li,
+ol,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+input,
+button {
+    border: none;
+}
+
+a:focus,
+a:active
+{
+    border: 0;
+    outline: 0;
+}
+
+input,
+select,
+textarea {
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+iframe,
+option {
+    border: none;
+}
+
+select {
+    resize: none;
+}
+
+ul,
+li {
+    list-style: none
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    outline: none;
+}
+
+
+table{
+    border-collapse: collapse;
+}
+
+/* 基础元素样式重置  结束*/
+/* 清除浮动部分 开始 */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 清除浮动部分 结束 */
+*{
+    font-family:"SimHei";
+}
+.main{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.header{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding-left: 17.5px;
+    padding-right: 17.5px;
+    border-bottom: 1px solid #b0defc;
+    background-color: #fff;
+}
+.header-title>a{
+    font-size: 15px;
+    color:#4e4e4e;
+}
+.header .main{
+    position: relative;
+    padding-top: 17.5px;
+    padding-bottom: 17.5px;
+    height: 50px;
+  
+}
+.menu{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 40px;
+}
+.menu-nav{
+    position: fixed;
+    top: 51px;
+    left: 100%;
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid #dfdfdf;
+    background: #ffffff;
+    z-index: 100;
+   
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bg1{
+    background-image: url("../img/p1-mobile.png");
+}
+.bg2{
+    background-image: url("../img/p2-mobile.png");
+}
+.bg4{
+    background-image: url("../img/p4-mobile.png");
+}
+.bg5{
+    background-image: url("../img/p5-mobile.png");
+}
+.bg6{
+    background-image: url("../img/p6-mobile.png");
+}
+.bg7{
+    background-image: url("../img/p7-mobile.png");
+}
+.menu-nav-item{
+    text-align: center;
+    height: 74px;
+    line-height: 74px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.programme{
+    width: 46%;
+    margin-left: auto;
+    margin-right: auto;  
+}
+.programme-img-wrap{
+    position: relative;
+    margin-top: 20px;
+    -webkit-box-shadow: #cceaff 0px 0px 10px;
+    box-shadow: #cceaff 0px 0px 10px;
+    border-radius: 20px;
+}
+.programme-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.programme-title-mobile{
+    width: 70%;
+    margin-top: 40px;
+}
+.phone-wrap{
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.phone{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+.small-program{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+}
+.erweima{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+}
+.contact-us{
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 82.5px;
+    height: 25px;
+    background: #2e3133;
+    font-size: 12px;
+    text-align: center;
+    line-height: 25px;
+    color: #ffffff;
+    border-radius: 30px;
+    text-decoration: none;
+}
+.contact-us:hover{
+    background: #ff0000;
+}
+.contact-us:active{
+    background: #ff0000;
+}
+.customer-service-wrap{
+    position: fixed;
+    right: 13px;
+    bottom: 40px;
+    z-index: 1;
+}
+.customer-service-wrap img{
+    display: block;
+    margin-left: 20px;
+    width: 65px;
+}
+.extra-special-price{
+    display: none;
+  
+   
+}
+.extra-special-price p{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+@media  (max-height:700px){
+    .phone-wrap {
+        width: 200px;
+    }
+}
+@media  (max-height:650px){
+    .header {
+        position: static; 
+    }
+    .programme{
+        width: 40%;
+      
+    }
+}
+

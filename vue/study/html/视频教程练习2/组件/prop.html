@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 注意：parentmsg不能写成parentMsg -->
+        <child v-bind:parent-msg="msg"></child>
+    </div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "父传子"
+        },
+        methods: {
+
+        },
+        components: {
+            child: {
+                template: "<h1>这是子组件{{ parentMsg }}</h1>",
+                props: ['parentMsg']
+            }
+        }
+    })
+</script>
+
+</html>

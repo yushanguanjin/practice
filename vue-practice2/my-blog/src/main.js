@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router' // import router 的router 一定要小写， 不要写成Router, 否则报 can't match的报错
 import VueResource from 'vue-resource'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 Vue.use(VueResource)

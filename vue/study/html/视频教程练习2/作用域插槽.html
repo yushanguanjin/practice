@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <!-- 引入vue.js -->
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <style>
+        .inner {
+            height: 150px;
+            background: darkcyan;
+        }
+        
+        .outer {
+            padding: 40px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 作用于插槽：子传父值 -->
+    <div class="app">
+        <boy>
+            <template slot-scope="data">
+                <div>{{data.msg}}</div>
+            </template>
+        </boy>
+    </div>
+
+    <template id="tmp1">
+        <div>
+            <slot :msg=msg></slot>
+        </div>
+    </template>
+</body>
+<script>
+    var vm = new Vue({
+        el: ".app",
+        components: {
+            boy: {
+                template: "#tmp1",
+                data() {
+                    return {
+                        msg: "作用域插槽"
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>

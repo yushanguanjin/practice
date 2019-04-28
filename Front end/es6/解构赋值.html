@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let [a, b, c] = [1, 2, 3];
+        //注意：左右两边，结构格式要一致
+        console.log(a, b, c);
+
+
+
+        let json = {
+            name: 'a',
+            age: 18,
+            job: "software engineer"
+        }
+
+        let {
+            name,
+            age,
+            job
+        } = json;
+        console.log(name, age, job);
+
+
+
+        let {
+            name: n,
+            age: a,
+            job: j
+        } = json;
+        console.log(n, a, j);
+
+        //设置默认值
+        let [a, b, c = "暂无数据"] = [10, 20];
+        console.log(a, b, c);
+
+
+        //注意null
+        let [a, b, c = "默认值"] = [0, 0, null];
+        console.log(a, b, c);
+
+        //交换两个数位置
+        let a = 12;
+        let b = 5;
+        [a, b] = [b, a];
+        console.log(a, b); // 5 12
+
+
+        function getPos() {
+            return {
+                left: 10,
+                top: 20
+            }
+        }
+        let {
+            left,
+            top: t
+        } = getPos();
+        console.log(left, t);
+
+
+
+        //函数传参可以解构
+        function show1({
+            a,
+            b = "默认值"
+        }) {
+            console.log(a, b);
+        }
+        show1({
+            a: 1
+        })
+
+        //函数传参可以解构
+        function show2({
+            a = "默认值",
+            b = "默认值"
+        } = {}) {
+            console.log(a, b);
+        }
+        show2();
+    </script>
+</body>
+
+</html>

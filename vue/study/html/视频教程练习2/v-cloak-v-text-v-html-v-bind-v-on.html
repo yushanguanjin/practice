@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        [v-cloak]{
+        [v-cloak] {
             display: none;
         }
     </style>
@@ -15,11 +15,11 @@
 
 <body>
     <div class="box1">
-       <p v-cloak>+++{{msg}}---</p>
-       <h4 v-text="msg">+++---</h4>
-       <div v-html="msg2">+++---</div>
-       <!-- 默认v-text是没有闪烁问题的 -->
-       <button @click="show">按钮</button>
+        <p v-cloak>+++{{msg}}---</p>
+        <h4 v-text="msg">+++---</h4>
+        <div v-html="msg2">+++---</div>
+        <!-- 默认v-text是没有闪烁问题的 -->
+        <button @click="show">按钮</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -27,11 +27,11 @@
         new Vue({
             el: ".box1",
             data: {
-                msg:"a",
-                msg2:"<h2>b</h2>"
+                msg: "a",
+                msg2: "<h2>b</h2>"
             },
-            methods:{
-                show:function() {
+            methods: {
+                show: function() {
                     console.log(this.msg2);
                 }
             }

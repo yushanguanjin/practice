@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*三个点主要功能：展开及剩余*/
+        //扩展运算符及rest运算符的作用
+        let arr = ['apple', 'banana', 'orange'];
+        console.log(arr);
+        console.log(...arr); //展开数组
+
+        //1,2,3,4,5,6 -> ...a -> [1,2,3,4,5,6]
+        function a(...a) {
+            console.log(a); //收回数组
+        }
+        a(1, 2, 3, 4, 5, 6);
+
+
+        //剩余,当剩余功能用只能放在最后
+        function show(a, b, ...c) {
+            console.log(a, b, c);
+        }
+        show(1, 2, 3, 4, 5, 6);
+
+        //业务应用：可以拷贝，做数据映射
+        let array = [1, 2, 3, 4, 5, 6];
+        let array2 = [...array];
+        console.log(array, array2);
+    </script>
+</body>
+
+</html>

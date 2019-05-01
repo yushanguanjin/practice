@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //es6之前
+        function show(a, b) {
+            b = b || 'China'; //设置默认值
+            console.log(a, b);
+        }
+        show('welcome', 'America');
+        show('welcome');
+
+        //es6
+        function show2(a, b = 'China') {
+            console.log(a, b);
+        }
+        show2('welcome', '  '); //第二个参数是空的字符串
+        show2('welcome');
+
+        //解构传参设置默认参数
+        function show3({
+            a,
+            b
+        } = {}) {
+            console.log(a, b);
+        }
+        show3();
+
+        /*函数参数默认已经定义了，不能使用let,const声明*/
+        function func(a = 10) {
+            let a = 20; // 错误;a已经声明
+            console.log(a);
+        }
+        func();
+    </script>
+</body>
+
+</html>

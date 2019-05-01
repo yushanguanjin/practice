@@ -9,40 +9,62 @@
 </head>
 
 <body>
-    <!-- https://www.cnblogs.com/biubiuxixiya/p/8610594.html -->
     <script>
-        //箭头函数是匿名函数，不能作为构造函数，不能使用new
-        //箭头函数不绑定arguments，取而代之用rest参数...解决
-        function A(a) {
-            console.log(arguments);
+        /*1.this问题，定义函数所在的对象，不是运行时所在的对象
+                                                                                                                                        
+                 2.箭头函数里面没有arguments
+                 3.不能当做构造函数
+                 */
+        function show() {
+            return 1;
         }
-        A(1, 2, 3, 4, 5, 8);  //  [1, 2, 3, 4, 5, 8, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        console.log(show());
 
 
-        let B = (b) => {
-            console.log(arguments);
+        let show2 = () => 1;
+        console.log(show2());
+
+        let show3 = () => {
+            return 1;
         }
-        B(2, 92, 32, 32);   // Uncaught ReferenceError: arguments is not defined
+        console.log(show3());
 
 
-        let C = (...c) => {
-            console.log(c);
-        }
-        C(3, 82, 32, 11323);  // [3, 82, 32, 11323]
-        //箭头函数不绑定this，会捕获其所在的上下文的this值，作为自己的this值
-        var obj = {
-            a: 10,
-            b: () => {
-                console.log(this.a); // undefined
-                console.log(this); // Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
-            },
-            c: function () {
-                console.log(this.a); // 10
-                console.log(this); // {a: 10, b: ƒ, c: ƒ}
+
+
+
+
+
+        //1.this问题，定义函数所在的对象，不是运行时所在的对象
+        var id = 10; //用var定义一个全局变量，属于window,而let,const不同
+
+        let json = {
+            id: 20,
+            show: function() {
+                setTimeout(() => {
+                    console.log(this.id);
+                }, 2000);
             }
+        };
+        json.show();
+
+
+
+        //2.箭头函数里面没有arguments
+
+
+        // let func = () => {
+        //     return arguments;
+        // }
+
+        // console.log(func()); //报错：arguments is not defined
+
+        //代替方法,三个点代替
+        let func = (...args) => {
+            return args;
         }
-        obj.b();
-        obj.c();
+
+        console.log(func());
     </script>
 </body>
 

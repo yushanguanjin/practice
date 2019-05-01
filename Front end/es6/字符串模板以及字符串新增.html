@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*字符串模板*/
+        var data = [{
+            title: "1",
+            content: "内容1"
+        }, {
+            title: "2",
+            content: "内容2"
+        }, {
+            title: "3",
+            content: "内容4"
+        }];
+        var html = "";
+        for (var i = 0, len = data.length; i < len; i++) {
+            html += `标题：${data[i].title},内容：${data[i].content}`
+        }
+        document.querySelector("body").innerHTML = html;
+        /*api*/
+
+        //str.includes
+        //缺点
+        let str = ['apple', 'Banana', 'pear'];
+        alert(str.includes('banana')) //返回false
+            //str.startWith():字符串是否以谁开头
+            //str.endsWith()：字符串是否以谁结尾
+            //str.repeat(次数)重复次数,适合做假数据
+        let string = "字符串";
+        console.log(string.repeat(10));
+
+
+
+
+        /*填充字符串
+        str.padStart(整个字符串长度，填充东西) 往前填充
+        str.padEnd(整个字符串长度，填充东西)  往后填充
+        */
+        let month = "4";
+
+        console.log(month.padStart(2, "0"));
+    </script>
+</body>
+
+</html>

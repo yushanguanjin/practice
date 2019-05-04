@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*for of   arr.keys()：数组下标，arr.entires():数组某一项*/
+        let arr = ['apple', 'banana', 'orange'];
+        for (let val of arr) { //默认就是values
+            console.log(val);
+        }
+        for (let val of arr.values()) {
+            console.log(val);
+        }
+        for (let key of arr.keys()) { //默认就是values
+            console.log(key);
+        }
+        for (let item of arr.entries()) { //默认就是values
+            console.log(item);
+        }
+        for (let [key, val] of arr.entries()) { //默认就是values
+            console.log(key, vall);
+        }
+    </script>
+</body>
+
+</html>

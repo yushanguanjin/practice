@@ -9,7 +9,12 @@
 </head>
 
 <body>
-
+    <ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
     <script>
         /*三个点主要功能：展开及剩余*/
         //扩展运算符及rest运算符的作用
@@ -34,6 +39,13 @@
         let array = [1, 2, 3, 4, 5, 6];
         let array2 = [...array];
         console.log(array, array2);
+
+        //应用
+        let aLi = document.querySelectorAll("li");
+        let arrLi = [...aLi];
+        arrLi.pop();
+        arrLi.push('123456');
+        console.log(arrLi);
     </script>
 </body>
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*map:适合做数据交互：“映射”。正常情况下，需要配合return，返回一个新的数组。若是没有return，相当于forEach().
+                                                                                                                                                                                                                注意：平时只要使用map，一定是要有return*/
+        let arr = [{
+            title: 'aaaa',
+            read: 100,
+            hot: true
+        }, {
+            title: 'bbbb',
+            read: 200,
+            hot: false
+        }, {
+            title: 'cccc',
+            read: 100,
+            hot: true
+        }, {
+            title: 'dddd',
+            read: 200,
+            hot: false
+        }];
+        let newArr = arr.map((item, index, arr) => {
+            let json = {};
+            json.t = `^_^${item.title}------`;
+            json.r = item.read + 200;
+            json.hot = item.hot == true && '真棒!';
+            return json; //不return，打印出来的是undefined
+        })
+        console.log(newArr);
+        /*some:其中一个元素或多个元素符合条件就返回true*/
+        let arr = ['apple', 'banana', 'orange'];
+
+        function findInArray(arr, item) {
+            return arr.some((val, index, arr) => {
+                return val == item;
+            })
+        }
+        console.log(findInArray(arr, 'orange'));
+        /*some:所有的元素符合条件就返回true*/
+
+
+
+        /*reduce():求数组的和、阶乘。从左往右*/
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let res = arr.reduce((prev, cur, index, arr) => {
+            return prev + cur;
+        })
+        console.log(res);
+        /*reduceRight():求数组的和、阶乘。从左往右*/
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let res = arr.reduceRight((prev, cur, index, arr) => {
+            return prev + cur;
+        })
+        console.log(res);
+    </script>
+</body>
+
+</html>

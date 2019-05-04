@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
+    <script>
+        /*Array.from():类数组（包括DOM节点，参数列表）转化为数组*/
+        /*类数组有length*/
+        let aLi = document.querySelectorAll("li");
+        let arrLi = Array.from(aLi);
+
+
+        function show() {
+            let args = Array.from(arguments); //参数列表不能直接用数组的方法，用Array.from()转换
+            args.push(6);
+            console.log(args);
+        }
+        show(1, 2, 3, 4, 5, 6);
+        //字符串用Array.from()
+        let str = 'Strive';
+        let arr = Array.from(str);
+        console.log(arr);
+
+        let json = {
+            0: 'apple',
+            1: 'banana',
+            2: 'orange',
+            length: 3 //没有length不行
+        }
+        console.log(Array.from(json));
+        /*Array.of():把一组值转为数组*/
+        let arr = Array.of('apple', 'banana', 'orange');
+        console.log(arr);
+
+
+
+
+
+
+        /*arr.find()查找第一个符合条件的数组成员，如果没有找到返回undefined*/
+        let arr = [23, 900, 101, 80, 100];
+        let res = arr.find((val, index, arr) => {
+            return val > 100;
+        })
+        console.log(res);
+
+        /*arr.findIndex():找得是位置，没找到返回-1*/
+        let arr = [23, 900, 101, 80, 100];
+        let res = arr.findIndex((val, index, arr) => {
+            return val > 100;
+        })
+        console.log(res);
+        /*array.fill(填充的东西，开始位置，结束位置)*/
+        let arr = new Array(10);
+        arr.fill('默认值');
+        console.log(arr);
+    </script>
+</body>
+
+</html>

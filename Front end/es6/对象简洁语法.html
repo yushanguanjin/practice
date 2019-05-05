@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*对象简写语法*/
+        let name = 'Strive';
+        let age = 18;
+        let json = {
+            name,
+            age,
+            showA() {
+                return this.name;
+            },
+            showB: () => {
+                return this.age; //注意：不要在这里用箭头函数
+            }
+        };
+        console.log(json.showA());
+        /*Object.is():用来比较两个值是否相等*/
+        let b = Object.is(NaN, NaN);
+        console.log(b); //true
+
+        console.log(Object.is(+0, -0)); //false
+
+        /*Object.assign(target,source1,source2):用来合并对象。
+            用途：可以复制对象
+        */
+
+        let json1 = {
+            a: 1
+        };
+        let json2 = {
+            b: 2
+        };
+        let json3 = {
+            c: 3
+        };
+        let obj = Object.assign({}, json1, json2, json3);
+        console.log(obj);
+
+        //应用
+        function ajax(option) {
+            let defaults = {
+                type: 'get',
+                header: '',
+                data: {}
+            }
+            let json = Object.assign({}, defaults, option);
+        }
+
+        let arr = ['apple', 'banna', 'orange'];
+        let newArr = Object.assign([], arr);
+        newArr.push('pears');
+        console.log(newArr);
+        /*Object.keys() Object.values()  Object.entries()*/
+        let {
+            keys,
+            values,
+            entries
+        } = Object;
+        let json = {
+            a: 1,
+            b: 2,
+            c: 3
+        };
+        for (let key of keys(json)) {
+            console.log(key);
+        }
+        for (let value of values(json)) {
+            console.log(values);
+        }
+        for (let key of entries(json)) {
+            console.log(item);
+        }
+        /*扩展运算符*/
+        let {
+            x,
+            y,
+            ...z
+        } = {
+            x: 1,
+            y: 2,
+            a: 1,
+            b: 2
+        };
+        console.log(x, y, z);
+        /*通过扩展运算符可以克隆json*/
+        let json = {
+            a: 3,
+            b: 4
+        }
+        let json2 = {...json
+        };
+        delete json2.b;
+        console.log(json, json2);
+    </script>
+</body>
+
+</html>

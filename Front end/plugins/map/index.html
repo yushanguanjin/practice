@@ -6,24 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
     <style>
         #container {
-            width:465px;
+            margin-top: 1000px;
+            width: 465px;
             height: 355px;
             border: 1px solid #000;
         }
+
         .amap-icon img {
             width: 25px;
             height: 34px;
         }
 
-        .amap-marker-label{
+        .amap-marker-label {
             border: 0;
             background-color: transparent;
         }
 
-        .info{
+        .info {
             position: relative;
             top: 0;
             right: 0;
@@ -34,7 +36,8 @@
 
 <body>
     <div id="container"></div>
-    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.11&key=3882027fe9aad0be91ef44742afa8da2"></script>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.11&key=3882027fe9aad0be91ef44742afa8da2"></script>
     <script>
         var map = new AMap.Map('container', {
             //zoom:10,
@@ -60,6 +63,19 @@
             content: "<div class='info'>金华万达广场-4号楼</div>"
         });
 
+        function MouseWheel(e) { //阻止事件冒泡和默认行为的完整兼容性代码
+            if (e && e.stopPropagation) {//非IE  
+                e.stopPropagation();
+            }
+            else {//IE  
+                window.event.cancelBubble = true;
+            }
+        }
+        var con = document.getElementById('container');
+        //要在content内部滚动，而页面不受影响，所以这里获取要滚动的对象
+
+        //如果是ff就绑定DOMMouseScroll事件，其他浏览器就用onmousewheel事件触发
+        con.onmousewheel = MouseWheel;
     </script>
 </body>
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 2;
+       
+         var p = new Promise((resolve,reject)=>{
+            if(a == 10){
+                resolve('成功');
+            } else {
+                reject('失败');
+            }
+            
+         })
+
+        p.then(res=>{
+             console.log(res);
+        },err=>{
+            console.log(err);//reject时执行
+        });
+
+        p.catch(err=>{
+            console.log(err);//reject时执行
+        })
+        // new Promise().then().catch();
+
+
+        var p = Promise.resolve(
+           
+                '成功'
+            
+        )
+        p.then(res=>{
+            console.log(p)
+        })
+       
+    </script>
+</body>
+</html>

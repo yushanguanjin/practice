@@ -53,12 +53,14 @@
     <script src="swiper.min.js"></script>
     <script>
         var mySwiper = new Swiper('.swiper-container', {
-            autoplay: 5000, //可选选项，自动滑动
+            autoplay: 3000, //可选选项，自动滑动
             prevButton: '.swiper-button-prev',
             nextButton: '.swiper-button-next',
             pagination: '.swiper-pagination',
-            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+		    paginationClickable :true
         })
+       
     </script>
 </body>
 

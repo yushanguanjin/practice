@@ -1,42 +1,62 @@
+<!-- App.vue -->
 <template>
-  <div id="app">
-    <ul>
-       <!-- router-link 定义点击后导航到哪个路径下 -->
-      <li><router-link to="/">Home</router-link></li>
-       <li><router-link to="/helloworld">helloworld</router-link></li>
-       <li><router-link to="/element">element</router-link></li>
-    </ul>
-     <!-- 对应的组件内容渲染到router-view中 -->
-    <router-view></router-view>
-  </div>
+    <div id="app">
+        <div class="container" :style="{transform: 'rotateY(' + degValue + 'deg)'}">
+            <div class="front">
+                <div class="increment">
+                    <IncrementCount />
+                </div>
+                <div class="show-front"> {{fontCount}} </div>
+                <div class="decrement">
+                    <DecreaseCount />
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="increment">
+                    <IncrementCount />
+                </div>
+                <div class="show-back"> {{backCount}} </div>
+                <div class="decrement">
+                    <DecreaseCount />
+                </div>
+            </div> 
+        </div>
+    </div>
 </template>
 
 <script>
-
-
-export default {
-  name: 'App',
- 
-  data() {
-    return {
-
-    }
-  },
-  methods:{
-   
-  }
-  
-
-}
+    import IncrementCount from "./components/IncrementCount";
+    import DecreaseCount from "./components/DecreaseCount";
+    import { EventBus } from "./event-bus.js";
+    export default {
+        name: "App",
+        components: {
+            IncrementCount,
+            DecreaseCount
+        },
+        data() {
+            return {
+                degValue:0,
+                fontCount:0,
+                backCount:0
+            };
+        },
+        mounted() {
+            EventBus.$on("incremented", ({num,deg}) => {
+                this.fontCount += num
+                this.$nextTick(()=>{
+                    this.backCount += num
+                    this.degValue += deg;
+                })
+            });
+            EventBus.$on("decreased", ({num,deg}) => {
+                this.fontCount -= num
+                this.$nextTick(()=>{
+                    this.backCount -= num
+                    this.degValue -= deg;
+                })
+            });
+        }
+    }; 
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

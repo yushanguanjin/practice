@@ -10,8 +10,8 @@
 
 <body>
     <script type="module">
-        /*export要{},export default不要{}*/ /*有提升效果，import会自动提升到顶部，首先执行*/ /*导出去模块内容，如果里面有定时器更改，外面也会改动，不像Common规范缓存*/ /*import模块只会导入一次，无论引入多少次*/ /*import()类似于node里require,可以动态引入，默认import语法不能写到if之类里面*/ /*import()返回值是个promise对象可以用then方法*/import {a,b,c} from './a.js';
-        console.log(a,b,c);
+        /*export要{},export default不要{}*/ /*有提升效果，import会自动提升到顶部，首先执行*/ /*导出去模块内容，如果里面有定时器更改，外面也会改动，不像Common规范缓存*/ /*import模块只会导入一次，无论引入多少次*/ /*import()类似于node里require,可以动态引入，默认import语法不能写到if之类里面*/ /*import()返回值是个promise对象可以用then方法*/import { a, b, c } from './a.js';
+        console.log(a, b, c);
     </script>
 </body>
 

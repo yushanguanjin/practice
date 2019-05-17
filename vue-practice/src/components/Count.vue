@@ -32,7 +32,7 @@
     import DecreaseCount from "./DecreaseCount";
     
     import { EventBus } from "../event-bus";
-
+    //EventBus.$off('decreased', {})
      
     export default {
         name: "Count",

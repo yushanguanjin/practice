@@ -1,21 +1,21 @@
 <template>
     <div>
         <p>接受信息：<span style="color:#ff0000">{{getMsgA}}</span></p>
-        <EventBusA></EventBusA>
-        <EventBusB></EventBusB>
+        <ChildA></ChildA>
+        <ChildB></ChildB>
     </div>
 </template>
 
 <script>
-import EventBusA from './EventBusA';
-import EventBusB from './EventBusB';
-import { EventBus } from '../event-bus';
+import ChildA from './ChildA';
+import ChildB from './ChildB';
+import { EventBus } from '../../event-bus';
 
 export default {
-    name:'C',
+    name:'Parent',
     components:{
-        EventBusA:EventBusA,
-        EventBusB:EventBusB
+        ChildA:ChildA,
+        ChildB:ChildB
     },
     data(){
         return {

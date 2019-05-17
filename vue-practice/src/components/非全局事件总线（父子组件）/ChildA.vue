@@ -4,9 +4,9 @@
     </div>
 </template>
 <script>
-import { EventBus } from '../event-bus';
+import { EventBus } from '../../event-bus';
 export default {
-    name:'EventBusA.vue',
+    name:'ChildA',
     data(){
         return{
             msg:'发送信息'

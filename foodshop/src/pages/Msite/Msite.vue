@@ -50,6 +50,7 @@
 </template>
 
 <script>
+/*第三方库放在上面，结构更清晰*/
   import {mapState} from 'vuex'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'

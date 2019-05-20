@@ -1,23 +1,33 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <!-- $route代表当前路由 -->
+    <FooterGuide v-show="$route.meta.showFooter"/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import {mapActions} from 'vuex'
+  import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+  export default {
+    mounted () {
+      // this.$store.dispatch('getAddress')
+      this.getAddress()
+      this.getUserInfo()
+    },
+    methods: {
+      ...mapActions(['getAddress','getShops','getUserInfo'])
+    },
+    components: {
+      FooterGuide
+    }
+  }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" rel="stylesheet/stylus">
+// 整个应用组件的样式
+  #app
+    width 100%
+    height 100%
+    background #f5f5f5
 </style>

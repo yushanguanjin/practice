@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-demo="message">
+    </div>
+
+    <script type="text/javascript" src='https://i0.jrjimg.cn/zqt-red-1000/focus/focus2017YMZ/teamFrighting/js/vue.min.js'></script>
+    <script type="text/javascript">
+        Vue.directive('demo', {
+            bind: function(el, binding) {
+                el.value = binding.value + '我是饭饭'; //bind: 一旦指令附加到元素时触发
+                console.log(el.value)
+            },
+            inserted: function(el, binding) {
+                el.value = binding.value + '你叫什么名字？'; //inserted: 一旦元素被添加到父元素时触发
+                console.log(el.value)
+            },
+            update: function(el, binding) {
+                //暂时没有很好的例子
+                console.log(el.value)
+            },
+            componentUpdated: function(el, binding) {
+                //暂时没有很好的例子
+                console.log(el.value)
+            },
+            unbind: function(el, binding) {
+                //暂时没有很好的例子  
+                console.log(el.value)
+            }
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'hello,'
+            }
+        })
+    </script>
+</body>
+
+</html>

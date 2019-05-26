@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //注意：类Class没有提升功能，在Es5，用函数模拟可以
+        let aaa = 'Mickal';
+        class Person {
+            constructor(name, age) { //构造方法，调用new,自动执行
+                    //console.info(`构造函数执行了,${name},${age}`);
+                    this.name = name;
+                    this.age = age;
+                } //注意不需要,
+            showName() {
+                    return `名字为${this.name}`
+                } //注意不需要,
+            showAge() {
+                    return `名字为${this.age}`
+                }
+                [aaa]() {
+                    return `函数名是个变量`
+                }
+        }
+        let p1 = new Person('Strive', 18);
+        console.log(p1.showName(), p1.showAge());
+        console.log(p1[aaa]());
+    </script>
+</body>
+
+</html>

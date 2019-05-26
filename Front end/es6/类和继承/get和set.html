@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+
+            }
+            get aaa() {
+                return `aaa的属性`
+            }
+            set aaa(val) {
+                    console.log('设置aaa属性，值为：${val}');
+                }
+                //静态方法：类身上的方法
+            static aaa() {
+                return `这是静态方法`
+            }
+        }
+        let p1 = new Person();
+        p1.aaa = '123';
+        console.log(p1.aaa);
+        console.log(Person.aaa());
+    </script>
+</body>
+
+</html>

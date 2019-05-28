@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+       var oInput = document.querySelector('input');
+        oInput.onblur = function () {
+           
+        var input = oInput.value;
+       
+            var reg = /(\d{1,8})|(\d{1,8}.\d{0,2})/;
+         
+            if (reg.test(input)) {
+             
+                if (input.indexOf('.') != -1) {
+                    return true;
+                    console.log(oInput)
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

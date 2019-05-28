@@ -1,0 +1,22 @@
+// 微信小程序的全局配置，包括网络请求超时时间以及一些窗口的表现,还有各个页面的注册路径
+
+{
+  "pages":[
+    "pages/index/index"
+  ],//pages注册所有页面
+  /*
+  tabBar指定tab栏的表现
+  netWorkTimeOut设置各个网络请求的超时时间
+  debug模式打印调试信息
+  */
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小程序",
+    "navigationBarTextStyle":"black"
+    /*
+    enablePullDownRefresh是否下拉刷新
+    disableScroll是否滚动
+    */
+  }
+}

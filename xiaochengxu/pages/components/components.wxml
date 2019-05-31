@@ -1,0 +1,7 @@
+<!--pages/components.wxml-->
+<view>
+<navigator url='/pages/components/checkbox/checkbox'>
+  <text class='checkbox'>checkbox组件</text>
+</navigator>
+</view>
+

@@ -1,0 +1,16 @@
+<!--pages/components.wxml-->
+<view>
+<navigator url='/pages/demo/tab/tab'>
+  <text class='checkbox'>选项卡1</text>
+</navigator>
+<navigator url='/pages/demo/tab2/tab2'>
+  <text class='checkbox'>选项卡2</text>  
+</navigator>
+<navigator url='/pages/demo/tab3/tab3'>
+  <text class='checkbox'>选项卡3</text>
+</navigator>
+<navigator url='/pages/demo/switchClass/switchClass'>
+  <text class='checkbox'>切换class</text>
+</navigator>
+</view>
+

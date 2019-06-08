@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit">
+  <view class='content-wrap'>
+    <view class='content clearfix'>
+      <block wx:for="{{Length}}" wx:key="item">
+        <input class='iptbox fl' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input>
+      </block>
+
+    </view>
+
+    <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input>
+    <text class='inputActivationCode'>请输入六位数激活码</text>
+    <view>
+      <button class="btn-area" formType="submit" hover-class='submit-hover'>登入</button>
+    </view>
+  </view>
+</form>

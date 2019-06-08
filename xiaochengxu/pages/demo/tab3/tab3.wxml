@@ -1,0 +1,153 @@
+<!--pages/follow/follow.wxml-->
+<view class='container'>
+  <view class='top'>
+    <view class="tab  {{deskIndex==0?'active':''}}" data-index='{{0}}' catchtap='changeTab'>我的关注</view>
+    <view class="tab  {{deskIndex==1?'active':''}}" data-index='{{1}}' catchtap='changeTab'>我的粉丝</view>
+    <view class="tab  {{deskIndex==2?'active':''}}" data-index='{{2}}' catchtap='changeTab'>我的约茶</view>
+    <view class="tab  {{deskIndex==3?'active':''}}" data-index='{{3}}' catchtap='changeTab'>我的邀约</view>
+  </view>
+
+  <swiper class='seiperTab' current="{{currentIndex}}" indicator-dots="{{false}}" bindchange="bindchange">
+    <!--我的关注-->
+    <swiper-item>
+      <scroll-view class='scroll' scroll-y>
+        <block wx:for="{{myCare}}">
+          <view class='people'>
+            <image src='{{item.userHead}}' class='headimg'></image>
+            <view class='vip'>V</view>
+            <view class='per-info'>
+              <view class='name'>{{item.name}}
+                <text style='margin-left:15rpx; font-size:28rpx'>{{item.position}}</text>
+              </view>
+              <view class='company'>{{item.company}}</view>
+              <view class='less'>{{item.less}}</view>
+            </view>
+            <view class='care' catchtap='care'>
+              <block wx:if="{{item.care==0}}">
+                <image src='../images/care-img.png' style='width:24rpx;height:16rpx;margin-right:5rpx'></image>
+                <view class=''>互相关注</view>
+              </block>
+              <block wx:if="{{item.care==1}}">
+                <image src='../images/gou.png' style='width:24rpx;height:16rpx;margin-right:5rpx'></image>
+                <view class=''>已关注</view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <!--我的粉丝-->
+    <swiper-item>
+      <scroll-view class='scroll' scroll-y>
+        <block wx:for="{{myFans}}">
+          <view class='people'>
+            <image src='{{item.userHead}}' class='headimg'></image>
+            <view class='vip'>V</view>
+            <view class='per-info'>
+              <view class='name'>{{item.name}}
+                <text style='margin-left:15rpx; font-size:28rpx'>{{item.position}}</text>
+              </view>
+              <view class='company'>{{item.company}}</view>
+              <view class='less'>{{item.less}}</view>
+            </view>
+            <view class="care {{item.care==0?'careActive':''}}">
+              <block wx:if="{{item.care==0}}">
+                <view class='' style='color:#409EFF' catchtap='fans'>+ 关注</view>
+              </block>
+              <block wx:if="{{item.care==1}}">
+                <image src='../images/gou.png' style='width:22rpx;height:16rpx;margin-right:5rpx'></image>
+                <view class=''>已关注</view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+    <!--我的约茶-->
+    <swiper-item>
+      <view class='yueCha'>
+        <view class="tab  {{classIndex==0?'Yueactive':''}}" data-index='{{0}}' catchtap='changeYue'>全部</view>
+        <view class="tab  {{classIndex==1?'Yueactive':''}}" data-index='{{1}}' catchtap='changeYue'>进行中</view>
+        <view class="tab  {{classIndex==2?'Yueactive':''}}" data-index='{{2}}' catchtap='changeYue'>待付款</view>
+        <view class="tab  {{classIndex==3?'Yueactive':''}}" data-index='{{3}}' catchtap='changeYue'>待评价</view>
+      </view>
+      <block wx:for="{{myYue}}">
+        <view class='people'>
+          <image src='{{item.userHead}}' class='headimg'></image>
+          <view class='vip'>V</view>
+          <view class='per-info' style='width: 220rpx'>
+            <view class='name'>{{item.name}}
+              <text style='margin-left:15rpx; font-size:28rpx'>{{item.position}}</text>
+            </view>
+            <view class='company'>{{item.company}}</view>
+            <view class='less'>{{item.less}}</view>
+          </view>
+          <view class="care">
+            <block wx:if="{{item.care==0}}">
+              <view class='' style='color:#333' catchtap='toEvaluate' >评价</view>
+            </block>
+            <block wx:if="{{item.care==1}}">
+              <view class='' style='color:#333'>付款</view>
+            </block>
+          </view>
+          <view class='detail' catchtap='tomyTea'>查看详情</view>
+          <view class='status'>进行中</view>
+        </view>
+      </block>
+    </swiper-item>
+    <!--我的邀约-->
+    <swiper-item>
+      <block wx:for="{{myCare}}">
+        <view class='people'>
+          <image src='{{item.userHead}}' class='headimg'></image>
+          <view class='vip'>V</view>
+          <view class='per-info'>
+            <view class='name myInvite'>{{item.name}}
+              <text style='margin-left:15rpx; font-size:28rpx'>{{item.position}}</text>
+              <text class='myStatus {{item.status == 1?"myNoStatus":""}}' >{{item.status == 1?"已过期":"已接收"}}</text>
+              <!-- <text class='myNoStatus'></text> -->
+            </view>
+            <view class='company'>{{item.company}}</view>
+            <view class='less'>{{item.less}}</view>
+          </view>
+          <view class='detail' catchtap='toMyInvite'>查看详情</view>
+        </view>
+      </block>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+
+<!--tab切换  -->
+<import src="/pages/template/template.wxml" />
+<template is="enterprise-tab" data="{{userInfo}}" />
+
+
+<!--取消关注-->
+<view class='modal' wx:if="{{isShow}}">
+  <view class='modalBox'></view>
+  <view class='moadl_in'>
+    <view class='x' catchtap='close'>×</view>
+    <image src='../images/modal_bg.png'></image>
+    <view class='modal_txt'>确定不再关注此人？</view>
+    <view class='modal_bottom'>
+      <view class='close' catchtap='close'>取消</view>
+      <view class='right' catchtap='close'>确定</view>
+    </view>
+  </view>
+</view>
+
+<!-- 关注 -->
+<view class='modal' wx:if="{{isFans}}">
+  <view class='modalBox'></view>
+  <view class='moadl_in'>
+    <view class='x' catchtap='close'>×</view>
+    <image src='../images/care_img.png'></image>
+    <view class='modal_txt'>是否要关注此人？</view>
+    <view class='modal_bottom'>
+      <view class='close' catchtap='close'>取消</view>
+      <view class='right' catchtap='close'>确定</view>
+    </view>
+  </view>
+</view>

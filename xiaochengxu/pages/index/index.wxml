@@ -1,13 +1,9 @@
 <view class="intro">
   <navigator url="/pages/components/components">
     <button type="primary" size="{{smallSize}}">组件</button>
-<<<<<<< HEAD
     
   </navigator>
    <navigator url="/pages/demo/demo">
  <button type="primary" size="{{smallSize}}">demo</button>
    </navigator>
-=======
-  </navigator>
->>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1
 </view>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .component{
-=======
-.checkbox{
->>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1
   display: block;
   margin-left: auto;
   margin-right: auto;

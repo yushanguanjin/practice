@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <view wx:if="{{canIUse}}">
     <view class='header'>
         <image src='../../images/login/logo.jpg'></image>
@@ -15,7 +14,3 @@
 </view>
 
 <view wx:else>请升级微信版本</view>
-=======
-<!--pages/index/index.wxml-->
-<text>pages/my/index.wxml</text>
->>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1

@@ -19,8 +19,11 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+<<<<<<< HEAD
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+=======
+>>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1
 	"condition": {
 		"search": {
 			"current": -1,

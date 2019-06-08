@@ -1,11 +1,15 @@
 <!--pages/components.wxml-->
 <view>
 <navigator url='/pages/components/checkbox/checkbox'>
+<<<<<<< HEAD
   <text class='component'>checkbox组件</text>
 </navigator>
 
 <navigator url='/pages/components/picker/picker'>
   <text class='component'>picker组件</text>
+=======
+  <text class='checkbox'>checkbox组件</text>
+>>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1
 </navigator>
 </view>
 

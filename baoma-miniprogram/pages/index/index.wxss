@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* pages/index/index.wxss */
 
 /*头部tab开始*/
@@ -261,3 +262,6 @@ button::after {
 }
 
 /*培训  结束*/
+=======
+/* pages/index/index.wxss */
+>>>>>>> 8580c281fe4df382ee3c05b16b9aa284254de1a1

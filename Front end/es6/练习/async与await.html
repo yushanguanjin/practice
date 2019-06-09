@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2s 之后返回双倍的值
+        // function doubleAfter2seconds(num) {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(2 * num)
+        //         }, 2000);
+        //     })
+        // }
+        // async function testResult() {
+        //     let first = await doubleAfter2seconds(30);
+        //     let second = await doubleAfter2seconds(50);
+        //     let third = await doubleAfter2seconds(30);
+        //     console.log(first + second + third);
+        // }
+        // testResult();
+
+        function doubleValue(num) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(num * 2);
+                }, 2000)
+            })
+        }
+        doubleValue(10).then((res) => {
+            console.log(res);
+        });
+
+        async function result() {
+            let first = await doubleValue(30);
+            let second = await doubleValue(10);
+            let third = await doubleValue(30);
+            console.log(first, second, third);
+        }
+        result();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var json = [{
+                name: 'a',
+                age: 20,
+                sex: 0,
+                img: 'www.baidu.com'
+            }, {
+                name: 'a',
+                age: 20,
+                sex: '1'
+            }
+
+        ];
+        let data = json.map((item) => {
+            return {
+                name: item.name,
+                age: item.age,
+                sex: item.sex == 1 ? '男' : item.sex == 0 ? '女' : '保密',
+                status: item.age == 18 ? '成年人' : item.age >= 70 ? '老年人' : '未成年人',
+                headImg: item.img
+            }
+        })
+        console.log(json, data);
+
+
+        let arr = [{
+            title: 'aaaa',
+            read: 100,
+            hot: true
+        }, {
+            title: 'bbbb',
+            read: 200,
+            hot: false
+        }, {
+            title: 'cccc',
+            read: 100,
+            hot: true
+        }, {
+            title: 'dddd',
+            read: 200,
+            hot: false
+        }];
+        let newArr = arr.map((item, index, arr) => {
+            let json = {};
+            json.t = `^_^${item.title}------`;
+            json.r = item.read + 200;
+            json.hot = item.hot == true && '真棒!';
+            return json; //不return，打印出来的是undefined
+        })
+        console.log(arr, newArr);
+
+
+
+        let num = 10;
+        console.log(num == 10 && num); //a()&&b() 如果a()为真，那么则执行b()，并返回b()执行之后的结果；如果a()为假，则返回a的结果
+
+        let num2 = 20;
+        console.log(num2 == 20 || num2); //a()||b() 如果a()为假，那么则执行b()，并返回b()执行之后的结果；如果a()为真，则返回a的结果
+    </script>
+</body>
+
+</html>

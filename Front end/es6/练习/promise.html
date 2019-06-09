@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        let a = 2;
-       
-         var p = new Promise((resolve,reject)=>{
-            if(a == 10){
-                resolve('成功');
-            } else {
-                reject('失败');
-            }
-            
-         })
+        function runAsync1() {
+            var p = new Promise(function(resolve, reject) {
+                //做一些异步操作
+                setTimeout(function() {
 
-        p.then(res=>{
-             console.log(res);
-        },err=>{
-            console.log(err);//reject时执行
-        });
+                    resolve('随便什么数据1');
+                }, 1000);
+            });
+            return p;
+        }
 
-        p.catch(err=>{
-            console.log(err);//reject时执行
-        })
-        // new Promise().then().catch();
+        function runAsync2() {
+            var p = new Promise(function(resolve, reject) {
+                //做一些异步操作
+                setTimeout(function() {
 
+                    resolve('随便什么数据2');
+                }, 2000);
+            });
+            return p;
+        }
 
-        var p = Promise.resolve(
-           
-                '成功'
-            
-        )
-        p.then(res=>{
-            console.log(p)
-        })
-       
+        function runAsync3() {
+            var p = new Promise(function(resolve, reject) {
+                //做一些异步操作
+                setTimeout(function() {
+
+                    resolve('随便什么数据3');
+                }, 20000);
+            });
+            return p;
+        }
+        Promise
+            .race([runAsync1(), runAsync2(), runAsync3()])
+            .then(function(results) {
+                console.log(results);
+            });
     </script>
 </body>
+
 </html>

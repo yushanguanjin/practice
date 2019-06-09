@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 参考文章：https://www.jianshu.com/p/f703d3f54ebd
+        /*Generator生成一些列的值。这就是它名称的由来，yield在英文意思中表示"产出"*/
+        function* gen() {
+            yield "hello";
+            yield "world";
+            return "ends"
+        }
+
+        let g1 = gen() //调用Generator函数，返回的都是一个遍历器对象，代表Generator函数内部指针
+        console.log(g1.next());
+        console.log(g1.next());
+        console.log(g1.next());
+        console.log(g1.next());
+    </script>
+</body>
+
+</html>

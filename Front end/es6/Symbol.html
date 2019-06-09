@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*Symbol不是构造函数，不能new;Symbol()返回是一个唯一值，做一个key,定义一些唯一的或者私有的;
+                                                                                                                                                                        symbol是一个单独的数据类型,就叫symbol,基本类型；如果symbol作为key,用for in循环，出不来
+                                                                                                                                                                        
+                                                                                                                                                                        */
+        // let syml = Symbol('aaa');
+        // console.log(typeof syml);
+
+
+        let json = {
+            a: '1',
+            b: '2',
+            c: '3',
+            [symbol]: '4'
+        };
+        for (let key in json) {
+            console.log(key);
+        }
+    </script>
+</body>
+
+</html>

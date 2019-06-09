@@ -1,0 +1,40 @@
+/* 分类开始 */
+.moreBoxs{
+    width: 100%;
+    height: 102rpx;
+    border-bottom: solid 2rpx #e5e5e5;
+    position: fixed;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 500;
+}
+ 
+.navContent{
+    width: 100%;
+    height: 102rpx;
+    white-space: nowrap;
+}
+.classify {
+	height: 102rpx;
+	/*width: 8%;*/
+	margin-left: 42rpx;
+	line-height: 102rpx;
+	text-align: center;
+	
+	font-size: 28rpx;
+  display: inline-block;
+}
+ 
+.addStyleMi {
+	height: 96rpx;
+	border-bottom: solid 6rpx #eb3737;
+	font-weight: bold;
+	color: #eb3737;
+	font-size: 28rpx;
+}
+/* ---------隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

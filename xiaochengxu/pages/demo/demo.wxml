@@ -12,5 +12,8 @@
 <navigator url='/pages/demo/switchClass/switchClass'>
   <text class='checkbox'>切换class</text>
 </navigator>
+<navigator url='/pages/demo/authorizedLogon/authorizedLogon'>
+  <text class='checkbox'>微信授权登录</text>
+</navigator>
 </view>
 

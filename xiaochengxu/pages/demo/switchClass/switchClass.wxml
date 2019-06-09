@@ -1,3 +1,7 @@
-<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
-  {{itemName.message}}
+<view class='moreBoxs'>
+  <scroll-view class="navContent" scroll-x>
+    <view class="classify {{first_id==index?'addStyleMi':''}}" bindtap="menuClick" wx:for='{{first_names}}' wx:key='{{index}}' wx:for-item="first_names" wx:for-index="index" data-postid='{{first_names.id}}' data-index='{{index}}' data-postname='{{first_names.goods_name}}'>
+      <text>{{first_names.goods_name}}</text>
+    </view>
+  </scroll-view>
 </view>

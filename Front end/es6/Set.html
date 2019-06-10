@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //是一种数据结构，类似数组，但里面不能有重复的值,注意：new Set()里面一般是数组
+        //add:添加一项
+        //delete:删除一项
+        //has:检测有没有
+        //size：检测长度
+        //clear:清除所有项
+        let setArr = new Set(['a', 'b', 'c']);
+        setArr.add('d');
+        console.log(setArr);
+        console.log('..................');
+
+        setArr.delete('b');
+        console.log(setArr);
+
+        console.log('..................');
+        console.log(setArr.has('a'));
+
+        console.log('..................');
+        console.log(setArr.size);
+
+        console.log('..................');
+        setArr.clear()
+        console.log();
+
+        console.log('........................................................................');
+
+        let setArr2 = new Set(['a', 'b', 'c']);
+        for (let item of setArr2) {
+            console.log(item);
+        }
+        console.log('..................');
+        for (let item of setArr2.keys()) {
+            console.log(item);
+        }
+        console.log('..................');
+        for (let item of setArr2.values()) {
+            console.log(item);
+        }
+        console.log('..................');
+        for (let item of setArr2.entries()) {
+            console.log(item);
+        }
+        //实例;数组去重
+        let arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+        console.log(new Set(arr));
+        let newArr = [...new Set(arr)];
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

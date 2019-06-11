@@ -7,5 +7,9 @@
 <navigator url='/pages/components/picker/picker'>
   <text class='component'>picker组件</text>
 </navigator>
+
+<navigator url='/pages/components/radio/radio'>
+  <text class='component'>radio组件</text>
+</navigator>
 </view>
 

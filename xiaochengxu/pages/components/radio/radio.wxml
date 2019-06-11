@@ -1,0 +1,10 @@
+<view class="intro">
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-wrp" style="flex-direction:column;">
+      <radio-group class="radio-group">
+        <radio class="radio" color='#619af9' wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+        </radio>
+      </radio-group>
+    </view>
+  </view>
+</view>

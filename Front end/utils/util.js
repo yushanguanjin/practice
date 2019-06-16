@@ -124,3 +124,27 @@ function IsPC() {
 }
 
 var flag = IsPC(); //true为PC端，false为手机端
+//Map To Object
+function mapToObj(map) {
+    let obj = Object.create(null);
+    for (let [k, v] of map) {
+        obj[k] = v;
+    }
+    return obj;
+}
+//Object To Map
+function objToMap(obj) {
+    let map = new Map();
+    for (let k of Object.keys(obj)) {
+        map.set(k, obj[k]);
+    }
+    return map;
+}
+//Map To Set
+function mapToSet(map) {
+    let set = new Set()
+    for (let [k, v] of map) {
+        set.add([k, v])
+    }
+    return set;
+}

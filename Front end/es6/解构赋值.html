@@ -11,83 +11,93 @@
 <body>
 
     <script>
-        let [a, b, c] = [1, 2, 3];
-        //注意：左右两边，结构格式要一致
-        console.log(a, b, c);
-
-
-
-        let json = {
-            name: 'a',
-            age: 18,
-            job: "software engineer"
-        }
-
+        //解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错
+        /*在给变量赋值时使用解构语法*/
+        //一定要用一对小括号包裹解构赋值语句，JS引擎将一对开放的花括号视为一个代码块。语法规定，代码块语句不允许出现在赋值语句左侧，添加小括号后可以将块语句转化为一个表达式，从而实现整个解构赋值过程
+        let node1 = {
+                type: "Identifier",
+                name: "foo"
+            },
+            type = "Literal",
+            name = 5;
+        // 使用解构来分配不同的值
+        ({
+            type,
+            name
+        } = node1);
+        console.log(type); // "Identifier"
+        console.log(name); // "foo"
+        console.log('........................');
+        /*默认值*/
+        let node2 = {
+            type2: "Identifier",
+            name2: "foo"
+        };
         let {
-            name,
-            age,
-            job
-        } = json;
-        console.log(name, age, job);
-
-
-
+            type2,
+            name2,
+            value
+        } = node2;
+        console.log(type2); // "Identifier"
+        console.log(name2); // "foo"
+        console.log(value); // undefined
+        console.log('........................');
+        /*为非同名局部变量赋值*/
+        let node3 = {
+            type3: "Identifier",
+            name3: "foo"
+        };
         let {
-            name: n,
-            age: a,
-            job: j
-        } = json;
-        console.log(n, a, j);
+            type3: localType,
+            name3: localName
+        } = node3;
+        console.log(localType); // "Identifier"
+        console.log(localName); // "foo"
+        console.log('................................................');
 
-        //设置默认值
-        let [a, b, c = "暂无数据"] = [10, 20];
-        console.log(a, b, c);
-
-
-        //注意null
-        let [a, b, c = "默认值"] = [0, 0, null];
-        console.log(a, b, c);
-
-        //交换两个数位置
-        let a = 12;
-        let b = 5;
+        /*数组解构*/
+        let colors = ["red", "green", "blue"];
+        let [, , thirdColor] = colors;
+        console.log(thirdColor); // "blue"
+        /*变量交换*/
+        let a = 1,
+            b = 2;
         [a, b] = [b, a];
-        console.log(a, b); // 5 12
+        console.log(a); // 2
+        console.log(b); // 1
 
-
-        function getPos() {
-            return {
-                left: 10,
-                top: 20
-            }
-        }
+        /*混合解构*/
+        let node4 = {
+            type4: "Identifier",
+            name4: "foo",
+            loc: {
+                start: {
+                    line: 1,
+                    column: 1
+                },
+                end: {
+                    line: 1,
+                    column: 4
+                }
+            },
+            range: [0, 3]
+        };
         let {
-            left,
-            top: t
-        } = getPos();
-        console.log(left, t);
-
-
-
-        //函数传参可以解构
-        function show1({
-            a,
-            b = "默认值"
-        }) {
-            console.log(a, b);
-        }
-        show1({
-            a: 1
-        })
-
-        //函数传参可以解构
-        function show2({
-            a = "默认值",
-            b = "默认值"
-        } = {}) {
-            console.log(a, b);
-        }
-        show2();
+            loc: {
+                start
+            },
+            range: [startIndex]
+        } = node4;
+        console.log(start.line); // 1
+        console.log(start.column); // 1
+        console.log(startIndex); // 0
+        console.log('................................................');
+        const [a1, b1, c1, d1, e1] = 'hello';
+        console.log(a1); //"h"
+        console.log(b1); //"e"
+        console.log(c1); //"l"
+        console.log(d1); //"l"
+        console.log(e1); //"o"
     </script>
 </body>
 

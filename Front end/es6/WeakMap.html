@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //WeakMap对象保存键值对，与Map不同的是其键必须是对象，因为键是弱引用，在键对象消失后自动释放内存。
+        let obj = {
+            foo: 11
+        };
+        let wm = new WeakMap();
+        wm.set(obj, 413322);
+        console.log(wm); // {{…} => 413322}
+        console.log(wm.has(obj)); // true
+    </script>
+</body>
+
+</html>

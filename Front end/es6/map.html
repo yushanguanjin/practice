@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*map：类似于json,但是json的键(key)只能是字符串.map的key可以是任意类型*/
+        //参考文章：https://www.cnblogs.com/kongxianghai/p/7309735.html
+        const map9 = new Map();
+        map9.set('k1', 1);
+        map9.set('k2', 2);
+        map9.set('k3', 3);
+        const output = {
+            log: function(key, value) {
+                console.log("Key: %s, Value: %s", key, value);
+            }
+        };
+
+        map9.forEach(function(value, key, map) {
+            this.log(key, value);
+        }, output);
+        //Map To Array,使用扩展运算符三个点（...）可将map内的元素都展开的数组。
+        const map10 = new Map();
+        map10.set('k1', 1);
+        map10.set('k2', 2);
+        map10.set('k3', 3);
+        console.log([...map10]);
+        //Array To Map,使用数组构造Map。
+        const map11 = new Map([
+            ['name', 'Aissen'],
+            ['age', 12]
+        ])
+        console.log(map11)
+
+        // .Map To Object写一个转换函数，遍历map的所有元素，将元素的键和值作为对象属性名和值写入Object中。
+        function mapToObj(map) {
+            let obj = Object.create(null);
+            for (let [k, v] of map) {
+                obj[k] = v;
+            }
+            return obj;
+        }
+
+        const map12 = new Map()
+            .set('k1', 1)
+            .set({
+                pa: 1
+            }, 2);
+        console.log(mapToObj(map12))
+            //Object To Map
+        function objToMap(obj) {
+            let map = new Map();
+            for (let k of Object.keys(obj)) {
+                map.set(k, obj[k]);
+            }
+            return map;
+        }
+
+        console.log(objToMap({
+            yes: true,
+            no: false
+        }))
+
+        let map = new Map().set('0', 'a').set('1', 'b');
+        for (let [k, v] of map) {
+            console.log(k, v);
+        }
+    </script>
+</body>
+
+</html>

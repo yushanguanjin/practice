@@ -6,14 +6,15 @@
 <navigator url='/pages/demo/tab2/tab2'>
   <text class='checkbox'>选项卡2</text>  
 </navigator>
-<navigator url='/pages/demo/tab3/tab3'>
+<navigator url='/pages/demo/tab3/tab3'  open-type='redirect'>
   <text class='checkbox'>选项卡3</text>
 </navigator>
-<navigator url='/pages/demo/switchClass/switchClass'>
+<navigator url='/pages/demo/switchClass/switchClass' open-type='redirect'>
   <text class='checkbox'>切换class</text>
 </navigator>
-<navigator url='/pages/demo/authorizedLogon/authorizedLogon'>
-  <text class='checkbox'>微信授权登录</text>
+<navigator url='/pages/demo/share/share' open-type='redirect'>
+  <text class='checkbox'>分享</text>
 </navigator>
+
 </view>
 

@@ -9,21 +9,13 @@
 </head>
 
 <body>
-    <p class="p">123456789101112</p>
     <script src=".././library/jquery.js"></script>
     <script>
-        // $("body").on("click", "p", function() {
-        //     for (var i = 0; i < 10; i++) {
-        //         var a = $("<a href=''>a</a>");
-        //         $(this).append(a);
-        //     }
-        // });
-        $("p").on("click", function() {
-            for (var i = 0; i < 10; i++) {
-                var a = $("<a href=''>a</a>");
-                $(this).append(a);
-            }
-        })
+        function func(...args) {
+            console.log(args);
+            return args;
+        }
+        console.log(func(0, 1, 2, 3, 4, 5));
     </script>
 </body>
 

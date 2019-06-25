@@ -16,36 +16,24 @@
         <li>li</li>
     </ul>
     <script>
-        /*三个点主要功能：展开及剩余*/
-        //扩展运算符及rest运算符的作用
-        let arr = ['apple', 'banana', 'orange'];
-        console.log(arr);
-        console.log(...arr); //展开数组
-
-        //1,2,3,4,5,6 -> ...a -> [1,2,3,4,5,6]
-        function a(...a) {
-            console.log(a); //收回数组
+        function add(x, y) {
+            return x + y;
         }
-        a(1, 2, 3, 4, 5, 6);
+        let numbers = [4, 38];
+        console.log(add(...numbers));
 
+        let max = Math.max(...[14, 3, 77]);
+        console.log(max);
 
-        //剩余,当剩余功能用只能放在最后
-        function show(a, b, ...c) {
-            console.log(a, b, c);
-        }
-        show(1, 2, 3, 4, 5, 6);
+        let arr1 = [0, 1, 2];
+        let arr2 = [3, 4, 5];
+        let arr3 = [6, 7, 8];
+        console.log(arr1.concat(arr2, arr3));
+        console.log([...arr1, ...arr2, ...arr3]);
 
-        //业务应用：可以拷贝，做数据映射
-        let array = [1, 2, 3, 4, 5, 6];
-        let array2 = [...array];
-        console.log(array, array2);
+        let str = 'a,b,c,d,e,f';
 
-        //应用
-        let aLi = document.querySelectorAll("li");
-        let arrLi = [...aLi];
-        arrLi.pop();
-        arrLi.push('123456');
-        console.log(arrLi);
+        console.log(str.split(','));
     </script>
 </body>
 

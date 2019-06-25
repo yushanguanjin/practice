@@ -77,12 +77,20 @@ function removeClass(ele, cls) {
         ele.className = newClass.replace(/^\s+|\s+$/g, '');
     }
 }
-//判断undefined:
+/*判断undefined:*/
+/*undefined 表示一个未声明的变量，或已声明但没有赋值的变量，或一个并不存在的对象属性。
+函数没有返回值时，默认返回undefined。*/
 var tmp = undefined;
 if (typeof(tmp) == "undefined") {
     alert("undefined");
 }
 //判断null:
+//方法一
+var tmp = null;
+if (tmp == null) {
+    alert("null");
+}
+//方法二
 var tmp = null;
 if (!tmp && typeof(tmp) != "undefined" && tmp != 0) {
     alert("null");
@@ -106,6 +114,10 @@ var tmp = null;
 if (!tmp) {
     alert("null or undefined or NaN");
 }
+/*判断变量不存在*/
+if (!tmp) {
+
+} // 相当于判断tmp=""、tmp=null、tmp= undefined、tmp=0
 //判断是否手机端
 function IsPC() {
     var userAgentInfo = navigator.userAgent;

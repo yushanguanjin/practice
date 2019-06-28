@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方法中改变了原数据的，会影响原数组,包括单个的赋值，排序
+        var a = [1, 2, 3];
+        function test(arr) {
+            arr[0] = 4;//直接改变原数组的第一个数据，影响原数组，故改变了原数组。
+            console.log(arr);//[4,2,3];
+        }
+        a;//在没有调用test之前是[1,2,3]
+        test(a);//输出[4,2,3]
+        a;//test之后[4,2,3]
+
+        //方法中没有影响原数据的，不会改变原数组
+        var a = [1, 2, 3];
+        function test(arr) {
+            arr = [4, 5, 6];//此处，arr直接赋予新值，和原数据没有关系，不会影响原数据
+            console.log(arr);//输出[4,5,6]
+        }
+        a;//test之前[1,2,3]
+        test(a);//输出[4,5,6]
+        a;//test之后[1,2,3]没有影响原数据
+    </script>
+</body>
+
+</html>

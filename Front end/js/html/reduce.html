@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [3, 9, 4, 3, 6, 0, 9];
+
+        var num = arr.reduce((prev, next) => {
+            console.log(prev);
+            return prev + next
+        })
+        //console.log(num);
+
+        var max = arr.reduce(function (prev, cur) {
+            return Math.max(prev, cur);
+        });
+        //console.log(max);
+
+        var newArr = arr.reduce(function (prev, cur) {
+            console.log(prev + '......' + cur);
+            prev.indexOf(cur) === -1 && prev.push(cur);
+            return prev;
+        }, []);
+
+        console.log(newArr);
+
+        console.log(...new Set(arr));
+    </script>
+</body>
+
+</html>

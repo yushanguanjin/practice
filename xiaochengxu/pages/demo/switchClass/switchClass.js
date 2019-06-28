@@ -5,25 +5,25 @@ Page({
     first_names: [
       {
         "id": 1,
-        "goods_name": "食品土特产"
+        "goods_name": "食品"
       },
       {
         "id": 2,
-        "goods_name": "健康器械"                                  
+        "goods_name": "健"                                  
       },
       {
         "id": 3,
-        "goods_name": "营养保健"
+        "goods_name": "营养"
 
       },
       {
         "id": 4,
-        "goods_name": "健康调理"
+        "goods_name": "健"
 
       },
       {
         "id": 5,
-        "goods_name": "保护眼睛"
+        "goods_name": "保"
 
       },
       {

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //命名捕获
+        let str = '2018-03-20';
+        let reg = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+        let {
+            year,
+            month,
+            day
+        } = str.match(reg).groups;
+        console.log(year, month, day);
+        //反向引用
+    </script>
+</body>
+
+</html>

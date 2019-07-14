@@ -1,0 +1,10 @@
+.box {
+  color: red; }
+
+.box {
+  display: -webkit-box;
+  display: flex;
+  background-color: #ff0000;
+  font-size: 16px;
+  border: 1px solid #0000ff; }
+

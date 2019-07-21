@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //new Proxy(target, handler);
+        //target:被代理的对象
+        //handler:对代理的对象做什么操作
+        // {
+        //     set(){}, //设置的时候干的事
+        //     get(){},//获取干的事情
+        //     deleteProperty(){},//删除
+        //     has(){},//问你有没有这个东西 'xxx' in obj
+        //     apply()//调用函数处理
+        // }
+
+        let obj = {
+                name: 'Strive'
+            }
+            // let newObj = new Proxy(obj, {
+            //     get(target, property) {
+            //         console.log(target, property);
+            //         console.log(`你访问了${property}属性`);
+            //         return target[property]
+            //     }
+            // })
+            // console.log(newObj.name);
+
+
+        let newObj2 = new Proxy(obj, {
+            get(target, property) {
+                if (property in target) {
+                    return target[property]
+                } else {
+                    throw new ReferenceError(`${property}属性不在此对象上`)
+                    console.warn(`${property}属性不在此对象上`);
+                }
+            }
+        })
+        console.log(newObj2.name);
+        console.log(newObj2.age);
+    </script>
+</body>
+
+</html>

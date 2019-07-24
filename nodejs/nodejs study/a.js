@@ -9,7 +9,7 @@ http.createServer(function(request, response) {
     if (request.url !== "/favicon.ico") { //清除第2此访问 
         console.log("访问");
         response.write("node.js");
-        // 发送响应数据 "Hello World"
+        // 发送响应数据 "H  ello World"
         response.end('Hello World\n'); //不写则没有http协议尾,但写了会产生两次访问 
     }
 }).listen(8888);

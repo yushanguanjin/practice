@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cars = new Map()
+            .set('usa', ['Ford', 'Dodge'])
+            .set('france', ['Renault', 'Peugeot'])
+            .set('italy', ['Fiat']);
+
+
+        console.log(cars)
+
+        const getCarsByState = (state) => {
+            return cars.get(state) || [];
+        }
+
+        console.log(getCarsByState()); // 输出 []
+        console.log(getCarsByState('usa')); //输出 ['Ford', 'Dodge']
+        console.log(getCarsByState('italy')); // 输出 ['Fiat']
+    </script>
+</body>
+
+</html>

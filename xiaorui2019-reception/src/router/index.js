@@ -87,6 +87,28 @@ const assetsLists = resolve => {
         resolve(require('../page/assetsLists/assetsLists.vue'));
     });
 }
+
+const caigou_shenqing = resolve => {
+    require.ensure(['../page/caigou_shenqing.vue'], () => {
+        resolve(require('../page/caigou_shenqing.vue'));
+    });
+}
+const baoxiao_shenqing = resolve => {
+    require.ensure(['../page/baoxiao_shenqing.vue'], () => {
+        resolve(require('../page/baoxiao_shenqing.vue'));
+    });
+}
+const note_workload = resolve => {
+    require.ensure(['../page/note_workload.vue'], () => {
+        resolve(require('../page/note_workload.vue'));
+    });
+}
+const plan = resolve => {
+    require.ensure(['../page/plan.vue'], () => {
+        resolve(require('../page/plan.vue'));
+    });
+}
+
 const routes = [{
     path: '/index',
     name: 'index',
@@ -155,6 +177,22 @@ const routes = [{
     path: '/assetsLists/assetsLists',
     name: 'assetsLists',
     component: assetsLists
+}, {
+    path: '/caigou_shenqing',
+    name: 'caigou_shenqing',
+    component: caigou_shenqing
+}, {
+    path: '/baoxiao_shenqing',
+    name: 'baoxiao_shenqing',
+    component: baoxiao_shenqing
+}, {
+    path: '/note_workload',
+    name: 'note_workload',
+    component: note_workload
+}, {
+    path: '/plan',
+    name: 'plan',
+    component: plan
 }];
 
 export default new Router({

@@ -79,20 +79,20 @@
             <p class="hall-item-content-text">记工作量</p>
           </div>
         </div>
-        <div class="hall-item fl">
+        <router-link class="hall-item fl" tag='div' to="/baoxiao_shenqing">
           <div class="hall-item-content">
             <img class="hall-item-content-img" src="../../images/footerTab/assets-lists.png" alt />
 
             <p class="hall-item-content-text">报销申请</p>
           </div>
-        </div>
-        <div class="hall-item fl">
+        </router-link>
+        <router-link class="hall-item fl" tag='div' to="/caigou_shenqing">
           <div class="hall-item-content">
             <img class="hall-item-content-img" src="../../images/footerTab/assets-lists.png" alt />
 
             <p class="hall-item-content-text">采购申请</p>
           </div>
-        </div>
+        </router-link>
         <div class="hall-item fl">
           <div class="hall-item-content">
             <img class="hall-item-content-img" src="../../images/footerTab/assets-lists.png" alt />

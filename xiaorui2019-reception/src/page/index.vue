@@ -52,7 +52,7 @@
             <x-icon type="ios-arrow-right" size="30" class="arrow-right"></x-icon>
           </div>
         </div>
-         <x-button type="primary" link="/demo" class="add-workload">添加工作量</x-button>
+         <x-button type="primary" link="/note_workload" class="add-workload">添加工作量</x-button>
       </div>
     </div>
     <footerTab></footerTab>

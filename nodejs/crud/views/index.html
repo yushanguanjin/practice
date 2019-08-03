@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .friuts {
+            display: flex;
+        }
+        
+        .friuts div {
+            flex: 1;
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        td {
+            width: 25%;
+            border: 1px solid #eeeeee;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="friuts">
+        {{each fruits}}
+        <div>{{$value}}</div>
+        {{/each}}
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{each students}}
+            <tr>
+                <td>{{$value.id}}</td>
+                <td>{{$value.name}}</td>
+                <td>{{$value.gender}}</td>
+                <td>{{$value.age}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

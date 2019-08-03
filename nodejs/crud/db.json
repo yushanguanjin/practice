@@ -1,0 +1,37 @@
+{
+    "students": [{
+            "id": 1,
+            "name": "张三",
+            "gender": 0
+        },
+        {
+            "id": 2,
+            "name": "李四",
+            "gender": 1,
+            "age": 20
+        },
+        {
+            "id": 3,
+            "name": "小楚",
+            "gender": 0,
+            "age": 20
+        },
+        {
+            "id": 4,
+            "name": "小萧",
+            "gender": 1,
+            "age": 20
+        },
+        {
+            "id": 5,
+            "name": "小a",
+            "gender": 0,
+            "age": 20
+        },
+        {
+            "id": 6,
+            "name": "张三",
+            "gender": 0
+        }
+    ]
+}

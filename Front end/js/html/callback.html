@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            setTimeout(function() {
+                let data = 'ha';
+                return data
+            }, 1000)
+        }
+        console.log(fn());
+
+
+        function fn2() {
+            setTimeout(function() {
+                let data = 'ha';
+                console.log(data)
+            }, 1000)
+        }
+        console.log(fn2());
+        //回调函数：获取异步操作的结果
+
+
+        function fn3(callback) {
+            setTimeout(function() {
+                var data = 'ha';
+                callback(data)
+            }, 1000)
+        }
+        fn3(function(data) {
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>

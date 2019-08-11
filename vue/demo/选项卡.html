@@ -41,7 +41,7 @@
 
     <div id="app">
         <ul class="clearfix">
-            <li v-for="(list,index) in lists" :key="index" v-on:click="showCurrentcontent(index)" v-bind:class="{active: isActive == index}">
+            <li v-for="(list,index) in lists" :key="index" v-on:click="showCurrentcontent(index)" :class="{active: isActive == index}">
                 {{list}}
             </li>
         </ul>

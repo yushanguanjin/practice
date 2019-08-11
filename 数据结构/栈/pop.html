@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var Stack = function() {
+            var items = [0, 1];
+            this.pop = function() {
+                return items.pop();
+            }
+            this.getItems = function() {
+                return items;
+            }
+        }
+        var s = new Stack();
+        s.pop();
+        console.log(s.getItems());
+    </script>
+</body>
+
+</html>

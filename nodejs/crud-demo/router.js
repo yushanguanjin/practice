@@ -10,6 +10,13 @@ const Student = require('./students');
 //express提供的方式
 const router = express.Router();
 
+// Student.updateById({
+//     id: 1,
+//     name: '张小三',
+
+// }, function(err) {
+//     //console.log(10)
+// })
 router.get('/students', function(req, res) {
     //readFile的第二个参数是可选的，文件读取的是字符串，传入utf8就是告诉它把读取到的文件直接按照utf8编码转成我们认识的字符
     //除了这样转换之外，也可以通过data.toSting()的方式
@@ -49,5 +56,23 @@ router.post('/students/new', function(req, res) {
     })
 
     console.log(req.body);
+});
+router.get('/students/edit', function(req, res) {
+    Student.findById(Number(req.query.id), function(err, student) {
+        if (err) {
+            return res.status(500).send('Server error');
+        }
+        res.render('edit.html', {
+            student: student
+        })
+    })
+});
+router.post('/students/edit', function(req, res) {
+    Student.updateById(req.body, function(err) {
+        if (err) {
+            return res.status(500).send('Server error');
+        }
+        res.redirect('/students');
+    })
 });
 module.exports = router;

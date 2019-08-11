@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./队列.js"></script>
+    <script>
+        var chuanhua = function(number) {
+                var q = new Queue();
+                var gamer = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+                for (var i = 0, len = gamer.length; i < len; i++) {
+                    q.enqueue(gamer[i]);
+                }
+                while (q.size() > 1) {
+                    var j = 1;
+                    while (j < number) {
+                        q.enqueue(q.dequeue());
+                        j++;
+                    }
+                    var out = q.dequeue();
+                    console.log(out);
+                }
+                return q.front();
+            }
+            //chuanhua(3);
+    </script>
+</body>
+
+</html>

@@ -10,34 +10,48 @@
 
 <body>
     <script>
+        // function fn() {
+        //     setTimeout(function() {
+        //         let data = 'ha';
+        //         return data
+        //     }, 1000)
+        // }
+        // console.log(fn());
+
+
+        // function fn2() {
+        //     setTimeout(function() {
+        //         let data = 'ha';
+        //         console.log(data)
+        //     }, 1000)
+        // }
+        // console.log(fn2());
+        // //回调函数：获取异步操作的结果
+
+
+        // function fn3(callback) {
+        //     setTimeout(function() {
+        //         var data = 'ha';
+        //         callback(data)
+        //     }, 1000)
+        // }
+        // fn3(function(data) {
+        //     console.log(data);
+        // })
+
+
         function fn() {
-            setTimeout(function() {
-                let data = 'ha';
-                return data
-            }, 1000)
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let data = 10;
+                }, 1000)
+            }).then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            })
         }
         console.log(fn());
-
-
-        function fn2() {
-            setTimeout(function() {
-                let data = 'ha';
-                console.log(data)
-            }, 1000)
-        }
-        console.log(fn2());
-        //回调函数：获取异步操作的结果
-
-
-        function fn3(callback) {
-            setTimeout(function() {
-                var data = 'ha';
-                callback(data)
-            }, 1000)
-        }
-        fn3(function(data) {
-            console.log(data);
-        })
     </script>
 </body>
 

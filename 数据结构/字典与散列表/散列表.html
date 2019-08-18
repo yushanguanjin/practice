@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let HashTable = function() {
+            let items = [];
+            // 散列函数
+            let LoseLoseHashCode = function(key) {
+                let hash = 0;
+                for (let i = 0; i < key.length; i++) {
+                    hash += key[i].charCodeAt()
+                }
+                return hash % 37;
+            }
+            this.put = function(key, value) {
+                this.position = LoseLoseHashCode(key);
+                items[position] = value;
+            }
+            this.remove = function(key) {
+                items[LoseLoseHashCode(key)] = undefined;
+            }
+            this.getItems = function() {
+                return items;
+            }
+        }
+    </script>
+</body>
+
+</html>

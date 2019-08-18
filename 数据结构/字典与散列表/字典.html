@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Dictionary = function() {
+            let items = {};
+            //检查键是否存在
+            this.has = function() {
+                return key in items;
+            }
+            this.set = function(key, value) {
+                items[key] = value;
+            }
+            this.delete = function() {
+                if (this.has(key)) {
+                    delete items[key]
+                    return true
+                }
+                return false;
+            }
+            this.get = function(key) {
+                if (this.has(key)) {
+                    return items[key]
+                }
+                return undefined;
+            }
+            this.keys = function() {
+                return Object.keys(items);
+            }
+        }
+    </script>
+</body>
+
+</html>

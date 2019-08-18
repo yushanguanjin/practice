@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Set2 = function() {
+            let items = {};
+            this.has = function(value) {
+                return items.hasOwnProperty(value)
+            }
+            this.add = function(value) {
+                if (!this.has(value)) {
+                    items[value] = value
+                    return true
+                }
+                return false
+            }
+            this.remove = function(value) {
+                if (this.has(value)) {
+                    delete items[value]
+                    return true
+                }
+                return false
+            }
+            this.clear = function() {
+                items = {}
+            }
+            this.size = function() {
+                return Object.keys(items).length;
+            }
+            this.values = function() {
+                return Object.values(items)
+            }
+            this.union = function(otherSet) {
+                var resultSet = new Set2();
+                //1.把自己的值提取出来
+                var arr = this.values();
+                for (let i = 0; i < arr.length; i++) {
+                    resultSet.add(arr[i]);
+                }
+                //2.把另一只集合的值提取出来
+                arr = otherSet.values();
+                for (let i = 0; i < arr.length; i++) {
+                    resultSet.add(arr[i]);
+                }
+                return resultSet
+            }
+            this.intersection = function(otherSet) {
+                let resultSet = new Set2();
+                var arr = this.values();
+                for (let i = 0; i < arr.length; i++) {
+                    if (otherSet.has(arr[i])) {
+                        resultSet.add(arr[i])
+                    }
+                }
+                return resultSet
+            }
+            this.difference = function(otherSet) { // 差集
+                let resultSet = new Set2()
+                let values = this.values()
+                for (let i = 0; i < values.length; i++) {
+                    if (!otherSet.has(values[i])) {
+                        resultSet.add(values[i])
+                    }
+                }
+                return resultSet
+            }
+        }
+        let set1 = new Set2()
+        set1.add(1)
+        set1.add(2)
+        set1.add(3)
+
+        let set2 = new Set2()
+        set2.add(2)
+        set2.add(3)
+        set2.add(4)
+        console.log(set1.difference(set2).values()) // [ '1' ]
+    </script>
+</body>
+
+</html>

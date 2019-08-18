@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let set = new Set();
+        let set2 = new Set([1, 2, 3, 4, 1])
+        console.log([...set2]);
+
+        let arr = ['a', 'b', 'c', 'd'];
+        arr.forEach((item, index, array) => {
+            console.log(array)
+        })
+
+        //实现并集
+        let a = [1, 2, 3];
+        let b = [3, 4, 5];
+        var union = new Set([...a, ...b]);
+        //实现交集
+        var intersect = new Set([...a].filter(x => b.has(x)));
+        //实现差集
+        var different = new Set([...a].filter(x => !b.has(x)));
+    </script>
+</body>
+
+</html>

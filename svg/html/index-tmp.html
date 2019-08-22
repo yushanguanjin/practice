@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在线选座</title>
+    <!-- head 中 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main {
+            display: none;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        .svg {}
+        
+        .choose-zuowei {
+            background: #ECEFF5;
+            width: 70%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+        }
+        
+        .submit {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            background: #3399FF;
+            font-size: 14px;
+        }
+        
+        .btn-wrap {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .svgWrap {
+            margin-top: 50px;
+        }
+        
+        .reserved,
+        .repairing,
+        .predictable {
+            font-size: 12px;
+            margin-left: 12px;
+        }
+        
+        .status {
+            width: 25%
+        }
+        
+        .floor {
+            display: inline-block;
+            width: 120px;
+            height: 45px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 45px;
+            text-decoration: none;
+            background: #ECEFF5;
+            color: #000
+        }
+        
+        .choose {
+            background: rgb(236, 239, 245);
+            height: 100%;
+        }
+        
+        .choose-main {
+            margin-left: 15px;
+            margin-right: 15px;
+            padding-top: 20px;
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .xuanze-louceng {
+            background: #fff;
+            border-radius: 10px;
+            padding-bottom: 20px;
+            position: relative;
+            top: 200px;
+        }
+        
+        .btnWrap {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+        }
+        
+        .btn-choose-zuowei {
+            background: #ffffff;
+            width: 70%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 12px;
+        }
+        
+        .next-step {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            background: #3399FF;
+            font-size: 14px;
+        }
+        
+        .floor-active {
+            background: #3399FF;
+            color: #fff;
+        }
+        
+        .rect-active {
+            fill: rgb(51, 153, 255) !important;
+        }
+        
+        .submit-disabled {
+            color: #c0c4cc;
+            background-color: #fff;
+        }
+        
+        .choose-seat-status,
+        .cause {
+            height: 50%;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="choose">
+        <div class="choose-main">
+            选择日期<input type="text" id="my-input" value="" data-toggle='date' />
+            <div class="xuanze-louceng">
+                <div class="choose-main ">
+                    <div style="margin-bottom: 10px;">选择楼层</div>
+                    <hr>
+                    <div style="margin-top: 10px;">
+                        <a href="javascropt:void(0);" class="floor">12楼</a>
+                        <a href="javascropt:void(0);" class="floor">18楼</a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="clearfix btnWrap">
+                <div class="fl btn-choose-zuowei  choosed-date">
+                    <span class="zuoweihao  choosed-floor">
+                            选择楼层
+                    </span>
+                </div>
+                <div class="next-step">
+                    下一步
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 选座   开始-->
+    <div class="main">
+        <div class="clearfix">
+            <div class="status fl">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
+                        <rect width="20" height="20" style="fill: #BEC8DC;" />
+                </svg>
+                <span class="reserved">维修中</span>
+            </div>
+            <div class="status fl">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
+                        <rect width="20" height="20" style="fill: #0AD37B;" />
+                    </svg>
+                <span class="repairing">可预定</span>
+            </div>
+
+            <div class="status fl">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
+                            <rect width="20" height="20" style="fill: #FF6F92;" />
+                    </svg>
+                <span class="predictable">已预定</span>
+            </div>
+
+            <div class="status fl">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
+                                <rect width="20" height="20" style="fill: rgb(51, 153, 255) ;" />
+                        </svg>
+                <span class="predictable">选中座位状态</span>
+            </div>
+        </div>
+        <div class="svgWrap">
+        </div>
+        <!-- 提交   开始-->
+        <div class="clearfix btn-wrap">
+            <div class="fl choose-zuowei  choose-seat-tip">
+
+                <div class="choose-seat-status">未选择座位</div>
+                <div class="cause"></div>
+            </div>
+            <div class="submit  submit-disabled">
+                确认提交
+            </div>
+        </div>
+        <!-- 提交   结束-->
+    </div>
+    <input type="hidden" name="" class="temp">
+    <!-- 选座   结束-->
+
+    <script src="../js/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+    <script>
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            return currentdate;
+        }
+    </script>
+    <script>
+        //文本溢出
+
+        function chooseSet() {
+            var svgWrap = $(".svgWrap");
+            var svg = $('.svg');
+            console.log(svg);
+            $.ajax({
+                type: "Get",
+                url: "./index.json",
+                success: function(res) {
+                    console.log(res);
+                    for (var item of res) {
+                        console.log(item);
+                        svgWrap.append(' <svg width="100%" height="100%" version="1.1" class="svg"\
+                        xmlns="http://www.w3.org/2000/svg">\
+                        <rect width=' + item.width + ' height=' + item.height + '\
+                        style="fill:' + item.bgColor + '" class="rect"/>\
+                        <text x="50%" y="50%" font-size="14" style="fill:white" class="floor-text" floor=' + item.floor + '\
+                        user=' + item.user + '  reserveDate=' + item.reserveDate + '  bgColor  =' + item.bgColor + '  cause=' + item.cause + ' \
+                        alignment-baseline="middle" text-anchor="middle">\
+                        </text>\
+                    </svg>');
+                    }
+                },
+                complete: function() {
+                    $('.rect').each(function() {
+                        var rectWidth = $(this).width();
+                        var rectHeight = $(this).height();
+                        console.log(rectWidth, rectHeight)
+                        $(this).parent().attr({
+                            "width": rectWidth
+                        });
+                        $(this).parent().attr({
+                            "height": rectHeight
+                        });
+                        var that = $(this);
+                        var _this = $(this).siblings('.floor-text');
+                        //已预订显示的文本信息
+                        if (_this.attr('bgcolor') == '#FF6F92') {
+                            var floor = _this.attr('floor');
+                            var user = _this.attr('user');
+                            //var reserveDate = _this.attr('reservedate');
+                            console.log(floor + user + '已于' + '预定' + '---------------------');
+                            _this.text(floor + user + '已于' + '预定');
+                        } else {
+                            //没预定显示的文本信息
+                            var floor = _this.attr('floor');
+                            _this.text(floor);
+                        }
+                        //处理text标签文本溢出
+                        var svgWidth = that.width();
+                        var width = _this[0].getBoundingClientRect().width;
+                        console.log(svgWidth, width, '======================================');
+                        if (width > svgWidth) {
+                            str = floor + '......';
+                            _this.text(str);
+                        }
+
+                    })
+                }
+            });
+
+            $('.main').on('click', '.svg', function() {
+                console.log($(this).children('.rect').css('fill'))
+                if (!$(this).children('.rect').hasClass('rect-active') && $(this).children('.rect').css('fill') == 'rgb(10, 211, 123)') {
+                    console.log(false);
+                    $('.rect').removeClass('rect-active');
+                    $(this).children('.rect').addClass('rect-active');
+                    var floor = $(this).children('.floor-text').attr("floor");
+                    var user = $(this).children('.floor-text').attr('user');
+                    $('.choose-seat-status').text(user + '已选择' + floor + '座位');
+                    $('.submit').removeClass('submit-disabled');
+                } else if (!$(this).children('.rect').hasClass('rect-active') && $(this).children('.rect').css('fill') == 'rgb(190, 200, 220)') {
+                    $(this).children('.rect').removeClass('rect-active');
+                    $('.choose-seat-status').text('未选择座位');
+                    var cause = $(this).children('.floor-text').attr("cause");
+                    $('.cause').text(cause);
+                    $('.submit').addClass('submit-disabled');
+
+                } else {
+                    $(this).children('.rect').removeClass('rect-active');
+                    $('.choose-seat-status').text('未选择座位');
+                    var cause = $(this).children('.floor-text').attr("cause");
+                    $('.cause').text('');
+                    $('.submit').addClass('submit-disabled');
+                }
+
+            })
+
+            $('.submit').click(function() {
+                if (!$(this).hasClass('submit-disabled')) {
+                    alert('提交成功');
+                }
+
+            })
+        }
+
+        /************************** 选楼层日期*************************/
+        $("#my-input").val(getNowFormatDate())
+
+        $("#my-input").calendar();
+        $('.floor').click(function() {
+            if ($(this).hasClass('floor-active')) {
+                $(this).removeClass('floor-active').siblings().addClass('floor-active');
+            } else {
+                $(this).addClass('floor-active').siblings().removeClass('floor-active');
+            }
+            $('.floor').each(function() {
+                if ($(this).hasClass('floor-active')) {
+                    $('.choosed-floor').text('已选' + $(this).text())
+                }
+            })
+
+        })
+
+        $('.next-step').click(function() {
+            if ($('.choosed-date').text() != '' && $('.choosed-floor').text() != '') {
+                $('.choose').hide();
+                $('.main').show();
+                chooseSet();
+            }
+        })
+    </script>
+</body>
+
+</html>

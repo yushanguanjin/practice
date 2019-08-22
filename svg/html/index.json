@@ -1,0 +1,194 @@
+[{
+        "bgColor": "#FF6F92",
+        "width": "50",
+        "height": "50",
+        "floor": "A1",
+        "user": "李明",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "20",
+        "height": "40",
+        "floor": "C2",
+        "user": "张刚",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "20",
+        "height": "20",
+        "floor": "C1",
+        "user": "李雪",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "60",
+        "height": "50",
+        "floor": "B1",
+        "user": "李雪",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "40",
+        "height": "20",
+        "floor": "B2",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "100",
+        "height": "20",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "100",
+        "height": "50",
+        "floor": "C1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "200",
+        "height": "60",
+        "floor": "B1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "20",
+        "height": "20",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "60",
+        "height": "50",
+        "floor": "C1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "200",
+        "height": "100",
+        "floor": "C2",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "100",
+        "height": "20",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "100",
+        "height": "20",
+        "floor": "A1",
+        "user": "齐兰",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "100",
+        "height": "50",
+        "floor": "C1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "200",
+        "height": "60",
+        "floor": "B1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏"
+
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "100",
+        "height": "40",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "100",
+        "height": "20",
+        "floor": "A1",
+        "user": "齐兰",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "100",
+        "height": "50",
+        "floor": "C1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01",
+        "cause": "座位损坏"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "200",
+        "height": "60",
+        "floor": "B1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01"
+
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "80",
+        "height": "60",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "280",
+        "height": "100",
+        "floor": "A1",
+        "user": "齐兰",
+        "reserveDate": "2019-01-01",
+        "cause": "座位损坏"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "80",
+        "height": "50",
+        "floor": "C1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01"
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "260",
+        "height": "60",
+        "floor": "B1",
+        "user": "楚秦",
+        "reserveDate": "2019-01-01"
+
+    }
+]

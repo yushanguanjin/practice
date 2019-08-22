@@ -1,10 +1,12 @@
 [{
         "bgColor": "#FF6F92",
-        "width": "50",
-        "height": "50",
+        "width": "30",
+        "height": "30",
         "floor": "A1",
         "user": "李明",
-        "reserveDate": "2019-01-01"
+        "reserveDate": "2019-01-01",
+        "x": 200,
+        "y": 100
     },
     {
         "bgColor": "#0AD37B",
@@ -12,24 +14,30 @@
         "height": "40",
         "floor": "C2",
         "user": "张刚",
-        "reserveDate": "2019-01-01"
+        "reserveDate": "2019-01-01",
+        "x": 240,
+        "y": 100
     },
     {
         "bgColor": "#BEC8DC",
-        "width": "20",
-        "height": "20",
+        "width": "30",
+        "height": "30",
         "floor": "C1",
         "user": "李雪",
         "reserveDate": "2019-01-01",
-        "cause": "电源损坏"
+        "cause": "电源损坏",
+        "x": 200,
+        "y": 150
     },
     {
         "bgColor": "#0AD37B",
-        "width": "60",
-        "height": "50",
+        "width": "30",
+        "height": "30",
         "floor": "B1",
         "user": "李雪",
-        "reserveDate": "2019-01-01"
+        "reserveDate": "2019-01-01",
+        "x": 240,
+        "y": 150
     },
     {
         "bgColor": "#0AD37B",
@@ -37,85 +45,95 @@
         "height": "20",
         "floor": "B2",
         "user": "张梅",
-        "reserveDate": "2019-01-01"
+        "reserveDate": "2019-01-01",
+        "x": 270,
+        "y": 150
     },
     {
         "bgColor": "#0AD37B",
-        "width": "100",
-        "height": "20",
-        "floor": "A1",
-        "user": "张梅",
-        "reserveDate": "2019-01-01"
-    },
-    {
-        "bgColor": "#FF6F92",
-        "width": "100",
-        "height": "50",
-        "floor": "C1",
-        "user": "张梅",
-        "reserveDate": "2019-01-01"
-    },
-    {
-        "bgColor": "#FF6F92",
-        "width": "200",
-        "height": "60",
-        "floor": "B1",
-        "user": "张梅",
-        "reserveDate": "2019-01-01"
-    },
-    {
-        "bgColor": "#BEC8DC",
-        "width": "20",
+        "width": "40",
         "height": "20",
         "floor": "A1",
         "user": "张梅",
         "reserveDate": "2019-01-01",
-        "cause": "电源损坏"
+        "x": 270,
+        "y": 200
     },
     {
         "bgColor": "#FF6F92",
-        "width": "60",
-        "height": "50",
+        "width": "40",
+        "height": "40",
+        "floor": "C1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 270,
+        "y": 220
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "40",
+        "height": "40",
+        "floor": "B1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 30,
+        "y": 420
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "40",
+        "height": "40",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏",
+        "x": 30,
+        "y": 80
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "40",
+        "height": "40",
         "floor": "C1",
         "user": "张梅",
         "reserveDate": "2019-01-01"
     },
     {
         "bgColor": "#0AD37B",
-        "width": "200",
-        "height": "100",
+        "width": "40",
+        "height": "40",
         "floor": "C2",
         "user": "张梅",
         "reserveDate": "2019-01-01"
     },
     {
         "bgColor": "#0AD37B",
-        "width": "100",
-        "height": "20",
+        "width": "40",
+        "height": "40",
         "floor": "A1",
         "user": "张梅",
         "reserveDate": "2019-01-01"
     },
     {
         "bgColor": "#0AD37B",
-        "width": "100",
-        "height": "20",
+        "width": "40",
+        "height": "40",
         "floor": "A1",
         "user": "齐兰",
         "reserveDate": "2019-01-01"
     },
     {
         "bgColor": "#FF6F92",
-        "width": "100",
-        "height": "50",
+        "width": "40",
+        "height": "40",
         "floor": "C1",
         "user": "楚秦",
         "reserveDate": "2019-01-01"
     },
     {
         "bgColor": "#BEC8DC",
-        "width": "200",
-        "height": "60",
+        "width": "40",
+        "height": "40",
         "floor": "B1",
         "user": "楚秦",
         "reserveDate": "2019-01-01",
@@ -124,7 +142,7 @@
     },
     {
         "bgColor": "#0AD37B",
-        "width": "100",
+        "width": "40",
         "height": "40",
         "floor": "A1",
         "user": "张梅",
@@ -132,7 +150,7 @@
     },
     {
         "bgColor": "#BEC8DC",
-        "width": "100",
+        "width": "40",
         "height": "20",
         "floor": "A1",
         "user": "齐兰",
@@ -141,7 +159,7 @@
     },
     {
         "bgColor": "#BEC8DC",
-        "width": "100",
+        "width": "40",
         "height": "50",
         "floor": "C1",
         "user": "楚秦",
@@ -150,7 +168,7 @@
     },
     {
         "bgColor": "#FF6F92",
-        "width": "200",
+        "width": "40",
         "height": "60",
         "floor": "B1",
         "user": "楚秦",
@@ -159,7 +177,7 @@
     },
     {
         "bgColor": "#0AD37B",
-        "width": "80",
+        "width": "40",
         "height": "60",
         "floor": "A1",
         "user": "张梅",
@@ -167,8 +185,8 @@
     },
     {
         "bgColor": "#BEC8DC",
-        "width": "280",
-        "height": "100",
+        "width": "40",
+        "height": "40",
         "floor": "A1",
         "user": "齐兰",
         "reserveDate": "2019-01-01",
@@ -176,7 +194,7 @@
     },
     {
         "bgColor": "#FF6F92",
-        "width": "80",
+        "width": "40",
         "height": "50",
         "floor": "C1",
         "user": "楚秦",
@@ -184,8 +202,8 @@
     },
     {
         "bgColor": "#FF6F92",
-        "width": "260",
-        "height": "60",
+        "width": "40",
+        "height": "40",
         "floor": "B1",
         "user": "楚秦",
         "reserveDate": "2019-01-01"

@@ -236,7 +236,7 @@
         </div>
         <img src="../img/bg.png" alt="" class="main-bg">
         <div class="svgWrap">
-            <div style="position: absolute;width: 135px;height: 65px;background:#ff0000;top: 335px;left: 400px;" class="seat">
+            <div style="display:none;position: absolute;width: 135px;height: 65px;background:#ff0000;top: 335px;left: 400px;" class="seat">
 
             </div>
             <svg width="100%" height="100%" version="1.1" class="svg" id="rect-wrap" xmlns="http://www.w3.org/2000/svg">
@@ -326,12 +326,14 @@
                 url: "./index.json",
                 success: function(res) {
                     console.log(res);
-                    for (var i = 0; i < res.length; i++) {
+                    for (var item of res) {
                         //console.log(item.width, item.height);
-                        var rectObj = document.createElementNS('<rect/>', "rect");
-                        rectObj.setAttribute("width", 100);
-                        rectObj.setAttribute("height", 100);
-                        rectObj.setAttribute("style", "fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)");
+                        var rectObj = document.createElementNS('http://www.w3.org/2000/svg', "rect");
+                        rectObj.setAttribute("width", item.width);
+                        rectObj.setAttribute("height", item.height);
+                        rectObj.setAttribute("x", item.x);
+                        rectObj.setAttribute("y", item.y);
+                        rectObj.style = "fill:" + item.bgColor + "";
                         rectWrap.appendChild(rectObj);
                     }
                 },
@@ -380,25 +382,25 @@
 
 
             adaption = function() {
-                //获取父元素宽高，高度
-                var parentWidth = $('.main-bg').width();
-                var parentHeight = $('.main-bg').height();
-                console.log(parentWidth, parentHeight);
+                    //获取父元素宽高，高度
+                    var parentWidth = $('.main-bg').width();
+                    var parentHeight = $('.main-bg').height();
+                    console.log(parentWidth, parentHeight);
 
-                var left = (410 / parentWidth) * 100 + '%';
-                var top = (380 / parentHeight) * 100 + '%';
-                var width = (140 / parentWidth) * 100 + '%';
-                var height = (70 / parentHeight) * 100 + '%';
-                console.log(left, top, width, height);
+                    var left = (410 / parentWidth) * 100 + '%';
+                    var top = (380 / parentHeight) * 100 + '%';
+                    var width = (140 / parentWidth) * 100 + '%';
+                    var height = (70 / parentHeight) * 100 + '%';
+                    console.log(left, top, width, height);
 
-                $('.seat').css({
-                    "left": left,
-                    "top": top,
-                    "width": width,
-                    "height": height,
-                })
-            }
-            adaption();
+                    $('.seat').css({
+                        "left": left,
+                        "top": top,
+                        "width": width,
+                        "height": height,
+                    })
+                }
+                //adaption();
         }
 
         $(window).resize(function() {

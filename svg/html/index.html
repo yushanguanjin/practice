@@ -15,6 +15,7 @@
         body {
             margin: 0;
             padding: 0;
+            overflow: auto;
         }
         
         .main {
@@ -24,7 +25,7 @@
         }
         
         .main-bg {
-            width: 100%;
+            width: 150%;
         }
         
         .clearfix:after {
@@ -34,6 +35,12 @@
             content: " ";
             clear: both;
             height: 0;
+        }
+        
+        .rc {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         .fl {
@@ -73,7 +80,7 @@
         
         .svgWrap {
             position: absolute;
-            top: 25px;
+            top: 50px;
             left: 0;
             width: 100%;
         }
@@ -82,7 +89,8 @@
         .repairing,
         .predictable {
             font-size: 12px;
-            margin-left: 12px;
+            margin-left: 6px;
+            position: absolute;
         }
         
         .status {
@@ -90,6 +98,18 @@
         }
         
         .floor {
+            display: inline-block;
+            width: 120px;
+            height: 45px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 45px;
+            text-decoration: none;
+            background: #ECEFF5;
+            color: #000
+        }
+        
+        .roomNumber {
             display: inline-block;
             width: 120px;
             height: 45px;
@@ -121,8 +141,14 @@
             background: #fff;
             border-radius: 10px;
             padding-bottom: 20px;
-            position: relative;
-            top: 200px;
+            margin-top: 80px;
+        }
+        
+        .xuanze-fangjian {
+            background: #fff;
+            border-radius: 10px;
+            padding-bottom: 20px;
+            margin-top: 10px;
         }
         
         .btnWrap {
@@ -151,7 +177,17 @@
             font-size: 14px;
         }
         
+        .next-step-disabled {
+            color: #c0c4cc;
+            background-color: #fff;
+        }
+        
         .floor-active {
+            background: #3399FF;
+            color: #fff;
+        }
+        
+        .roomNumber-active {
             background: #3399FF;
             color: #fff;
         }
@@ -186,16 +222,28 @@
                         <a href="javascropt:void(0);" class="floor">18楼</a>
                     </div>
                 </div>
-
-
+            </div>
+            <div class="xuanze-fangjian">
+                <div class="choose-main ">
+                    <div style="margin-bottom: 10px;">选择房间</div>
+                    <hr>
+                    <div style="margin-top: 10px;">
+                        <a href="javascropt:void(0);" class="roomNumber">A1101</a>
+                        <a href="javascropt:void(0);" class="roomNumber">A1102</a>
+                    </div>
+                </div>
             </div>
             <div class="clearfix btnWrap">
                 <div class="fl btn-choose-zuowei  choosed-date">
                     <span class="zuoweihao  choosed-floor">
                             选择楼层
                     </span>
+                    <span class="zuoweihao  choosed-roomNumber">
+                            选择房间号
+                    </span>
                 </div>
-                <div class="next-step">
+
+                <div class="next-step next-step-disabled">
                     下一步
                 </div>
             </div>
@@ -206,7 +254,7 @@
     <!-- 选座   开始-->
     <div class="main">
 
-        <div class="clearfix">
+        <div class="clearfix" style="margin-left: 20px;margin-right:20px;">
             <div class="status fl">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
                         <rect width="20" height="20" style="fill: #BEC8DC;" />
@@ -217,7 +265,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
                         <rect width="20" height="20" style="fill: #0AD37B;" />
                     </svg>
-                <span class="repairing">可预定</span>
+                <span class="repairing">未预定</span>
             </div>
 
             <div class="status fl">
@@ -231,7 +279,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg fl" style="width:20px;height:20px;">
                                 <rect width="20" height="20" style="fill: rgb(51, 153, 255) ;" />
                         </svg>
-                <span class="predictable">选中座位状态</span>
+                <span class="predictable">选中座位</span>
+            </div>
+            <div class="clearfix" style="font-size: 12px;">
+                <div class="fl">楼层：<span class="current-floor"></span></div>
+                <div class="fl" style="margin-left: 10px;">房间：<span class="current-room"></span></div>
             </div>
         </div>
         <img src="../img/bg.png" alt="" class="main-bg">
@@ -252,7 +304,7 @@
                 <div class="cause"></div>
             </div>
             <div class="submit  submit-disabled">
-                确认提交
+                我要预定
             </div>
         </div>
         <!-- 提交   结束-->
@@ -294,20 +346,47 @@
             }
             $('.floor').each(function() {
                 if ($(this).hasClass('floor-active')) {
-                    $('.choosed-floor').text('已选' + $(this).text())
+                    $('.choosed-floor').text('已选' + $(this).text());
+                    $('.next-step').removeClass('next-step-disabled');
                 }
             })
 
         })
 
-        //下一步
+
+
+        $('.roomNumber').click(function() {
+                if ($(this).hasClass('roomNumber-active')) {
+                    $(this).removeClass('roomNumber-active').siblings().addClass('roomNumber-active');
+                } else {
+                    $(this).addClass('roomNumber-active').siblings().removeClass('roomNumber-active');
+                }
+                $('.roomNumber').each(function() {
+                    if ($(this).hasClass('roomNumber-active')) {
+                        $('.choosed-roomNumber').text('已选' + $(this).text());
+                        $('.next-step').removeClass('next-step-disabled');
+                    }
+                })
+            })
+            //下一步
         $('.next-step').click(function() {
-            if ($('.choosed-date').text() != '' && $('.choosed-floor').text() != '') {
+            if ($('.choosed-date').text() != '' && !$('.next-step').hasClass('next-step-disabled')) {
                 $('.choose').hide();
                 $('.main').show();
                 //设置座位wrap高度
                 var height = $('.main-bg').height();
                 $('.svgWrap').height(height);
+                //设置btn-wrap的top
+                console.log($(window).height())
+                $('.btn-wrap').css({
+                        //top: $(window).height() - 50,
+                        //width: $(window).width()
+                    })
+                    //当前楼层
+                $('.current-floor').text($('.choosed-floor').text());
+                console.log($('.choosed-roomNumber').text())
+                    //当前房间
+                $('.current-room').text($('.choosed-roomNumber').text());
                 chooseSet();
             }
         })
@@ -323,18 +402,35 @@
             console.log(svg);
             $.ajax({
                 type: "Get",
-                url: "./index.json",
+                url: "../json/index.json",
                 success: function(res) {
                     console.log(res);
                     for (var item of res) {
                         //console.log(item.width, item.height);
+                        var g = document.createElementNS('http://www.w3.org/2000/svg', "g");
+
                         var rectObj = document.createElementNS('http://www.w3.org/2000/svg', "rect");
                         rectObj.setAttribute("width", item.width);
                         rectObj.setAttribute("height", item.height);
                         rectObj.setAttribute("x", item.x);
                         rectObj.setAttribute("y", item.y);
+                        rectObj.setAttribute("class", 'rect');
                         rectObj.style = "fill:" + item.bgColor + "";
-                        rectWrap.appendChild(rectObj);
+                        g.appendChild(rectObj);
+
+                        var textObj = document.createElementNS('http://www.w3.org/2000/svg', "text");
+                        textObj.setAttribute("x", item.x + 8);
+                        textObj.setAttribute("y", item.y + 12);
+                        textObj.setAttribute("class", 'floor-text');
+                        textObj.innerHTML = item.floor;
+                        textObj.setAttribute("user", item.user);
+                        textObj.setAttribute("reserveDate", item.reserveDate);
+                        textObj.setAttribute("cause", item.cause);
+                        textObj.style = "fill:white;font-size:12px;";
+
+                        g.appendChild(textObj);
+                        rectWrap.appendChild(g);
+
                     }
                 },
                 complete: function() {
@@ -346,27 +442,33 @@
                 }
             });
 
-            $('.main').on('click', '.svg', function() {
-                console.log($(this).children('.rect').css('fill'))
+            $('.main').on('click', 'g', function() {
+                console.log($(this).css('fill'))
                 if (!$(this).children('.rect').hasClass('rect-active') && $(this).children('.rect').css('fill') == 'rgb(10, 211, 123)') {
                     console.log(false);
-                    $('.rect').removeClass('rect-active');
+
                     $(this).children('.rect').addClass('rect-active');
-                    var floor = $(this).children('.floor-text').attr("floor");
+                    $(this).siblings('g').children('.rect').removeClass('rect-active');
+                    var floor = $(this).children('.floor-text').text();
                     var user = $(this).children('.floor-text').attr('user');
+                    console.log(floor, user)
                     $('.choose-seat-status').text(user + '已选择' + floor + '座位');
+                    $('.cause').text('');
                     $('.submit').removeClass('submit-disabled');
                 } else if (!$(this).children('.rect').hasClass('rect-active') && $(this).children('.rect').css('fill') == 'rgb(190, 200, 220)') {
                     $(this).children('.rect').removeClass('rect-active');
                     $('.choose-seat-status').text('未选择座位');
-                    var cause = $(this).children('.floor-text').attr("cause");
+                    var cause = $(this).children('.rect').next('.floor-text').attr("cause");
                     $('.cause').text(cause);
+                    // $('.choose-seat-status').addClass('rc')
+                    $('.rect').removeClass('rect-active');
                     $('.submit').addClass('submit-disabled');
 
                 } else {
                     $(this).children('.rect').removeClass('rect-active');
                     $('.choose-seat-status').text('未选择座位');
-                    var cause = $(this).children('.floor-text').attr("cause");
+
+                    $('.rect').removeClass('rect-active');
                     $('.cause').text('');
                     $('.submit').addClass('submit-disabled');
                 }

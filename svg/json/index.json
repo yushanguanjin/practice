@@ -1,0 +1,103 @@
+[{
+        "bgColor": "#FF6F92",
+        "width": "30",
+        "height": "15",
+        "floor": "A1",
+        "user": "李明",
+        "reserveDate": "2019-01-01",
+        "x": 110,
+        "y": 75
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "30",
+        "height": "15",
+        "floor": "C2",
+        "user": "张刚",
+        "reserveDate": "2019-01-01",
+        "x": 142,
+        "y": 75
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "30",
+        "height": "15",
+        "floor": "C1",
+        "user": "李雪",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏",
+        "x": 174,
+        "y": 75
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "30",
+        "height": "15",
+        "floor": "B1",
+        "user": "李雪",
+        "reserveDate": "2019-01-01",
+        "x": 206,
+        "y": 75
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "30",
+        "height": "15",
+        "floor": "B2",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 238,
+        "y": 75
+    },
+    {
+        "bgColor": "#0AD37B",
+        "width": "30",
+        "height": "15",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 110,
+        "y": 92
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "30",
+        "height": "15",
+        "floor": "C1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 142,
+        "y": 92
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "30",
+        "height": "15",
+        "floor": "B1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 174,
+        "y": 92
+    },
+    {
+        "bgColor": "#BEC8DC",
+        "width": "30",
+        "height": "15",
+        "floor": "A1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "cause": "电源损坏",
+        "x": 206,
+        "y": 92
+    },
+    {
+        "bgColor": "#FF6F92",
+        "width": "30",
+        "height": "15",
+        "floor": "C1",
+        "user": "张梅",
+        "reserveDate": "2019-01-01",
+        "x": 238,
+        "y": 92
+    }
+]

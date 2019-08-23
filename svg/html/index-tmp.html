@@ -17,9 +17,8 @@
         }
         
         .main {
+            position: relative;
             display: none;
-            margin-left: 20px;
-            margin-right: 20px;
             margin-bottom: 50px;
         }
         
@@ -40,7 +39,9 @@
             float: right;
         }
         
-        .svg {}
+        .svg {
+            position: absolute;
+        }
         
         .choose-zuowei {
             background: #ECEFF5;
@@ -68,7 +69,10 @@
         }
         
         .svgWrap {
-            margin-top: 50px;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
         }
         
         .reserved,
@@ -163,6 +167,10 @@
             height: 50%;
             line-height: 25px;
         }
+        
+        .main-bg {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -225,7 +233,9 @@
                         </svg>
                 <span class="predictable">选中座位状态</span>
             </div>
+
         </div>
+        <img src="../img/bg.png" alt="" class="main-bg">
         <div class="svgWrap">
         </div>
         <!-- 提交   开始-->
@@ -272,16 +282,16 @@
             console.log(svg);
             $.ajax({
                 type: "Get",
-                url: "./index.json",
+                url: "../json/index.json",
                 success: function(res) {
                     console.log(res);
                     for (var item of res) {
                         console.log(item);
                         svgWrap.append(' <svg width="100%" height="100%" version="1.1" class="svg"\
                         xmlns="http://www.w3.org/2000/svg">\
-                        <rect width=' + item.width + ' height=' + item.height + '\
+                        <rect width=' + item.width + ' height=' + item.height + ' x=' + item.x + ' y=' + item.y + '\
                         style="fill:' + item.bgColor + '" class="rect"/>\
-                        <text x="50%" y="50%" font-size="14" style="fill:white" class="floor-text" floor=' + item.floor + '\
+                        <text x="50%" y="50%" font-size="12" style="fill:white" class="floor-text" floor=' + item.floor + '\
                         user=' + item.user + '  reserveDate=' + item.reserveDate + '  bgColor  =' + item.bgColor + '  cause=' + item.cause + ' \
                         alignment-baseline="middle" text-anchor="middle">\
                         </text>\
@@ -292,12 +302,13 @@
                     $('.rect').each(function() {
                         var rectWidth = $(this).width();
                         var rectHeight = $(this).height();
-                        console.log(rectWidth, rectHeight)
+                        console.log(rectWidth, rectHeight);
+                        var imgHeight = $('.main-bg').height();
                         $(this).parent().attr({
-                            "width": rectWidth
+                            "width": '100%'
                         });
                         $(this).parent().attr({
-                            "height": rectHeight
+                            "height": imgHeight
                         });
                         var that = $(this);
                         var _this = $(this).siblings('.floor-text');

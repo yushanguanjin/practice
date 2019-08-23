@@ -25,7 +25,7 @@
         }
         
         .main-bg {
-            width: 150%;
+            width: 200%;
         }
         
         .clearfix:after {
@@ -300,7 +300,7 @@
         <div class="clearfix btn-wrap">
             <div class="fl choose-zuowei  choose-seat-tip">
 
-                <div class="choose-seat-status">未选择座位</div>
+                <div class="choose-seat-status rc">未选择座位</div>
                 <div class="cause"></div>
             </div>
             <div class="submit  submit-disabled">
@@ -347,7 +347,10 @@
             $('.floor').each(function() {
                 if ($(this).hasClass('floor-active')) {
                     $('.choosed-floor').text('已选' + $(this).text());
-                    $('.next-step').removeClass('next-step-disabled');
+                    if ($('.roomNumber').hasClass('roomNumber-active')) {
+                        $('.next-step').removeClass('next-step-disabled');
+                    }
+
                 }
             })
 
@@ -364,7 +367,10 @@
                 $('.roomNumber').each(function() {
                     if ($(this).hasClass('roomNumber-active')) {
                         $('.choosed-roomNumber').text('已选' + $(this).text());
-                        $('.next-step').removeClass('next-step-disabled');
+                        if ($('.floor').hasClass('floor-active')) {
+                            $('.next-step').removeClass('next-step-disabled');
+                        }
+
                     }
                 })
             })
@@ -454,13 +460,14 @@
                     console.log(floor, user)
                     $('.choose-seat-status').text(user + '已选择' + floor + '座位');
                     $('.cause').text('');
+                    $('.choose-seat-status').addClass('rc');
                     $('.submit').removeClass('submit-disabled');
                 } else if (!$(this).children('.rect').hasClass('rect-active') && $(this).children('.rect').css('fill') == 'rgb(190, 200, 220)') {
                     $(this).children('.rect').removeClass('rect-active');
                     $('.choose-seat-status').text('未选择座位');
                     var cause = $(this).children('.rect').next('.floor-text').attr("cause");
                     $('.cause').text(cause);
-                    // $('.choose-seat-status').addClass('rc')
+                    $('.choose-seat-status').removeClass('rc');
                     $('.rect').removeClass('rect-active');
                     $('.submit').addClass('submit-disabled');
 
@@ -470,6 +477,7 @@
 
                     $('.rect').removeClass('rect-active');
                     $('.cause').text('');
+                    $('.choose-seat-status').addClass('rc');
                     $('.submit').addClass('submit-disabled');
                 }
 

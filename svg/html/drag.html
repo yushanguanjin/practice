@@ -1,67 +1,146 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>窗口拖拽（改变大小/最小化/最大化/还原/关闭）</title>
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
     <style type="text/css">
-        .drag-box {
-            width: 100px;
-            height: 100px;
-            background: #f00;
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-            top: 0;
-            z-index: 10;
+        html,
+        body {
+            margin: 0;
+            padding: 0;
         }
         
         .room-wrap {
             position: relative;
+        }
+        
+        .wrap {
+            display: flex;
+        }
+        
+        .dragsource-wrap {
+            flex: 1;
+        }
+        
+        #dragsource {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: #0AD37B;
+        }
+        
+        .seat {
+            width: 100px;
+            height: 100px;
+            background: #0AD37B;
+        }
+        
+        .doDelete {
+            color: #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="room-wrap">
-        <img src="../img/bg.png" alt="" class="room">
-    </div>
-    <div class="drag-box-wrap">
-        <div class="drag-box"></div>
+    <div class="wrap">
+        <div class="room-wrap">
+            <img src="../img/bg.png" alt="" class="room">
+        </div>
+        <div class="dragsource-wrap ">
+            <div id="dragsource">
+
+            </div>
+
+        </div>
     </div>
 
+    <!-- 自定义鼠标右键菜单 -->
+    <ul style="width:100px;display:none;position:absolute;" id="menu">
+        <li>删除</li>
+    </ul>
 
     <script src="../js/jquery.js"></script>
-    <script src="../js/drag.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            var move = false; //移动标记 
-            var _x, _y; //鼠标离控件左上角的相对位置 ;
-            var obj = $(".drag-box");
-
-            obj.mousedown(function(e) {
-
-                move = true;
-                _x = e.pageX - parseInt(obj.css("left"));
-                _y = e.pageY - parseInt(obj.css("top"));
+        $(function() {
+            $("#dragsource").draggable({
+                helper: "clone",
+                revert: true,
+                cursor: "move",
             });
-            $(document).mousemove(function(e) {
-                var newObj = $('.drag-box-wrap').clone(true).appendTo($('.drag-box-wrap'));
-                if (move) {
-                    var x = e.pageX - _x; //控件左上角到屏幕左上角的相对位置 
-                    var y = e.pageY - _y;
-                    obj.css({
-                        "top": y,
-                        "left": x
+
+            $(".room-wrap").droppable({
+                drop: function(event, ui) {
+                    console.log(10)
+                        //$(".seat:last-of-type").remove();
+                    var html = $("<div  class='seat' style='position:absolute;left:" +
+                        ui.offset.left + 'px' +
+                        ";top:" + ui.offset.top + 'px' +
+                        "'><span class='doDelete'>X</span></div>");
+
+                    $(this).append(html);
+
+                    // $(".seat").draggable({
+                    //     helper: "original"
+                    // });
+                    $(".seat").resizable({
+                        handles: 'all'
                     });
-                }
-            }).mouseup(function() {
-                move = false;
+                },
+            });
+            // 1. 如何禁用默认鼠标右键菜单
+            // $(document).contextmenu(function() {
+            //     return false;
+            // });
+            // 2. 绑定鼠标右键的事件     
+            // $(document).mousedown(function(event) {
+            //     //当点击鼠标右键，显示菜单
+
+            //     if ($(event.target).hasClass('seat') && event.button == 2) {
+            //         // 显示自定义菜单
+            //         $("#menu").css({
+            //             //定义菜单显示位置为事件发生的X坐标和Y坐标
+            //             top: event.pageY,
+            //             left: event.pageX
+            //         }).slideDown(100);
+            //         //如果点击鼠标左键，隐藏菜单
+            //     } else if (event.button == 0) {
+            //         console.log(10)
+            //         $("#menu").slideUp(100);
+            //     }
+            // });
+            // // $("#menu").menu();
+            // $('.seat').contextmenu(function(e) {
+            //     e.preventDefault();
+            // });
+            // $('.seat').mousedown(function(e) {
+            //     console.log(e.which);
+            //     //右键为3
+            //     if (3 == e.which) {
+            //         $(this).css({
+            //             "font-size": "-=2px"
+            //         });
+            //     } else if (1 == e.which) {
+            //         //左键为1
+            //         $(this).css({
+            //             "font-size": "+=3px"
+            //         });
+            //     }
+            // })
+
+            $('body').on('click', '.doDelete', function() {
+                $(this).parent('.seat').remove();
             })
-        });
+        })
     </script>
 </body>
 

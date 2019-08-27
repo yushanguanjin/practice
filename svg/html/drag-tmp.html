@@ -1,59 +1,62 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <style type="text/css">
-        #box {
-            position: fixed;
-            left: 100px;
-            top: 100px;
-            background-color: red;
-            width: 300px;
-            height: 200px;
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
         }
         
-        #out {
-            height: 2000px;
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
     </style>
-    <script src="../js/jquery.js"></script>
-    <script>
-        $(document).ready(function() {
-            var drafting = false;
-            var offX, offY, mouseX, mouseY, winX, winY, x, y;
-            $("#box").mousedown(function(event) {
-                event.stopPropagation();
-                drafting = true;
-            });
-            $(document).mousemove(function(event) {
-                event.stopPropagation();
-                var e = event || window.event;
-                mouseX = e.pageX || e.clientX + $(document).scrollLeft();
-                mouseY = e.pageY || e.clientY + $(document).scrollTop();
-                winX = $("#box").offset().left - $(document).scrollLeft();
-                winY = $("#box").offset().top - $(document).scrollTop();
-                if (drafting == false) {
-                    offX = mouseX - winX;
-                    offY = mouseY - winY;
-                }
-                x = mouseX - offX;
-                y = mouseY - offY;
-                $("#box").css({
-                    'left': x,
-                    'top': y
-                });
-            });
-            $(document).mouseup(function(event) {
-                event.stopPropagation();
-                drafting = false;
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <div id="box"></div>
-    <div id="out"></div>
+    <div></div>
+    <script>
+        var divEle = document.getElementsByTagName('div')[0]
+        var mouse = {
+            mouseLock: false,
+            mouseEleClient: {
+                t: this.offsetTop,
+                l: this.offsetLeft
+            }
+        }
+        divEle.onmousedown = function(e) { //当鼠标在divEle按下时触发事件
+            e = e || window.event
+            var l = e.clientX
+            var t = e.clientY
+            console.log(this.offsetTop, this.offsetLeft);
+            mouse.mouseEleClient.t = t - this.offsetTop
+            mouse.mouseEleClient.l = l - this.offsetLeft
+            mouse.mouseLock = true
+        }
+        divEle.onmouseup = function(e) { //当鼠标松开时触发事件
+            mouse.mouseLock = false
+        }
+        window.onmousemove = function(e) { //当鼠标移动时持续触发
+            if (mouse.mouseLock) {
+                e = e || window.event
+                var l = e.clientX
+                var t = e.clientY
+                console.log(mouse.mouseEleClient.t, mouse.mouseEleClient.l);
+                var divT = t - mouse.mouseEleClient.t
+                var divL = l - mouse.mouseEleClient.l
+                divEle.style.top = divT + 'px'
+                divEle.style.left = divL + 'px'
+            }
+        }
+    </script>
 </body>
 
 </html>

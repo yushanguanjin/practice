@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参考文章：http://www.imooc.com/article/253094</title>
+</head>
+
+<body>
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+
+
+    <script>
+        /*
+                    对于var来说，形成的闭包始终获取到的都是循环完成后被改变的最终的i
+                    而对于let，每一个i都是独立在当前块级作用域的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量。
+                    而JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。
+                */
+        var btns = document.querySelectorAll("button");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

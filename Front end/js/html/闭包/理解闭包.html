@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参考文章：http://www.imooc.com/article/253094</title>
+</head>
+
+<body>
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+
+
+    <script>
+        //示例
+        var btns = document.querySelectorAll("button");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                console.log(i);
+            }
+        }
+        //伪代码
+        var i = 3;
+        btns[0].onclick = function() {
+            console.log(i);
+        }
+        btns[1].onclick = function() {
+            console.log(i);
+        }
+        btns[2].onclick = function() {
+            console.log(i);
+        }
+
+
+        /*解决方法*/
+        var btns = document.querySelectorAll("button");
+        for (var i = 0; i < btns.length; i++) {
+            (function(i) {
+                btns[i].onclick = function() {
+                    console.log(i);
+                }
+            })(i)
+        }
+
+        //伪代码
+        var i = 3;
+        (function(i) {
+            btns[i]
+            `.onclick` = function() {
+                console.log(i);
+            }
+        })(0)
+        (function(i) {
+            btns[i]
+            `.onclick` = function() {
+                console.log(i);
+            }
+        })(1)
+        (function(i) {
+            btns[i]
+            `.onclick` = function() {
+                console.log(i);
+            }
+        })(2)
+    </script>
+</body>
+
+</html>

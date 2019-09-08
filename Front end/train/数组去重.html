@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function filter1(arr) {
+            let newArr = [];
+            for (let i = 0, len = arr.length; i < len; i++) {
+                if (!newArr.includes(arr[i])) {
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+
+
+        function filter2(arr) {
+            let newArr = arr.filter((item, index, array) => {
+                console.log(array.indexOf(item), index)
+                return array.indexOf(item) === index;
+            })
+            return newArr;
+        }
+
+
+        function filter3(arr) {
+            let newArr = [...new Set(arr)];
+            return newArr;
+        }
+
+        console.log(filter1([0, 0, 1, 1, 2, 2, 0, 3, 4, 0]));
+        console.log(filter2(['a', 'b', 'c', 'd', 'e', 'f', 'a', 'b']));
+        console.log(filter3([0, 0, 1, 1, 2, 2, 0, 3, 4, 0]));
+    </script>
+</body>
+
+</html>

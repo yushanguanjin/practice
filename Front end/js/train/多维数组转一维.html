@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //递归
+        let arr = [1, [2, [
+                [3, 4], 5
+            ], 6],
+            [1, 2, 3, [1, 2, 3, [1, 2, 3]]]
+        ];
+        let newArr = [];
+
+        function oneDimensionalArray(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    console.log(arr[i]);
+                    oneDimensionalArray(arr[i]);
+                } else {
+                    newArr.push(arr[i]);
+                }
+            }
+        }
+        oneDimensionalArray(arr);
+        console.log('-----------------------------------');
+        console.log(newArr);
+        //flat
+        console.log(arr.flat(Infinity));
+    </script>
+</body>
+
+</html>

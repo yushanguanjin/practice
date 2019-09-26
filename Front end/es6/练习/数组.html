@@ -9,9 +9,20 @@
 </head>
 
 <body>
-
     <script>
-        /*for of   arr.keys()：数组下标，arr.entires():数组某一项*/
+        var array = [12, 23, 24, 42, 1];
+        var res = array.forEach(item => {
+            return item * 2
+        });
+        console.log(res)
+        var array2 = [12, 23, 24, 42, 1];
+        var res2 = array2.map((item, index) => {
+
+
+        });
+        console.log(res2)
+
+
         let arr = ['apple', 'banana', 'orange'];
         for (let val of arr) { //默认就是values
             console.log(val);
@@ -27,9 +38,8 @@
         }
         for (let [key, val] of arr.entries()) { //默认就是values
             console.log(key, val);
+            key
         }
-
-        
     </script>
 </body>
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const monthDays = [
+            [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        ]
+
+        function getMonthDays(month, year) {
+            let isLeapYear = (year % 4 === 0) && (year % 100 !== 0 || year % 400 === 0) ? 1 : 0
+            return monthDays[isLeapYear][(month - 1)];
+        }
+        console.log(getMonthDays(2, 2000))
+    </script>
+</body>
+
+</html>

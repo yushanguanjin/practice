@@ -1,7 +1,7 @@
 //public表示公开的
 //class表示定义一个类
 //test表示一个类名
-public class test{//表示定义一个公开的类，起名test
+public class Test{//表示定义一个公开的类，起名test
 
 
     //类体中不允许直接编写java语句(除直接声明外)

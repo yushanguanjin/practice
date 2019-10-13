@@ -7,24 +7,11 @@
 
 public class Test{
     public static void main(String[] args) {
-
-
-
-
         //小容量可以自动转换成大容量，称为自动类型转换机制
         long x = 456;
         System.out.println(x);
-
-
         long z = 21477483647L;
         System.out.println(z);
-
-
-
-
-
-
-
         //字面值没有超出byte类型的，自动转换int类型，只要没超出byte范围的，不报错
         byte b = 50;//可以
         byte c = 127;//可以

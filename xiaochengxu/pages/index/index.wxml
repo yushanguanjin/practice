@@ -1,4 +1,4 @@
-<view class="intro">
+<!-- <view class="intro">
   <navigator url="/pages/components/components">
     <button type="primary" size="{{smallSize}}">组件</button>
     
@@ -6,4 +6,23 @@
    <navigator url="/pages/demo/demo">
  <button type="primary" size="{{smallSize}}">demo</button>
    </navigator>
+</view> -->
+
+
+
+
+<view class="section section_gap">
+  <view class="section__title">horizontal scroll</view>
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}" bindscrolltoupper="upper" bindscrolltolower="lower"   bindtouchstart="onTouchstartArticles" bindtouchend="onTouchendArticles" >
+    <view id="green"  class="scroll-view-item_H bc_green"></view>
+    <view id="red"    class="scroll-view-item_H bc_red"></view>
+    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
+    <view id="blue"   class="scroll-view-item_H bc_blue"></view>
+  </scroll-view>
+
+     <view class="btn-area">
+    <button size="mini" bindtap="tap">click me to scroll into view </button>
+    <button size="mini" bindtap="tapMove">click me to scroll</button>
+    </view> 
+
 </view>

@@ -1,12 +1,49 @@
-//通过配置函数帮我们注册，配置函数参数是个对象，传生命周期函数，事件处理函数以及页面的一些默认数据
-const app = getApp()
+var order = ['green', 'red', 'yellow', 'blue']
 
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    smallSize:'mini'
+    toView: "green",
+    scrollTop: 0,
+    startTouchs: {
+      x: 0,
+      y: 0
+    }
   },
-  onLoad: function () {
-    console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：')
-    console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html')
+
+  upper: function (e) {
+    console.log(e),
+      console.log("在深圳只有不断的向前跑才能看见自己的出路")
   },
+
+  lower: function (e) {
+    console.log(e),
+      console.log("你不努力谁替你坚强")
+
+
+  },
+
+  scroll: function (e) {
+    console.log(e),
+      console.log("可是回家又能做些什么呢")
+  },
+
+  tap: function (e) {
+    for (var i = 0; i < order.length; i++) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove: function (e) {
+    this.setData({
+      scrollTop: this.data.scrollTop + 10
+    })
+  }
 })

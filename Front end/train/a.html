@@ -9,36 +9,15 @@
 </head>
 
 <body>
-    <input type="text" id="username">
-    <input type="submit" class="js-submit" value="提交">
-    <script src="js/library/jquery.js"></script>
+
+
     <script>
-        //1. 定义自定义事件
-        $('#username').on('blank.username', function() {
-            console.log('请不要留空');
-        });
-        $('#username').on('notExist.username', function() {
-            console.log('用户名不存在');
-        });
-        $('#username').on('success.username', function() {
-            console.log('用户名存在');
-        });
-
-        //2. 触发自定义事件
-        $('.js-submit').on('click', function() {
-            var username = $('#username').val();
-            username = $.trim(username);
-            if (username === '') {
-                $('#username').trigger('blank.username'); // 如果 username 为空值，则触发 blank.username 事件
-            }
-
-            if (username === 'a') {
-                $('#username').trigger('notExist.username'); // 如果用户不存在，则触发 notExist.username 事件
-            } else if (username === '123456') {
-                $('#username').trigger('success.username'); // 如果用户存在，则触发 sucess.username 事件
-            }
-
-        });
+        let str = '      ';
+        if (!str) {
+            console.log('------------')
+        } else {
+            console.log(str.length)
+        }
     </script>
 </body>
 

@@ -30,6 +30,7 @@ Page({
   forTab(index) {
     let lens = this.data.tabList.length;
     let _id = 't' + index;
+    console.log(index)
     for (let i = 0; i < lens; i++) {
       this.data.tabList[i]['checked'] = false;
     }
@@ -47,6 +48,7 @@ Page({
     let _index = e.currentTarget.dataset.index;
     this.forTab(_index);
     let _id = 't' + _index;
+    console.log(10000)
     this.setData({
       toViewRt: _id
     });

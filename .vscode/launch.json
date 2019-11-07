@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - IntArray",
+            "request": "launch",
+            "mainClass": "IntArray",
+            "projectName": "practice_95a0b73f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringArr",
+            "request": "launch",
+            "mainClass": "StringArr"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Demo1",
+            "request": "launch",
+            "mainClass": "Demo1"
+        }
+    ]
+}

@@ -9,36 +9,40 @@
 </head>
 
 <body>
-    <input type="text" id="username">
-    <input type="submit" class="js-submit" value="提交">
-    <script src="js/library/jquery.js"></script>
+
+
     <script>
-        //1. 定义自定义事件
-        $('#username').on('blank.username', function() {
-            console.log('请不要留空');
-        });
-        $('#username').on('notExist.username', function() {
-            console.log('用户名不存在');
-        });
-        $('#username').on('success.username', function() {
-            console.log('用户名存在');
-        });
+        function timeStamp(second_time) {
 
-        //2. 触发自定义事件
-        $('.js-submit').on('click', function() {
-            var username = $('#username').val();
-            username = $.trim(username);
-            if (username === '') {
-                $('#username').trigger('blank.username'); // 如果 username 为空值，则触发 blank.username 事件
+            var time = parseInt(second_time) + "秒";
+            if (parseInt(second_time) > 60) {
+
+                var second = parseInt(second_time) % 60;
+                var min = parseInt(second_time / 60);
+                time = min + "分" + second + "秒";
+
+                if (min > 60) {
+                    min = parseInt(second_time / 60) % 60;
+                    var hour = parseInt(parseInt(second_time / 60) / 60);
+                    time = hour + "小时" + min + "分" + second + "秒";
+
+                    if (hour > 24) {
+                        hour = parseInt(parseInt(second_time / 60) / 60) % 24;
+                        var day = parseInt(parseInt(parseInt(second_time / 60) / 60) / 24);
+                        time = day + "天" + hour + "小时" + min + "分" + second + "秒";
+                    }
+                    if (day > 30) {
+                        day = parseInt(parseInt(second_time / 60) / 1440) % 30;
+                        var month = parseInt(parseInt(parseInt(second_time / 60) / 60) / 720);
+                        time = month + "月" + day + "天" + hour + "小时" + min + "分" + second + "秒";
+                    }
+                }
+
+
             }
 
-            if (username === 'a') {
-                $('#username').trigger('notExist.username'); // 如果用户不存在，则触发 notExist.username 事件
-            } else if (username === '123456') {
-                $('#username').trigger('success.username'); // 如果用户存在，则触发 sucess.username 事件
-            }
-
-        });
+            return time;
+        }
     </script>
 </body>
 

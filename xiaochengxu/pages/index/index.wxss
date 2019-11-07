@@ -1,59 +1,30 @@
-.scroll-view-item{
-  height: 80px;
-  width: 100px;
-  display: inline-block;
-}
-.section{
-width: 100%;
-height: 800rpx;
-overflow: hidden;
-padding: 20rpx;
-background: #fff;
-white-space: nowrap;
+.scroll-box {
+ 
 }
 
-
-.bc_green{
-  background-color: green ;
-}
-.bc_red{
-    background-color: red ;
-
-}
-.bc_yellow{
-  background-color: yellow ;
-}
-.bc_blue{
-  background-color: blue ;
-}
-.bc_orange{
-  background-color: orange ;
-}
-
-.page-section-center{
+.menu-tab {
   display: flex;
-  justify-content: center;
-}
-.scroll-view_H{
-  white-space: nowrap;
-}
-.scroll-view-item{
-  height: 200px;
-}
-.scroll-view-item_H{
-  display: inline-block;
-  width: 100%;
-  height: 200px;
-}
-.flex-wrp{
-    height: 200px;
-    display: flex;
-    background-color: #ffffff;
-}
-.btn-area{
-  height: 100rpx;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 
+  text-align: center;
+  color: #666;
+  border-right: 1rpx solid #999;
+ 
+}
+
+.item-tab {
+  font-size: 28rpx;
+  padding: 8rpx;
+  float: left;
+
+}
+
+.cont-box {
+  border-top: 1px solid;
+  box-sizing: border-box;
+}
+
+.item-act {
+  background: linear-gradient(to bottom right, #6c53b1, #8b2edf);
+  color: #fff;
+  border-radius: 100px;
 }

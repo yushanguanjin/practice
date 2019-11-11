@@ -1,4 +1,4 @@
-public class user{
+public class User{
     //属性【以下都是成员变量之实例变量】
     int no;
     //String是一种引用数据类型，代表字符串，name是一个实例变量，name是一个引用

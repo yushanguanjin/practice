@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = undefined;
+        let b = null;
+        let c = '';
+        let d = 0;
+        let e = {};
+        let f = [];
+        if (a) {
+            console.log("undefined 能过");
+        } else {
+            console.log("undefined 不能过");
+        }
+        if (b) {
+            console.log("null 能过");
+        } else {
+            console.log("null 不能过");
+        }
+        if (c) {
+            console.log(" '' 能过");
+        } else {
+            console.log(" '' 不能过");
+        }
+        if (d) {
+            console.log("0 能过");
+        } else {
+            console.log("0 不能过");
+        }
+        if (e) {
+            console.log("{} 能过");
+        } else {
+            console.log("{} 不能过");
+        }
+        if (f) {
+            console.log("[] 能过");
+        } else {
+            console.log("[] 不能过");
+
+        }
+    </script>
+</body>
+
+</html>

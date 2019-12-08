@@ -1,0 +1,14 @@
+package com.This;
+/*
+ * 1.this是一个关键字，翻译为：这个
+ * 
+ * */
+public class Customer {
+	
+	String name;
+	public String name;
+	public String name;
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+}

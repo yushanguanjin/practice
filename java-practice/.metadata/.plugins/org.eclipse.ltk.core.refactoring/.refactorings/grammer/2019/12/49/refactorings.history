@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.hoko.Test&apos; to &apos;Constructor&apos;&#x0D;&#x0A;- Original project: &apos;grammer&apos;&#x0D;&#x0A;- Original element: &apos;com.hoko.Test&apos;&#x0D;&#x0A;- Renamed element: &apos;com.hoko.Constructor&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Test&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.hoko{Test.java[Test" matchStrategy="1" name="Constructor" qualified="false" references="true" similarDeclarations="false" stamp="1575718019087" textual="false" version="1.0"/>
+</session>

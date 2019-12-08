@@ -1,0 +1,17 @@
+package com.hoko;
+
+public class 定义对象 {
+
+	public static void main(String[] args) {
+		定义对象   obj = new 定义对象("","");
+		obj.func();
+		定义对象   obj2 = new 定义对象(1,2);
+	}
+	public  void func(){
+		System.out.println("定义一个对象");
+	}
+	定义对象(int a,int b){
+		System.out.println(a+b);
+	}
+
+}

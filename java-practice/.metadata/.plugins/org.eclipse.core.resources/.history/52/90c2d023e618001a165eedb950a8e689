@@ -1,0 +1,10 @@
+package com.hoko;
+
+public class 定义对象 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

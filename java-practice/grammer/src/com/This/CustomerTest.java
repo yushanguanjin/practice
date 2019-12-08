@@ -1,0 +1,14 @@
+package com.This;
+
+public class CustomerTest {
+
+	public static void main(String[] args) {
+		Customer c1 = new Customer();
+		c1.name = "zhangsan";
+		c1.shopping();
+		Customer c2 = new Customer();
+		c2.name = "lisi";
+		c2.shopping();
+	}
+
+}

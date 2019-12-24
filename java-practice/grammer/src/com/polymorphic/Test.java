@@ -40,6 +40,57 @@ public class Test {
 		 * 
 		 * */
 		//a2.catchMouse();
+		/*
+		 * 假想让以上的对象执行catchMouse方法，怎么办？
+		 * a2是无法直接调用的，因为a2的类型Animal,Animal中没有catchMouse方法
+		 * 		我们可以将a2类型强制转换为Cat类型
+		 * 		a2的类型是Animal(父类)，转换成Cat类型(子类)，被称为向下转型/downcasting/强制类型转换
+		 * 
+		 * 		注意：向下转型也需要两种类型之间必须有继承关系，不然编译报错。强制类型转换需要加强制类型转行符
+		 * 	什么时候需要使用向下转型呢？
+		 * 		当调用的方法时子类型特有的，在父类型当中不存在，必须进行向下转型
+		 * */
+		Cat c2 = (Cat)a2;
+		c2.catchMouse();
+		/*
+		 * long x = 100L;
+		 * int i = (int)x;
+		 * 
+		 * */
+		
+		Animal a3 = new Bird();
+		/*
+		 * 1.以下程序编译时没有问题的，因为编译器检查到a3的数据类型是Animal
+		 * Animal和Cat之间存在继承关系，并且Animal是父类型，Cat是子类型
+		 * 父类型转换成子类型叫做向下转型，语法合格
+		 * 2.程序虽然编译通过了，但是程序在程序运行阶段会出现异常，因为JVM堆内存
+		 * 当中真实存在的对象是Bird对象，Bird对象无法转换成Cat对象，因为两种类型
+		 * 之间不存在任何继承关系，此时出现了著名的异常：
+		 * Java.lang.ClassCastException
+		 * 		类型转换异常，这种异常总是在"向下转型"的时候会发生
+		 * 		
+		 * */
+		
+		//Cat c3 = (Cat)a3;
+		
+		/*向上转型只要编译通过，运行一定不会出现问题：Animal a = new Cat();
+		 * 向下转型编译通过，运行可能错误：Animal a2 = new Bird();Cat c3 = (Cat)a3;
+		 * 怎么避免向下转型出现的ClassCastException呢？
+		 * 	  使用instanceOf运算符可以避免出现以上的异常
+		 * 
+		 * Java规范中要求：在进行强制类型转换之前，建议采用instanceof运算符进行判断，避免ClassCastException
+		 * 异常的发生，这是一个编程好习惯。
+		 * */
+		
+		//正确用法：
+		if(a3 instanceof Cat){
+			Cat c4 = (Cat)a3;
+			c4.catchMouse();
+		} else if(a3 instanceof Bird) {
+			Bird b4 = (Bird)a3;
+			b4.fly();
+		}
+		
 	}
 
 }

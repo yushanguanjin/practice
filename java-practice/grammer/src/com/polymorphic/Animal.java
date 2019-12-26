@@ -3,7 +3,7 @@ package com.polymorphic;
 public class Animal {
 
 	public void move() {
-		System.out.println("动物在移动");
+		System.out.println("露炉脦茂脭脷脪脝露炉");
 	}
 
 }

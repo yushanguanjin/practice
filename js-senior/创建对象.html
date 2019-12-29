@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参考文章：https://github.com/yisainan/web-interview/blob/master/content/js/js.md</title>
+</head>
+
+<body>
+    <script>
+        /*第一种：Object 构造函数创建*/
+        var Person = new Object();
+        Person.name = "Nike";
+        Person.age = 29;
+
+
+        /*第二种：使用对象字面量表示法*/
+        var Person2 = {}; //相当于 var Person = new Object();
+        var Person2 = {
+            name: 'Nike',
+            age: 29
+        }
+
+        /*第三种：使用工厂模式创建对象*/
+        function createPerson(name, age, job) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.job = job;
+            o.sayName = function() {
+                alert(this.name);
+            };
+            return o;
+        }
+        var person1 = createPerson("Nike", 29, "teacher");
+        var person2 = createPerson("Arvin", 20, "student");
+        /*第四种:使用构造函数创建对象*/
+        function Person1(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function() {
+                alert(this.name);
+            };
+        }
+        var person1 = new Person1("Nike", 29, "teacher");
+        var person2 = new Person1("Arvin", 20, "student");
+        /*第五种：原型创建对象模式*/
+        function Person2() {}
+        Person2.prototype.name = "Nike";
+        Person2.prototype.age = 20;
+        Person2.prototype.jbo = "teacher";
+        Person2.prototype.sayName = function() {
+            alert(this.name);
+        };
+        var person1 = new Person2();
+        person1.sayName();
+        /*第六种：组合使用构造函数模式和原型模式*/
+        function Person3(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+        }
+        Person3.prototype = {
+            constructor: Person,
+            sayName: function() {
+                alert(this.name);
+            }
+        }
+        var person1 = new Person3('Nike', 20, 'teacher');
+    </script>
+</body>
+
+</html>
